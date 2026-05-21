@@ -7,6 +7,7 @@ import { IS_DEV_ENV } from '@/shared/utils'
 
 import { getGraphQLConfig } from './config'
 import { PrismaModule } from './prisma'
+import { RedisModule } from './redis/redis.module'
 
 @Module({
 	imports: [
@@ -18,6 +19,7 @@ import { PrismaModule } from './prisma'
 			inject: [ConfigService],
 		}),
 		PrismaModule,
+		RedisModule,
 	],
 })
 export class CoreModule {}
