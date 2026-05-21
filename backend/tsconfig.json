@@ -14,7 +14,7 @@
 		"sourceMap": true,
 		"outDir": "./dist",
 		"paths": {
-			"@/*": ["./*"],
+			"@/*": ["./src/*"],
 			"@prisma/generated": ["./prisma/generated"],
 			"@prisma/generated/*": ["./prisma/generated/*"]
 		},
