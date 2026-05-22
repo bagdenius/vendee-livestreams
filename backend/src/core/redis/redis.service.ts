@@ -16,7 +16,10 @@ export class RedisService
 
 	public constructor(private readonly configService: ConfigService) {
 		super({
-			path: configService.getOrThrow<string>('REDIS_URL'),
+			username: configService.getOrThrow<string>('REDIS_USER'),
+			password: configService.getOrThrow<string>('REDIS_PASSWORD'),
+			host: configService.getOrThrow<string>('REDIS_HOST'),
+			port: configService.getOrThrow<number>('REDIS_PORT'),
 			maxRetriesPerRequest: 5,
 			enableOfflineQueue: true,
 		})

@@ -3,11 +3,13 @@ import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 
+import { AccountModule } from '@/modules/auth/account'
+import { SessionModule } from '@/modules/auth/session'
 import { IS_DEV_ENV } from '@/shared/utils'
 
 import { getGraphQLConfig } from './config'
 import { PrismaModule } from './prisma'
-import { RedisModule } from './redis/redis.module'
+import { RedisModule } from './redis'
 
 @Module({
 	imports: [
@@ -20,6 +22,8 @@ import { RedisModule } from './redis/redis.module'
 		}),
 		PrismaModule,
 		RedisModule,
+		AccountModule,
+		SessionModule,
 	],
 })
 export class CoreModule {}
