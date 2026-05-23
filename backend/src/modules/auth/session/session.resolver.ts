@@ -1,26 +1,56 @@
-import { Args, Context, Mutation, Resolver } from '@nestjs/graphql'
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 
+import { Authorization, UserAgent } from '@/shared/decorators'
 import type { GraphQLContext } from '@/shared/types'
 
 import { UserModel } from '../account/models'
 
 import { LoginInput } from './inputs'
+import { SessionModel } from './models'
 import { SessionService } from './session.service'
 
 @Resolver('Session')
 export class SessionResolver {
 	public constructor(private readonly sessionService: SessionService) {}
 
+	@Query(() => [SessionModel], { name: 'findSessionsByUser' })
+	@Authorization()
+	public async findByUser(@Context() { req }: GraphQLContext) {
+		return this.sessionService.findByUser(req)
+	}
+
+	@Query(() => SessionModel, { name: 'findCurrentSession' })
+	@Authorization()
+	public async findCurrent(@Context() { req }: GraphQLContext) {
+		return this.sessionService.findCurrent(req)
+	}
+
 	@Mutation(() => UserModel, { name: 'loginUser' })
 	public async login(
 		@Context() { req }: GraphQLContext,
 		@Args('data') input: LoginInput,
+		@UserAgent() userAgent: string,
 	) {
-		return await this.sessionService.login(req, input)
+		return await this.sessionService.login(req, input, userAgent)
 	}
 
 	@Mutation(() => Boolean, { name: 'logoutUser' })
+	@Authorization()
 	public async logout(@Context() { req }: GraphQLContext) {
 		return await this.sessionService.logout(req)
+	}
+
+	@Mutation(() => Boolean, { name: 'clearSessionCookie' })
+	public clearSession(@Context() { req }: GraphQLContext) {
+		return this.sessionService.clearSession(req)
+	}
+
+	@Mutation(() => Boolean, { name: 'removeSession' })
+	@Authorization()
+	public async remove(
+		@Context() { req }: GraphQLContext,
+		@Args('id') id: string,
+	) {
+		return await this.sessionService.remove(req, id)
 	}
 }
