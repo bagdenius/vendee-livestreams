@@ -38,7 +38,14 @@ type Mutation {
   logoutUser: Boolean!
   removeSession(id: String!): Boolean!
   resetPassword(data: ResetPasswordInput!): Boolean!
+  setNewPassword(data: NewPasswordInput!): Boolean!
   verifyAccount(data: VerificationInput!): UserModel!
+}
+
+input NewPasswordInput {
+  password: String!
+  passwordConfirm: String!
+  token: String!
 }
 
 type Query {

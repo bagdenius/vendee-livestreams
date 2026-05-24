@@ -3,7 +3,7 @@ import { Args, Context, Mutation, Resolver } from '@nestjs/graphql'
 import { UserAgent } from '@/shared/decorators'
 import type { GraphQLContext } from '@/shared/types'
 
-import { ResetPasswordInput } from './inputs/reset-password.input'
+import { NewPasswordInput, ResetPasswordInput } from './inputs'
 import { PasswordRecoveryService } from './password-recovery.service'
 
 @Resolver('PasswordRecovery')
@@ -19,5 +19,10 @@ export class PasswordRecoveryResolver {
 		@UserAgent() userAgent: string,
 	) {
 		return this.passwordRecoveryService.resetPassword(req, input, userAgent)
+	}
+
+	@Mutation(() => Boolean, { name: 'setNewPassword' })
+	public async setNewPassword(@Args('data') input: NewPasswordInput) {
+		return this.passwordRecoveryService.setNewPassword(input)
 	}
 }
