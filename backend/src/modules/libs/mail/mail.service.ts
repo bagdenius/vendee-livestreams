@@ -7,6 +7,7 @@ import type { SentMessageInfo } from 'nodemailer'
 import type { SessionMetadata } from '@/shared/types'
 
 import { PasswordRecoveryTemplate, VerificationTemplate } from './templates'
+import { DeactivateTemplate } from './templates/deactive.template'
 
 @Injectable()
 export class MailService {
@@ -34,6 +35,15 @@ export class MailService {
 			PasswordRecoveryTemplate({ domain, token, metadata }),
 		)
 		return this.sendMail(email, 'Password recovery', html)
+	}
+
+	public async sendDeactivateToken(
+		email: string,
+		token: string,
+		metadata: SessionMetadata,
+	): Promise<SentMessageInfo> {
+		const html = await render(DeactivateTemplate({ token, metadata }))
+		return this.sendMail(email, 'Account deactivation', html)
 	}
 
 	private sendMail(email: string, subject: string, html: string) {
