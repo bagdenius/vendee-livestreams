@@ -8,11 +8,10 @@ import { hash } from 'argon2'
 import { Request } from 'express'
 
 import { PrismaService } from '@/core/prisma'
-import { MailService } from '@/modules/libs/mail/mail.service'
+import { MailService } from '@/modules/libs/mail'
 import { generateToken, getSessionMetadata } from '@/shared/utils'
 
-import { NewPasswordInput } from './inputs'
-import { ResetPasswordInput } from './inputs/reset-password.input'
+import { NewPasswordInput, ResetPasswordInput } from './inputs'
 
 @Injectable()
 export class PasswordRecoveryService {

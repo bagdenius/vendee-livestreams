@@ -8,7 +8,7 @@ import { TokenType } from '@prisma/generated/enums'
 import { Request } from 'express'
 
 import { PrismaService } from '@/core/prisma'
-import { MailService } from '@/modules/libs/mail/mail.service'
+import { MailService } from '@/modules/libs/mail'
 import { generateToken, getSessionMetadata, saveSession } from '@/shared/utils'
 
 import { VerificationInput } from './inputs'

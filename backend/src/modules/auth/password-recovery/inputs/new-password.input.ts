@@ -7,7 +7,7 @@ import {
 	Validate,
 } from 'class-validator'
 
-import { IsPasswordsMathingConstraint } from '@/shared/decorators/is-passwords-matching-constraint.decorator'
+import { IsPasswordsMathingConstraint } from '@/shared/decorators'
 
 @InputType()
 export class NewPasswordInput {

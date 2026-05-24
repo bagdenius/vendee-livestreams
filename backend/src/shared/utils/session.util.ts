@@ -10,7 +10,7 @@ export function saveSession(
 	user: User,
 	metadata: SessionMetadata,
 ) {
-	return new Promise((resolve, reject) => {
+	return new Promise<{ user: User }>((resolve, reject) => {
 		req.session.createdAt = new Date()
 		req.session.userId = user.id
 		req.session.metadata = metadata
@@ -20,7 +20,7 @@ export function saveSession(
 				return reject(
 					new InternalServerErrorException('Failed to save session'),
 				)
-			resolve(user)
+			resolve({ user })
 		})
 	})
 }

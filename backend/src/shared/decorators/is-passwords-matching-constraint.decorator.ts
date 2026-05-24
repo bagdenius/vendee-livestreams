@@ -4,7 +4,7 @@ import {
 	type ValidatorConstraintInterface,
 } from 'class-validator'
 
-import { NewPasswordInput } from '@/modules/auth/password-recovery/inputs/new-password.input'
+import { NewPasswordInput } from '@/modules/auth/password-recovery/inputs'
 
 @ValidatorConstraint({ name: 'IsPasswordsMathing', async: false })
 export class IsPasswordsMathingConstraint implements ValidatorConstraintInterface {

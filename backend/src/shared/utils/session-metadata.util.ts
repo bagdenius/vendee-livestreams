@@ -4,7 +4,7 @@ import { lookup } from 'geoip-lite'
 import countries from 'i18n-iso-countries'
 import countriesEnLocale from 'i18n-iso-countries/langs/en.json'
 
-import type { SessionMetadata } from '../types/session-metadata.types'
+import type { SessionMetadata } from '../types'
 
 import { IS_DEV_ENV } from './is-dev.util'
 
