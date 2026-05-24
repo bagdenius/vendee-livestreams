@@ -1,7 +1,7 @@
 import {
+	BadRequestException,
 	ConflictException,
 	Injectable,
-	InternalServerErrorException,
 	NotFoundException,
 	UnauthorizedException,
 } from '@nestjs/common'
@@ -12,7 +12,9 @@ import { Request } from 'express'
 import { PrismaService } from '@/core/prisma'
 import { RedisService } from '@/core/redis'
 import { RedisSession, RedisSessionWithId } from '@/shared/types'
-import { getSessionMetadata } from '@/shared/utils'
+import { destroySession, getSessionMetadata, saveSession } from '@/shared/utils'
+
+import { VerificationService } from '../verification'
 
 import { LoginInput } from './inputs'
 
@@ -22,6 +24,7 @@ export class SessionService {
 		private readonly prisma: PrismaService,
 		private readonly redis: RedisService,
 		private readonly configService: ConfigService,
+		private readonly verificationService: VerificationService,
 	) {}
 
 	public async findByUser(req: Request) {
@@ -75,36 +78,20 @@ export class SessionService {
 		const isValidPassword = await verify(user.password, password)
 		if (!isValidPassword) throw new UnauthorizedException('Wrong password')
 
+		if (!user.isEmailVerified) {
+			await this.verificationService.sendVerificationToken(user)
+			throw new BadRequestException(
+				'Your account is not verified. Please check your email for verification',
+			)
+		}
+
 		const metadata = getSessionMetadata(req, userAgent)
 
-		return new Promise((resolve, reject) => {
-			req.session.createdAt = new Date()
-			req.session.userId = user.id
-			req.session.metadata = metadata
-
-			req.session.save((err) => {
-				if (err)
-					return reject(
-						new InternalServerErrorException('Failed to save session'),
-					)
-				resolve(user)
-			})
-		})
+		return saveSession(req, user, metadata)
 	}
 
 	public async logout(req: Request) {
-		return new Promise((resolve, reject) => {
-			req.session.destroy((err) => {
-				if (err)
-					return reject(
-						new InternalServerErrorException('Failed to end session'),
-					)
-				req.res?.clearCookie(
-					this.configService.getOrThrow<string>('SESSION_NAME'),
-				)
-				resolve(true)
-			})
-		})
+		return destroySession(req, this.configService)
 	}
 
 	public clearSession(req: Request) {

@@ -3,11 +3,16 @@ import { hash } from 'argon2'
 
 import { PrismaService } from '@/core/prisma'
 
+import { VerificationService } from '../verification'
+
 import { CreateUserInput } from './inputs'
 
 @Injectable()
 export class AccountService {
-	public constructor(private readonly prisma: PrismaService) {}
+	public constructor(
+		private readonly prisma: PrismaService,
+		private readonly verificationService: VerificationService,
+	) {}
 
 	public async me(id: string) {
 		const user = await this.prisma.user.findUnique({ where: { id } })
@@ -29,7 +34,7 @@ export class AccountService {
 		if (isEmailExists)
 			throw new ConflictException('Provided email already taken')
 
-		await this.prisma.user.create({
+		const user = await this.prisma.user.create({
 			data: {
 				username,
 				email,
@@ -37,6 +42,8 @@ export class AccountService {
 				displayName: username,
 			},
 		})
+
+		await this.verificationService.sendVerificationToken(user)
 
 		return true
 	}

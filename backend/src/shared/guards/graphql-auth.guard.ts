@@ -5,7 +5,6 @@ import {
 	UnauthorizedException,
 } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
-import { Request } from 'express'
 
 import { PrismaService } from '@/core/prisma'
 

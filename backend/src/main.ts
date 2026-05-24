@@ -6,9 +6,9 @@ import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import ms, { type StringValue } from 'ms'
 
-import { CoreModule } from './core'
-import { RedisService } from './core/redis'
-import { parseBoolean } from './shared/utils'
+import { CoreModule } from '@/core'
+import { RedisService } from '@/core/redis'
+import { parseBoolean } from '@/shared/utils'
 
 async function bootstrap() {
 	const app = await NestFactory.create(CoreModule)

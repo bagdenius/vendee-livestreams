@@ -14,7 +14,8 @@
 	"importOrderParserPlugins": [
 		"classProperties",
 		"decorators-legacy",
-		"typescript"
+		"typescript",
+		"jsx"
 	],
 	"importOrder": ["<THIRD_PARTY_MODULES>", "^@/(.*)$", "^../(.*)", "^./(.*)"],
 
