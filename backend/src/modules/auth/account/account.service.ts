@@ -1,11 +1,20 @@
-import { ConflictException, Injectable } from '@nestjs/common'
-import { hash } from 'argon2'
+import {
+	ConflictException,
+	Injectable,
+	UnauthorizedException,
+} from '@nestjs/common'
+import type { User } from '@prisma/generated/client'
+import { hash, verify } from 'argon2'
 
 import { PrismaService } from '@/core/prisma'
 
 import { VerificationService } from '../verification'
 
-import { CreateUserInput } from './inputs'
+import {
+	ChangeEmailInput,
+	ChangePasswordInput,
+	CreateUserInput,
+} from './inputs'
 
 @Injectable()
 export class AccountService {
@@ -44,6 +53,27 @@ export class AccountService {
 		})
 
 		await this.verificationService.sendVerificationToken(user)
+
+		return true
+	}
+
+	public async changeEmail(user: User, input: ChangeEmailInput) {
+		const { email } = input
+		await this.prisma.user.update({ where: { id: user.id }, data: { email } })
+		return true
+	}
+
+	public async changePassword(user: User, input: ChangePasswordInput) {
+		const { oldPassword, newPassword } = input
+
+		const isValidPassword = await verify(user.password, oldPassword)
+		if (!isValidPassword)
+			throw new UnauthorizedException('Old password is wrong')
+
+		await this.prisma.user.update({
+			where: { id: user.id },
+			data: { password: await hash(newPassword) },
+		})
 
 		return true
 	}
