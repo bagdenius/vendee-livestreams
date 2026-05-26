@@ -41,6 +41,7 @@ export class ProfileService {
 			.resize(512, 512)
 			.webp()
 			.toBuffer()
+
 		await this.storageService.upload(processedBuffer, filename, 'image/webp')
 
 		await this.prisma.user.update({

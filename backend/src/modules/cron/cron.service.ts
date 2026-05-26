@@ -14,7 +14,7 @@ export class CronService {
 		private readonly storageService: StorageService,
 	) {}
 
-	@Cron('0 0 * * * *')
+	@Cron('0 0 0 * * *')
 	// @Cron('*/10 * * * * *')
 	public async deleteDeactivatedAccounts() {
 		const sevenDaysAgo = new Date()
