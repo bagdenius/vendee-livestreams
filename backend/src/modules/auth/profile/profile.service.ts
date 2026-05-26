@@ -10,7 +10,11 @@ import sharp from 'sharp'
 import { PrismaService } from '@/core/prisma'
 import { StorageService } from '@/modules/libs/storage'
 
-import { ChangeProfileInfoInput } from './inputs'
+import {
+	ChangeProfileInfoInput,
+	SocialLinkInput,
+	SocialLinksOrderInput,
+} from './inputs'
 
 @Injectable()
 export class ProfileService {
@@ -79,5 +83,60 @@ export class ProfileService {
 		})
 
 		return true
+	}
+
+	public async createSocialLink(user: User, input: SocialLinkInput) {
+		const { title, url } = input
+
+		const lastSocialLink = await this.prisma.socialLink.findFirst({
+			where: { userId: user.id },
+			orderBy: { position: 'desc' },
+		})
+
+		const newPosition = lastSocialLink ? lastSocialLink.position + 1 : 1
+
+		await this.prisma.socialLink.create({
+			data: {
+				title,
+				url,
+				position: newPosition,
+				user: { connect: { id: user.id } },
+			},
+		})
+
+		return true
+	}
+
+	public async reorderSocialLinks(list: SocialLinksOrderInput[]) {
+		if (!list.length) return
+
+		const updatePromises = list.map((socialLink) => {
+			return this.prisma.socialLink.update({
+				where: { id: socialLink.id },
+				data: { position: socialLink.position },
+			})
+		})
+
+		await Promise.all(updatePromises)
+
+		return true
+	}
+
+	public async updateSocialLink(id: string, input: SocialLinkInput) {
+		const { title, url } = input
+		await this.prisma.socialLink.update({ where: { id }, data: { title, url } })
+		return true
+	}
+
+	public async removeSocialLink(id: string) {
+		await this.prisma.socialLink.delete({ where: { id } })
+		return true
+	}
+
+	public async getSocialLinks(userId: string) {
+		return await this.prisma.socialLink.findMany({
+			where: { userId },
+			orderBy: { position: 'asc' },
+		})
 	}
 }

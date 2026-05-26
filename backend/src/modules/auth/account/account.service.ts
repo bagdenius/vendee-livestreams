@@ -24,7 +24,10 @@ export class AccountService {
 	) {}
 
 	public async me(id: string) {
-		const user = await this.prisma.user.findUnique({ where: { id } })
+		const user = await this.prisma.user.findUnique({
+			where: { id },
+			include: { socialLinks: true },
+		})
 		return user
 	}
 

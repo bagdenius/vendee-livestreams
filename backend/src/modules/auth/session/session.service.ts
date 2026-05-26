@@ -28,7 +28,7 @@ export class SessionService {
 		private readonly verificationService: VerificationService,
 	) {}
 
-	public async findByUser(req: Request) {
+	public async getByUser(req: Request) {
 		const userId = req.session.userId
 		if (!userId) throw new NotFoundException('User in session not found')
 
@@ -56,7 +56,7 @@ export class SessionService {
 		return userSessions.filter((session) => session.id !== req.session.id)
 	}
 
-	public async findCurrent(req: Request) {
+	public async getCurrent(req: Request) {
 		const sessionId = req.session.id
 		const sessionData = await this.redis.get(
 			`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${sessionId}`,

@@ -13,16 +13,16 @@ import { SessionService } from './session.service'
 export class SessionResolver {
 	public constructor(private readonly sessionService: SessionService) {}
 
-	@Query(() => [SessionModel], { name: 'findSessionsByUser' })
+	@Query(() => [SessionModel], { name: 'getSessionsByUser' })
 	@Authorization()
-	public async findByUser(@Context() { req }: GraphQLContext) {
-		return this.sessionService.findByUser(req)
+	public async getByUser(@Context() { req }: GraphQLContext) {
+		return this.sessionService.getByUser(req)
 	}
 
-	@Query(() => SessionModel, { name: 'findCurrentSession' })
+	@Query(() => SessionModel, { name: 'getCurrentSession' })
 	@Authorization()
-	public async findCurrent(@Context() { req }: GraphQLContext) {
-		return this.sessionService.findCurrent(req)
+	public async getCurrent(@Context() { req }: GraphQLContext) {
+		return this.sessionService.getCurrent(req)
 	}
 
 	@Mutation(() => AuthModel, { name: 'loginUser' })
