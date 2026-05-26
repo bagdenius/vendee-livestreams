@@ -1,3 +1,4 @@
+export * from './file.util'
 export * from './generate-token.util'
 export * from './is-dev.util'
 export * from './parse-boolean.util'

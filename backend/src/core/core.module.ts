@@ -6,11 +6,13 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { AccountModule } from '@/modules/auth/account'
 import { DeactivationModule } from '@/modules/auth/deactivation'
 import { PasswordRecoveryModule } from '@/modules/auth/password-recovery'
+import { ProfileModule } from '@/modules/auth/profile'
 import { SessionModule } from '@/modules/auth/session'
 import { TotpModule } from '@/modules/auth/totp'
 import { VerificationModule } from '@/modules/auth/verification'
 import { CronModule } from '@/modules/cron'
 import { MailModule } from '@/modules/libs/mail'
+import { StorageModule } from '@/modules/libs/storage'
 import { IS_DEV_ENV } from '@/shared/utils'
 
 import { getGraphQLConfig } from './config'
@@ -29,9 +31,11 @@ import { RedisModule } from './redis'
 		PrismaModule,
 		RedisModule,
 		MailModule,
+		StorageModule,
 		CronModule,
 		AccountModule,
 		SessionModule,
+		ProfileModule,
 		VerificationModule,
 		PasswordRecoveryModule,
 		TotpModule,
