@@ -27,7 +27,7 @@ export class DeactivationService {
 		private readonly mailer: MailService,
 	) {}
 
-	public async validateDeactivateToken(req: Request, token: string) {
+	public async validateDeactivationToken(req: Request, token: string) {
 		const existingToken = await this.prisma.token.findUnique({
 			where: { token, type: TokenType.DEACTIVATE_ACCOUNT },
 		})
@@ -89,7 +89,7 @@ export class DeactivationService {
 			return { message: 'Verification code is required' }
 		}
 
-		await this.validateDeactivateToken(req, pin)
+		await this.validateDeactivationToken(req, pin)
 
 		return { user }
 	}

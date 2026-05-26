@@ -6,8 +6,12 @@ import type { SentMessageInfo } from 'nodemailer'
 
 import type { SessionMetadata } from '@/shared/types'
 
-import { PasswordRecoveryTemplate, VerificationTemplate } from './templates'
-import { DeactivateTemplate } from './templates/deactive.template'
+import {
+	AccountDeletionTemplate,
+	DeactivateTemplate,
+	PasswordRecoveryTemplate,
+	VerificationTemplate,
+} from './templates'
 
 @Injectable()
 export class MailService {
@@ -15,6 +19,10 @@ export class MailService {
 		private readonly configService: ConfigService,
 		private readonly mailerService: MailerService,
 	) {}
+
+	private sendMail(email: string, subject: string, html: string) {
+		return this.mailerService.sendMail({ to: email, subject, html })
+	}
 
 	public async sendVerificationToken(
 		email: string,
@@ -46,7 +54,9 @@ export class MailService {
 		return this.sendMail(email, 'Account deactivation', html)
 	}
 
-	private sendMail(email: string, subject: string, html: string) {
-		return this.mailerService.sendMail({ to: email, subject, html })
+	public async sendAccountDeletion(email: string): Promise<SentMessageInfo> {
+		const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+		const html = await render(AccountDeletionTemplate({ domain }))
+		return this.sendMail(email, 'Account deleted', html)
 	}
 }
