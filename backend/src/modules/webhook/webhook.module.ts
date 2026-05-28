@@ -1,6 +1,6 @@
 import { type MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common'
 
-import { RawBodyMiddleware } from '@/shared/middlewares/raw-body.middleware'
+import { RawBodyMiddleware } from '@/shared/middlewares'
 
 import { WebhookController } from './webhook.controller'
 import { WebhookService } from './webhook.service'

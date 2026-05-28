@@ -6,8 +6,13 @@ import Upload from 'graphql-upload/Upload.mjs'
 import { Authorization, Authorized } from '@/shared/decorators'
 import { FileValidationPipe } from '@/shared/pipes'
 
-import { ChangeStreamInfoInput, FiltersInput } from './inputs'
+import {
+	ChangeStreamInfoInput,
+	FiltersInput,
+	GenerateStreamTokenInput,
+} from './inputs'
 import { StreamModel } from './models'
+import { GeneratedTokenModel } from './models/generated-token.model'
 import { StreamService } from './stream.service'
 
 @Resolver('Stream')
@@ -47,5 +52,10 @@ export class StreamResolver {
 	@Authorization()
 	public async removeThumbnail(@Authorized('id') userId: string) {
 		return this.streamService.removeThumbnail(userId)
+	}
+
+	@Mutation(() => GeneratedTokenModel, { name: 'generateStreamToken' })
+	public async generateToken(@Args('data') input: GenerateStreamTokenInput) {
+		return this.streamService.generateToken(input)
 	}
 }

@@ -15,16 +15,12 @@ export class WebhookService {
 		const event = await this.livekit.receiver.receive(body, authorization, true)
 
 		if (event.event === 'ingress_started') {
-			console.log('STREAM STARTED: ', event.ingressInfo?.url)
-
 			await this.prisma.stream.update({
 				where: { ingressId: event.ingressInfo?.ingressId },
 				data: { isLive: true },
 			})
 		}
 		if (event.event === 'ingress_ended') {
-			console.log('STREAM ENDED: ', event.ingressInfo?.url)
-
 			await this.prisma.stream.update({
 				where: { ingressId: event.ingressInfo?.ingressId },
 				data: { isLive: false },
