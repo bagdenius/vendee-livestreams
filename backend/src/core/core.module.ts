@@ -11,12 +11,14 @@ import { SessionModule } from '@/modules/auth/session'
 import { TotpModule } from '@/modules/auth/totp'
 import { VerificationModule } from '@/modules/auth/verification'
 import { CronModule } from '@/modules/cron'
+import { LivekitModule } from '@/modules/libs/livekit'
 import { MailModule } from '@/modules/libs/mail'
 import { StorageModule } from '@/modules/libs/storage'
 import { StreamModule } from '@/modules/stream'
+import { IngressModule } from '@/modules/stream/ingress'
 import { IS_DEV_ENV } from '@/shared/utils'
 
-import { getGraphQLConfig } from './config'
+import { getGraphQLConfig, getLiveKitConfig } from './config'
 import { PrismaModule } from './prisma'
 import { RedisModule } from './redis'
 
@@ -27,6 +29,11 @@ import { RedisModule } from './redis'
 			driver: ApolloDriver,
 			imports: [ConfigModule],
 			useFactory: getGraphQLConfig,
+			inject: [ConfigService],
+		}),
+		LivekitModule.forRootAsync({
+			imports: [ConfigModule],
+			useFactory: getLiveKitConfig,
 			inject: [ConfigService],
 		}),
 		PrismaModule,
@@ -42,6 +49,7 @@ import { RedisModule } from './redis'
 		TotpModule,
 		DeactivationModule,
 		StreamModule,
+		IngressModule,
 	],
 })
 export class CoreModule {}
