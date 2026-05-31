@@ -14,5 +14,6 @@ export function getGraphQLConfig(
 		autoSchemaFile: join(process.cwd(), 'src/core/graphql/schema.gql'),
 		sortSchema: true,
 		context: ({ req, res }: GraphQLContext) => ({ req, res }),
+		installSubscriptionHandlers: true,
 	}
 }
