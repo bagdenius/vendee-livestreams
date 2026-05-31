@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 import type { User } from '@prisma/generated/client'
 
+import { FollowModel } from '@/modules/follow/models'
 import { StreamModel } from '@/modules/stream/models'
 
 import { SocialLinkModel } from '../../profile/models'
@@ -48,6 +49,12 @@ export class UserModel implements User {
 
 	@Field(() => [SocialLinkModel])
 	public socialLinks: SocialLinkModel[]
+
+	@Field(() => [FollowModel])
+	public followers: FollowModel[]
+
+	@Field(() => [FollowModel])
+	public followings: FollowModel[]
 
 	@Field(() => StreamModel)
 	public stream: StreamModel

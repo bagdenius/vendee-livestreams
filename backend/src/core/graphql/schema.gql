@@ -165,12 +165,15 @@ type Query {
   getAllStreams(filters: FiltersInput!): [StreamModel!]!
   getCategories: [CategoryModel!]!
   getCategoryBySlug(slug: String!): CategoryModel!
+  getChannelByUsername(username: String!): UserModel!
   getCurrentSession: SessionModel!
+  getFollowersCountByChannel(channelId: String!): Float!
   getMe: UserModel!
   getMyFollowers: [FollowModel!]!
   getMyFollowings: [FollowModel!]!
   getRandomCategories: [CategoryModel!]!
   getRandomStreams: [StreamModel!]!
+  getRecommendedChannels: [UserModel!]!
   getSessionsByUser: [SessionModel!]!
   getSocialLinks: [SocialLinkModel!]!
 }
@@ -256,6 +259,8 @@ type UserModel {
   deactivatedAt: DateTime
   displayName: String!
   email: String!
+  followers: [FollowModel!]!
+  followings: [FollowModel!]!
   id: ID!
   isDeactivated: Boolean!
   isEmailVerified: Boolean!

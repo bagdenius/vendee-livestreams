@@ -11,6 +11,7 @@ import { SessionModule } from '@/modules/auth/session'
 import { TotpModule } from '@/modules/auth/totp'
 import { VerificationModule } from '@/modules/auth/verification'
 import { CategoryModule } from '@/modules/category'
+import { ChannelModule } from '@/modules/channel'
 import { ChatModule } from '@/modules/chat'
 import { CronModule } from '@/modules/cron'
 import { FollowModule } from '@/modules/follow'
@@ -58,6 +59,7 @@ import { RedisModule } from './redis'
 		CategoryModule,
 		ChatModule,
 		FollowModule,
+		ChannelModule,
 	],
 })
 export class CoreModule {}
