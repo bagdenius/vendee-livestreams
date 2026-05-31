@@ -11,8 +11,7 @@ import {
 	FiltersInput,
 	GenerateStreamTokenInput,
 } from './inputs'
-import { StreamModel } from './models'
-import { GeneratedTokenModel } from './models/generated-token.model'
+import { GeneratedTokenModel, StreamModel } from './models'
 import { StreamService } from './stream.service'
 
 @Resolver('Stream')

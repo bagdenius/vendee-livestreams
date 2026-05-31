@@ -2,6 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql'
 import type { Stream } from '@prisma/generated/client'
 
 import { UserModel } from '@/modules/auth/account/models'
+import { CategoryModel } from '@/modules/category/models'
 
 @ObjectType()
 export class StreamModel implements Stream {
@@ -12,7 +13,7 @@ export class StreamModel implements Stream {
 	public title: string
 
 	@Field(() => String, { nullable: true })
-	public thumbnailUrl: string
+	public thumbnail: string
 
 	@Field(() => String, { nullable: true })
 	public ingressId: string
@@ -31,6 +32,12 @@ export class StreamModel implements Stream {
 
 	@Field(() => String)
 	public userId: string
+
+	@Field(() => CategoryModel)
+	public category: CategoryModel
+
+	@Field(() => String)
+	public categoryId: string
 
 	@Field(() => Date)
 	public createdAt: Date

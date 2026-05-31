@@ -58,8 +58,8 @@ model SocialLink {
 model Stream {
   id String @id @default(uuid())
 
-  title        String
-  thumbnailUrl String? @map("thumbnail_url")
+  title     String
+  thumbnail String? @map("thumbnail")
 
   ingressId String? @unique @map("ingress_id")
   serverUrl String? @map("server_url")
@@ -70,10 +70,29 @@ model Stream {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @unique @map("user_id")
 
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId String?   @map("category_id")
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("streams")
+}
+
+model Category {
+  id String @id @default(uuid())
+
+  title       String
+  slug        String  @unique
+  description String?
+  thumbnail   String? @map("thumbnail")
+
+  streams Stream[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("categories")
 }
 
 model Token {
@@ -83,11 +102,11 @@ model Token {
   type      TokenType
   expiresIn DateTime  @map("expires_in")
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @map("user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("tokens")
 }

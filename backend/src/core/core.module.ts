@@ -10,6 +10,7 @@ import { ProfileModule } from '@/modules/auth/profile'
 import { SessionModule } from '@/modules/auth/session'
 import { TotpModule } from '@/modules/auth/totp'
 import { VerificationModule } from '@/modules/auth/verification'
+import { CategoryModule } from '@/modules/category'
 import { CronModule } from '@/modules/cron'
 import { LivekitModule } from '@/modules/libs/livekit'
 import { MailModule } from '@/modules/libs/mail'
@@ -52,6 +53,7 @@ import { RedisModule } from './redis'
 		StreamModule,
 		IngressModule,
 		WebhookModule,
+		CategoryModule,
 	],
 })
 export class CoreModule {}

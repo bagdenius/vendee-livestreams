@@ -7,6 +7,17 @@ type AuthModel {
   user: UserModel
 }
 
+type CategoryModel {
+  createdAt: DateTime!
+  description: String
+  id: ID!
+  slug: String!
+  streams: [StreamModel!]!
+  thumbnail: String
+  title: String!
+  updatedAt: DateTime!
+}
+
 input ChangeEmailInput {
   email: String!
 }
@@ -120,8 +131,11 @@ input NewPasswordInput {
 type Query {
   generateTotpSecret: TotpModel!
   getAllStreams(filters: FiltersInput!): [StreamModel!]!
+  getCategories: [CategoryModel!]!
+  getCategoryBySlug(slug: String!): CategoryModel!
   getCurrentSession: SessionModel!
   getMe: UserModel!
+  getRandomCategories: [CategoryModel!]!
   getRandomStreams: [StreamModel!]!
   getSessionsByUser: [SessionModel!]!
   getSocialLinks: [SocialLinkModel!]!
@@ -165,13 +179,15 @@ input SocialLinksOrderInput {
 }
 
 type StreamModel {
+  category: CategoryModel!
+  categoryId: String!
   createdAt: DateTime!
   id: ID!
   ingressId: String
   isLive: Boolean!
   serverUrl: String
   streamKey: String
-  thumbnailUrl: String
+  thumbnail: String
   title: String!
   updatedAt: DateTime!
   user: UserModel!

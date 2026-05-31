@@ -13,8 +13,11 @@ import { PrismaService } from '@/core/prisma'
 
 import { StorageService } from '../libs/storage'
 
-import { FiltersInput, GenerateStreamTokenInput } from './inputs'
-import { ChangeStreamInfoInput } from './inputs/change-stream-info.input'
+import {
+	ChangeStreamInfoInput,
+	FiltersInput,
+	GenerateStreamTokenInput,
+} from './inputs'
 
 @Injectable()
 export class StreamService {
@@ -24,7 +27,7 @@ export class StreamService {
 		private readonly storageService: StorageService,
 	) {}
 
-	private findBySearchTerm(searchTerm: string): Prisma.StreamWhereInput {
+	private getBySearchTerm(searchTerm: string): Prisma.StreamWhereInput {
 		return {
 			OR: [
 				{ title: { contains: searchTerm, mode: 'insensitive' } },
@@ -45,14 +48,14 @@ export class StreamService {
 		const { take, skip, searchTerm } = input
 
 		const whereClause = searchTerm
-			? this.findBySearchTerm(searchTerm)
+			? this.getBySearchTerm(searchTerm)
 			: undefined
 
 		const streams = await this.prisma.stream.findMany({
 			take: take ?? 12,
 			skip: skip ?? 0,
 			where: { user: { isDeactivated: false }, ...whereClause },
-			include: { user: true },
+			include: { user: true, category: true },
 			orderBy: { createdAt: 'desc' },
 		})
 
@@ -72,7 +75,7 @@ export class StreamService {
 
 		const streams = await this.prisma.stream.findMany({
 			where: { user: { isDeactivated: false } },
-			include: { user: true },
+			include: { user: true, category: true },
 			take: total,
 			skip: 0,
 		})
@@ -81,8 +84,11 @@ export class StreamService {
 	}
 
 	public async changeInfo(userId: string, input: ChangeStreamInfoInput) {
-		const { title } = input
-		await this.prisma.stream.update({ where: { userId }, data: { title } })
+		const { title, categoryId } = input
+		await this.prisma.stream.update({
+			where: { userId },
+			data: { title, category: { connect: { id: categoryId } } },
+		})
 		return true
 	}
 
@@ -92,8 +98,7 @@ export class StreamService {
 
 		const stream = await this.getStreamByUserId(user.id)
 
-		if (stream.thumbnailUrl)
-			await this.storageService.remove(stream.thumbnailUrl)
+		if (stream.thumbnail) await this.storageService.remove(stream.thumbnail)
 
 		const chunks: Buffer[] = []
 		for await (const chunk of file.file.createReadStream()) chunks.push(chunk)
@@ -112,7 +117,7 @@ export class StreamService {
 
 		await this.prisma.stream.update({
 			where: { userId: user.id },
-			data: { thumbnailUrl: filename },
+			data: { thumbnail: filename },
 		})
 
 		return true
@@ -121,13 +126,13 @@ export class StreamService {
 	public async removeThumbnail(userId: string) {
 		const stream = await this.getStreamByUserId(userId)
 
-		if (!stream.thumbnailUrl) return
+		if (!stream.thumbnail) return
 
-		await this.storageService.remove(stream.thumbnailUrl)
+		await this.storageService.remove(stream.thumbnail)
 
 		await this.prisma.stream.update({
 			where: { userId },
-			data: { thumbnailUrl: null },
+			data: { thumbnail: null },
 		})
 
 		return true

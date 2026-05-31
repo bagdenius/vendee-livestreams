@@ -54,6 +54,7 @@ export const ModelName = {
   User: 'User',
   SocialLink: 'SocialLink',
   Stream: 'Stream',
+  Category: 'Category',
   Token: 'Token'
 } as const
 
@@ -110,12 +111,13 @@ export type SocialLinkScalarFieldEnum = (typeof SocialLinkScalarFieldEnum)[keyof
 export const StreamScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  thumbnailUrl: 'thumbnailUrl',
+  thumbnail: 'thumbnail',
   ingressId: 'ingressId',
   serverUrl: 'serverUrl',
   streamKey: 'streamKey',
   isLive: 'isLive',
   userId: 'userId',
+  categoryId: 'categoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -123,14 +125,27 @@ export const StreamScalarFieldEnum = {
 export type StreamScalarFieldEnum = (typeof StreamScalarFieldEnum)[keyof typeof StreamScalarFieldEnum]
 
 
+export const CategoryScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  slug: 'slug',
+  description: 'description',
+  thumbnail: 'thumbnail',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
 export const TokenScalarFieldEnum = {
   id: 'id',
   token: 'token',
   type: 'type',
   expiresIn: 'expiresIn',
+  userId: 'userId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  userId: 'userId'
+  updatedAt: 'updatedAt'
 } as const
 
 export type TokenScalarFieldEnum = (typeof TokenScalarFieldEnum)[keyof typeof TokenScalarFieldEnum]
