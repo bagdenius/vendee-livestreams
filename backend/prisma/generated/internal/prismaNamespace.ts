@@ -389,6 +389,7 @@ export const ModelName = {
   Stream: 'Stream',
   ChatMessage: 'ChatMessage',
   Category: 'Category',
+  Follow: 'Follow',
   Token: 'Token'
 } as const
 
@@ -405,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "socialLink" | "stream" | "chatMessage" | "category" | "token"
+    modelProps: "user" | "socialLink" | "stream" | "chatMessage" | "category" | "follow" | "token"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -779,6 +780,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Follow: {
+      payload: Prisma.$FollowPayload<ExtArgs>
+      fields: Prisma.FollowFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FollowFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FollowFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>
+        }
+        findFirst: {
+          args: Prisma.FollowFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FollowFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>
+        }
+        findMany: {
+          args: Prisma.FollowFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>[]
+        }
+        create: {
+          args: Prisma.FollowCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>
+        }
+        createMany: {
+          args: Prisma.FollowCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FollowCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>[]
+        }
+        delete: {
+          args: Prisma.FollowDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>
+        }
+        update: {
+          args: Prisma.FollowUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>
+        }
+        deleteMany: {
+          args: Prisma.FollowDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FollowUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FollowUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>[]
+        }
+        upsert: {
+          args: Prisma.FollowUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FollowPayload>
+        }
+        aggregate: {
+          args: Prisma.FollowAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFollow>
+        }
+        groupBy: {
+          args: Prisma.FollowGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FollowGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FollowCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FollowCountAggregateOutputType> | number
+        }
+      }
+    }
     Token: {
       payload: Prisma.$TokenPayload<ExtArgs>
       fields: Prisma.TokenFieldRefs
@@ -969,6 +1044,17 @@ export const CategoryScalarFieldEnum = {
 } as const
 
 export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+export const FollowScalarFieldEnum = {
+  id: 'id',
+  followerId: 'followerId',
+  followingId: 'followingId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FollowScalarFieldEnum = (typeof FollowScalarFieldEnum)[keyof typeof FollowScalarFieldEnum]
 
 
 export const TokenScalarFieldEnum = {
@@ -1205,6 +1291,7 @@ export type GlobalOmitConfig = {
   stream?: Prisma.StreamOmit
   chatMessage?: Prisma.ChatMessageOmit
   category?: Prisma.CategoryOmit
+  follow?: Prisma.FollowOmit
   token?: Prisma.TokenOmit
 }
 
