@@ -40,12 +40,11 @@ export class ChatService {
 	}
 
 	public async changeSettings(userId: string, input: ChangeChatSettingsInput) {
-		const { isChatEnabled, isChatFollowersOnly, isChatPremiumFollowersOnly } =
-			input
+		const { isChatEnabled, isChatFollowersOnly, isChatSponsorsOnly } = input
 
 		await this.prisma.stream.update({
 			where: { userId: userId },
-			data: { isChatEnabled, isChatFollowersOnly, isChatPremiumFollowersOnly },
+			data: { isChatEnabled, isChatFollowersOnly, isChatSponsorsOnly },
 		})
 
 		return true

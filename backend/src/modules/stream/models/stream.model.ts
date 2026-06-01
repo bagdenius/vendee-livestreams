@@ -35,7 +35,7 @@ export class StreamModel implements Stream {
 	public isChatFollowersOnly: boolean
 
 	@Field(() => Boolean)
-	public isChatPremiumFollowersOnly: boolean
+	public isChatSponsorsOnly: boolean
 
 	@Field(() => UserModel)
 	public user: UserModel

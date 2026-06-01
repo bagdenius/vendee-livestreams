@@ -18,6 +18,7 @@ import { FollowModule } from '@/modules/follow'
 import { LivekitModule } from '@/modules/libs/livekit'
 import { MailModule } from '@/modules/libs/mail'
 import { StorageModule } from '@/modules/libs/storage'
+import { NotificationModule } from '@/modules/notification'
 import { StreamModule } from '@/modules/stream'
 import { IngressModule } from '@/modules/stream/ingress'
 import { WebhookModule } from '@/modules/webhook'
@@ -60,6 +61,7 @@ import { RedisModule } from './redis'
 		ChatModule,
 		FollowModule,
 		ChannelModule,
+		NotificationModule,
 	],
 })
 export class CoreModule {}

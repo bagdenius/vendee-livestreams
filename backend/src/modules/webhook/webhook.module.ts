@@ -2,12 +2,14 @@ import { type MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common'
 
 import { RawBodyMiddleware } from '@/shared/middlewares'
 
+import { NotificationService } from '../notification'
+
 import { WebhookController } from './webhook.controller'
 import { WebhookService } from './webhook.service'
 
 @Module({
 	controllers: [WebhookController],
-	providers: [WebhookService],
+	providers: [WebhookService, NotificationService],
 })
 export class WebhookModule {
 	public configure(consumer: MiddlewareConsumer) {

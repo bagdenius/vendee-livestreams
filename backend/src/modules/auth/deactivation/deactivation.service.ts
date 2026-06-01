@@ -55,7 +55,7 @@ export class DeactivationService {
 	) {
 		const deactivationToken = await generateToken(
 			this.prisma,
-			user,
+			user.id,
 			TokenType.DEACTIVATE_ACCOUNT,
 			false,
 		)

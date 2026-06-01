@@ -34,7 +34,7 @@ export type StreamMinAggregateOutputType = {
   isLive: boolean | null
   isChatEnabled: boolean | null
   isChatFollowersOnly: boolean | null
-  isChatPremiumFollowersOnly: boolean | null
+  isChatSponsorsOnly: boolean | null
   userId: string | null
   categoryId: string | null
   createdAt: Date | null
@@ -51,7 +51,7 @@ export type StreamMaxAggregateOutputType = {
   isLive: boolean | null
   isChatEnabled: boolean | null
   isChatFollowersOnly: boolean | null
-  isChatPremiumFollowersOnly: boolean | null
+  isChatSponsorsOnly: boolean | null
   userId: string | null
   categoryId: string | null
   createdAt: Date | null
@@ -68,7 +68,7 @@ export type StreamCountAggregateOutputType = {
   isLive: number
   isChatEnabled: number
   isChatFollowersOnly: number
-  isChatPremiumFollowersOnly: number
+  isChatSponsorsOnly: number
   userId: number
   categoryId: number
   createdAt: number
@@ -87,7 +87,7 @@ export type StreamMinAggregateInputType = {
   isLive?: true
   isChatEnabled?: true
   isChatFollowersOnly?: true
-  isChatPremiumFollowersOnly?: true
+  isChatSponsorsOnly?: true
   userId?: true
   categoryId?: true
   createdAt?: true
@@ -104,7 +104,7 @@ export type StreamMaxAggregateInputType = {
   isLive?: true
   isChatEnabled?: true
   isChatFollowersOnly?: true
-  isChatPremiumFollowersOnly?: true
+  isChatSponsorsOnly?: true
   userId?: true
   categoryId?: true
   createdAt?: true
@@ -121,7 +121,7 @@ export type StreamCountAggregateInputType = {
   isLive?: true
   isChatEnabled?: true
   isChatFollowersOnly?: true
-  isChatPremiumFollowersOnly?: true
+  isChatSponsorsOnly?: true
   userId?: true
   categoryId?: true
   createdAt?: true
@@ -211,7 +211,7 @@ export type StreamGroupByOutputType = {
   isLive: boolean
   isChatEnabled: boolean
   isChatFollowersOnly: boolean
-  isChatPremiumFollowersOnly: boolean
+  isChatSponsorsOnly: boolean
   userId: string
   categoryId: string | null
   createdAt: Date
@@ -249,7 +249,7 @@ export type StreamWhereInput = {
   isLive?: Prisma.BoolFilter<"Stream"> | boolean
   isChatEnabled?: Prisma.BoolFilter<"Stream"> | boolean
   isChatFollowersOnly?: Prisma.BoolFilter<"Stream"> | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFilter<"Stream"> | boolean
+  isChatSponsorsOnly?: Prisma.BoolFilter<"Stream"> | boolean
   userId?: Prisma.StringFilter<"Stream"> | string
   categoryId?: Prisma.StringNullableFilter<"Stream"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Stream"> | Date | string
@@ -269,7 +269,7 @@ export type StreamOrderByWithRelationInput = {
   isLive?: Prisma.SortOrder
   isChatEnabled?: Prisma.SortOrder
   isChatFollowersOnly?: Prisma.SortOrder
-  isChatPremiumFollowersOnly?: Prisma.SortOrder
+  isChatSponsorsOnly?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -293,7 +293,7 @@ export type StreamWhereUniqueInput = Prisma.AtLeast<{
   isLive?: Prisma.BoolFilter<"Stream"> | boolean
   isChatEnabled?: Prisma.BoolFilter<"Stream"> | boolean
   isChatFollowersOnly?: Prisma.BoolFilter<"Stream"> | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFilter<"Stream"> | boolean
+  isChatSponsorsOnly?: Prisma.BoolFilter<"Stream"> | boolean
   categoryId?: Prisma.StringNullableFilter<"Stream"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Stream"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Stream"> | Date | string
@@ -312,7 +312,7 @@ export type StreamOrderByWithAggregationInput = {
   isLive?: Prisma.SortOrder
   isChatEnabled?: Prisma.SortOrder
   isChatFollowersOnly?: Prisma.SortOrder
-  isChatPremiumFollowersOnly?: Prisma.SortOrder
+  isChatSponsorsOnly?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -335,7 +335,7 @@ export type StreamScalarWhereWithAggregatesInput = {
   isLive?: Prisma.BoolWithAggregatesFilter<"Stream"> | boolean
   isChatEnabled?: Prisma.BoolWithAggregatesFilter<"Stream"> | boolean
   isChatFollowersOnly?: Prisma.BoolWithAggregatesFilter<"Stream"> | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolWithAggregatesFilter<"Stream"> | boolean
+  isChatSponsorsOnly?: Prisma.BoolWithAggregatesFilter<"Stream"> | boolean
   userId?: Prisma.StringWithAggregatesFilter<"Stream"> | string
   categoryId?: Prisma.StringNullableWithAggregatesFilter<"Stream"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Stream"> | Date | string
@@ -352,7 +352,7 @@ export type StreamCreateInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   chatMessages?: Prisma.ChatMessageCreateNestedManyWithoutStreamInput
@@ -370,7 +370,7 @@ export type StreamUncheckedCreateInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId: string
   categoryId?: string | null
   createdAt?: Date | string
@@ -388,7 +388,7 @@ export type StreamUpdateInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   chatMessages?: Prisma.ChatMessageUpdateManyWithoutStreamNestedInput
@@ -406,7 +406,7 @@ export type StreamUncheckedUpdateInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -424,7 +424,7 @@ export type StreamCreateManyInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId: string
   categoryId?: string | null
   createdAt?: Date | string
@@ -441,7 +441,7 @@ export type StreamUpdateManyMutationInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -456,7 +456,7 @@ export type StreamUncheckedUpdateManyInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -478,7 +478,7 @@ export type StreamCountOrderByAggregateInput = {
   isLive?: Prisma.SortOrder
   isChatEnabled?: Prisma.SortOrder
   isChatFollowersOnly?: Prisma.SortOrder
-  isChatPremiumFollowersOnly?: Prisma.SortOrder
+  isChatSponsorsOnly?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -495,7 +495,7 @@ export type StreamMaxOrderByAggregateInput = {
   isLive?: Prisma.SortOrder
   isChatEnabled?: Prisma.SortOrder
   isChatFollowersOnly?: Prisma.SortOrder
-  isChatPremiumFollowersOnly?: Prisma.SortOrder
+  isChatSponsorsOnly?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -512,7 +512,7 @@ export type StreamMinOrderByAggregateInput = {
   isLive?: Prisma.SortOrder
   isChatEnabled?: Prisma.SortOrder
   isChatFollowersOnly?: Prisma.SortOrder
-  isChatPremiumFollowersOnly?: Prisma.SortOrder
+  isChatSponsorsOnly?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -632,7 +632,7 @@ export type StreamCreateWithoutUserInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   chatMessages?: Prisma.ChatMessageCreateNestedManyWithoutStreamInput
@@ -649,7 +649,7 @@ export type StreamUncheckedCreateWithoutUserInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   categoryId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -682,7 +682,7 @@ export type StreamUpdateWithoutUserInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   chatMessages?: Prisma.ChatMessageUpdateManyWithoutStreamNestedInput
@@ -699,7 +699,7 @@ export type StreamUncheckedUpdateWithoutUserInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -716,7 +716,7 @@ export type StreamCreateWithoutChatMessagesInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutStreamInput
@@ -733,7 +733,7 @@ export type StreamUncheckedCreateWithoutChatMessagesInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId: string
   categoryId?: string | null
   createdAt?: Date | string
@@ -766,7 +766,7 @@ export type StreamUpdateWithoutChatMessagesInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutStreamNestedInput
@@ -783,7 +783,7 @@ export type StreamUncheckedUpdateWithoutChatMessagesInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -800,7 +800,7 @@ export type StreamCreateWithoutCategoryInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   chatMessages?: Prisma.ChatMessageCreateNestedManyWithoutStreamInput
@@ -817,7 +817,7 @@ export type StreamUncheckedCreateWithoutCategoryInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -863,7 +863,7 @@ export type StreamScalarWhereInput = {
   isLive?: Prisma.BoolFilter<"Stream"> | boolean
   isChatEnabled?: Prisma.BoolFilter<"Stream"> | boolean
   isChatFollowersOnly?: Prisma.BoolFilter<"Stream"> | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFilter<"Stream"> | boolean
+  isChatSponsorsOnly?: Prisma.BoolFilter<"Stream"> | boolean
   userId?: Prisma.StringFilter<"Stream"> | string
   categoryId?: Prisma.StringNullableFilter<"Stream"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Stream"> | Date | string
@@ -880,7 +880,7 @@ export type StreamCreateManyCategoryInput = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -896,7 +896,7 @@ export type StreamUpdateWithoutCategoryInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   chatMessages?: Prisma.ChatMessageUpdateManyWithoutStreamNestedInput
@@ -913,7 +913,7 @@ export type StreamUncheckedUpdateWithoutCategoryInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -930,7 +930,7 @@ export type StreamUncheckedUpdateManyWithoutCategoryInput = {
   isLive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isChatFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isChatPremiumFollowersOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isChatSponsorsOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -977,7 +977,7 @@ export type StreamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId?: boolean
   categoryId?: boolean
   createdAt?: boolean
@@ -998,7 +998,7 @@ export type StreamSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId?: boolean
   categoryId?: boolean
   createdAt?: boolean
@@ -1017,7 +1017,7 @@ export type StreamSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId?: boolean
   categoryId?: boolean
   createdAt?: boolean
@@ -1036,14 +1036,14 @@ export type StreamSelectScalar = {
   isLive?: boolean
   isChatEnabled?: boolean
   isChatFollowersOnly?: boolean
-  isChatPremiumFollowersOnly?: boolean
+  isChatSponsorsOnly?: boolean
   userId?: boolean
   categoryId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type StreamOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "thumbnail" | "ingressId" | "serverUrl" | "streamKey" | "isLive" | "isChatEnabled" | "isChatFollowersOnly" | "isChatPremiumFollowersOnly" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["stream"]>
+export type StreamOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "thumbnail" | "ingressId" | "serverUrl" | "streamKey" | "isLive" | "isChatEnabled" | "isChatFollowersOnly" | "isChatSponsorsOnly" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["stream"]>
 export type StreamInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   chatMessages?: boolean | Prisma.Stream$chatMessagesArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1076,7 +1076,7 @@ export type $StreamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     isLive: boolean
     isChatEnabled: boolean
     isChatFollowersOnly: boolean
-    isChatPremiumFollowersOnly: boolean
+    isChatSponsorsOnly: boolean
     userId: string
     categoryId: string | null
     createdAt: Date
@@ -1516,7 +1516,7 @@ export interface StreamFieldRefs {
   readonly isLive: Prisma.FieldRef<"Stream", 'Boolean'>
   readonly isChatEnabled: Prisma.FieldRef<"Stream", 'Boolean'>
   readonly isChatFollowersOnly: Prisma.FieldRef<"Stream", 'Boolean'>
-  readonly isChatPremiumFollowersOnly: Prisma.FieldRef<"Stream", 'Boolean'>
+  readonly isChatSponsorsOnly: Prisma.FieldRef<"Stream", 'Boolean'>
   readonly userId: Prisma.FieldRef<"Stream", 'String'>
   readonly categoryId: Prisma.FieldRef<"Stream", 'String'>
   readonly createdAt: Prisma.FieldRef<"Stream", 'DateTime'>

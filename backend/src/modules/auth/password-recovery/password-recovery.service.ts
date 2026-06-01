@@ -32,7 +32,7 @@ export class PasswordRecoveryService {
 
 		const resetToken = await generateToken(
 			this.prisma,
-			user,
+			user.id,
 			TokenType.PASSWORD_RESET,
 		)
 
