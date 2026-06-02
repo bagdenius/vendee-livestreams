@@ -11,6 +11,7 @@ import type { Request } from 'express'
 
 import { PrismaService } from '@/core/prisma'
 import { MailService } from '@/modules/libs/mail'
+import { TelegramService } from '@/modules/libs/telegram'
 import {
 	destroySession,
 	generateToken,
@@ -25,6 +26,7 @@ export class DeactivationService {
 		private readonly configService: ConfigService,
 		private readonly prisma: PrismaService,
 		private readonly mailer: MailService,
+		private readonly telegramService: TelegramService,
 	) {}
 
 	public async validateDeactivationToken(req: Request, token: string) {
@@ -67,6 +69,16 @@ export class DeactivationService {
 			deactivationToken.token,
 			metadata,
 		)
+
+		if (
+			deactivationToken.user.notificationSettings?.telegramNotifications &&
+			deactivationToken.user.telegramId
+		)
+			await this.telegramService.sendDeactivationToken(
+				deactivationToken.user.telegramId,
+				deactivationToken.token,
+				metadata,
+			)
 
 		return true
 	}

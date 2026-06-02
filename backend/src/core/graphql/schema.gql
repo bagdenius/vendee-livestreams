@@ -210,7 +210,7 @@ type Query {
   getFollowersCountByChannel(channelId: String!): Float!
   getMe: UserModel!
   getMyFollowers: [FollowModel!]!
-  getMyFollowings: [FollowModel!]!
+  getMyfollowings: [FollowModel!]!
   getNotificationsByUser: [NotificationModel!]!
   getRandomCategories: [CategoryModel!]!
   getRandomStreams: [StreamModel!]!

@@ -15,10 +15,10 @@ export class FollowResolver {
 		return this.followService.getMyFollowers(userId)
 	}
 
-	@Query(() => [FollowModel], { name: 'getMyFollowings' })
+	@Query(() => [FollowModel], { name: 'getMyfollowings' })
 	@Authorization()
-	public async getMyFollowings(@Authorized('id') userId: string) {
-		return this.followService.getMyFollowings(userId)
+	public async getMyfollowings(@Authorized('id') userId: string) {
+		return this.followService.getMyfollowings(userId)
 	}
 
 	@Mutation(() => Boolean, { name: 'followChannel' })

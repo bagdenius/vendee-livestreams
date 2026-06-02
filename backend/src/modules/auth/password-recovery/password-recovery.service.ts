@@ -9,6 +9,7 @@ import { Request } from 'express'
 
 import { PrismaService } from '@/core/prisma'
 import { MailService } from '@/modules/libs/mail'
+import { TelegramService } from '@/modules/libs/telegram'
 import { generateToken, getSessionMetadata } from '@/shared/utils'
 
 import { NewPasswordInput, ResetPasswordInput } from './inputs'
@@ -18,6 +19,7 @@ export class PasswordRecoveryService {
 	public constructor(
 		private readonly prisma: PrismaService,
 		private readonly mailer: MailService,
+		private readonly telegramService: TelegramService,
 	) {}
 
 	public async resetPassword(
@@ -27,7 +29,10 @@ export class PasswordRecoveryService {
 	) {
 		const { email } = input
 
-		const user = await this.prisma.user.findUnique({ where: { email } })
+		const user = await this.prisma.user.findUnique({
+			where: { email },
+			include: { notificationSettings: true },
+		})
 		if (!user) throw new NotFoundException('User not found')
 
 		const resetToken = await generateToken(
@@ -43,6 +48,16 @@ export class PasswordRecoveryService {
 			resetToken.token,
 			metadata,
 		)
+
+		if (
+			resetToken.user.notificationSettings?.telegramNotifications &&
+			resetToken.user.telegramId
+		)
+			await this.telegramService.sendPasswordResetToken(
+				resetToken.user.telegramId,
+				resetToken.token,
+				metadata,
+			)
 
 		return true
 	}

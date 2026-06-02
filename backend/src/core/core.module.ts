@@ -18,6 +18,7 @@ import { FollowModule } from '@/modules/follow'
 import { LivekitModule } from '@/modules/libs/livekit'
 import { MailModule } from '@/modules/libs/mail'
 import { StorageModule } from '@/modules/libs/storage'
+import { TelegramModule } from '@/modules/libs/telegram'
 import { NotificationModule } from '@/modules/notification'
 import { StreamModule } from '@/modules/stream'
 import { IngressModule } from '@/modules/stream/ingress'
@@ -46,6 +47,7 @@ import { RedisModule } from './redis'
 		RedisModule,
 		MailModule,
 		StorageModule,
+		TelegramModule,
 		CronModule,
 		AccountModule,
 		SessionModule,

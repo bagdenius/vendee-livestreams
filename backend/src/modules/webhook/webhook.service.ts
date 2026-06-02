@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common'
 import { PrismaService } from '@/core/prisma'
 
 import { LivekitService } from '../libs/livekit/livekit.service'
+import { TelegramService } from '../libs/telegram'
 import { NotificationService } from '../notification'
 
 @Injectable()
@@ -11,6 +12,7 @@ export class WebhookService {
 		private readonly prisma: PrismaService,
 		private readonly livekit: LivekitService,
 		private readonly notificationService: NotificationService,
+		private readonly telegramService: TelegramService,
 	) {}
 
 	public async receiveLivekitWebhook(body: string, authorization: string) {
@@ -36,6 +38,15 @@ export class WebhookService {
 				if (follower.notificationSettings?.siteNotifications)
 					await this.notificationService.createStreamStart(
 						follower.id,
+						stream.user,
+					)
+
+				if (
+					follower.notificationSettings?.telegramNotifications &&
+					follower.telegramId
+				)
+					await this.telegramService.sendStreamStart(
+						follower.telegramId,
 						stream.user,
 					)
 			}

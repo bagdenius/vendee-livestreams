@@ -25,7 +25,7 @@ export async function generateToken(
 
 	const newToken = await prismaService.token.create({
 		data: { token, expiresIn, type, user: { connect: { id: userId } } },
-		include: { user: true },
+		include: { user: { include: { notificationSettings: true } } },
 	})
 	return newToken
 }

@@ -6,6 +6,7 @@ import {
 
 import { PrismaService } from '@/core/prisma'
 
+import { TelegramService } from '../libs/telegram'
 import { NotificationService } from '../notification'
 
 @Injectable()
@@ -13,6 +14,7 @@ export class FollowService {
 	public constructor(
 		private readonly prisma: PrismaService,
 		private readonly notificationService: NotificationService,
+		private readonly telegramService: TelegramService,
 	) {}
 
 	public async getMyFollowers(userId: string) {
@@ -23,7 +25,7 @@ export class FollowService {
 		})
 	}
 
-	public async getMyFollowings(userId: string) {
+	public async getMyfollowings(userId: string) {
 		return await this.prisma.follow.findMany({
 			where: { followerId: userId },
 			orderBy: { createdAt: 'desc' },
@@ -57,6 +59,15 @@ export class FollowService {
 		if (follow.following.notificationSettings?.siteNotifications)
 			await this.notificationService.createNewFollower(
 				follow.followingId,
+				follow.follower,
+			)
+
+		if (
+			follow.following.notificationSettings?.telegramNotifications &&
+			follow.following.telegramId
+		)
+			await this.telegramService.sendNewFollower(
+				follow.following.telegramId,
 				follow.follower,
 			)
 
