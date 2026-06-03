@@ -9,8 +9,10 @@ import type { SessionMetadata } from '@/shared/types'
 import {
 	AccountDeletionTemplate,
 	DeactivateTemplate,
+	EnableTwoFactorTemplate,
 	PasswordRecoveryTemplate,
 	VerificationTemplate,
+	VerifyChannelTemplate,
 } from './templates'
 
 @Injectable()
@@ -58,5 +60,16 @@ export class MailService {
 		const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
 		const html = await render(AccountDeletionTemplate({ domain }))
 		return this.sendMail(email, 'Account deleted', html)
+	}
+
+	public async sendEnableTwoFactor(email: string): Promise<SentMessageInfo> {
+		const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+		const html = await render(EnableTwoFactorTemplate({ domain }))
+		return this.sendMail(email, 'Ensure your security', html)
+	}
+
+	public async sendVerifyChannel(email: string): Promise<SentMessageInfo> {
+		const html = await render(VerifyChannelTemplate())
+		return this.sendMail(email, 'Your channel has been verified', html)
 	}
 }

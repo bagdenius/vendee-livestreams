@@ -1,4 +1,6 @@
 export * from './account-deletion.template'
+export * from './deactive.template'
+export * from './enable-two-factor.template'
 export * from './password-recovery.template'
 export * from './verification.template'
-export * from './deactive.template'
+export * from './verify-channel.template'

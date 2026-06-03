@@ -126,4 +126,20 @@ You have a new sponsor for the <b>${plan.title}</b> plan.
 
 Thank you for your work and support on the VendeeLivestreams platform!
 `,
+
+	enableTwoFactor: `
+<b>🔒 Ensure your security!</b>
+
+Enable two-factor authentication in your <a href='https://vendee-livestreams.com/dashboard/settings'>account settings</a>.
+`,
+
+	verifyChannel: `
+<b>🎉 Congratulations! Your channel has been verified</b>
+
+We're pleased to announce that your channel is now verified and you've received an official badge.
+
+The verification badge confirms your channel's authenticity and improves viewer trust.
+
+Thank you for joining us and continuing to grow your channel with VendeeLivestreams!
+`,
 }
