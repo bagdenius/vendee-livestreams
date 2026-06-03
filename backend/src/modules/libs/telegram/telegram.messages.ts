@@ -1,6 +1,6 @@
-import type { User } from '@prisma/generated/client'
+import type { SponsorshipPlan, User } from '@prisma/generated/client'
 
-import { SessionMetadata } from '@/shared/types'
+import type { SessionMetadata } from '@/shared/types'
 
 export const MESSAGES = {
 	welcome: `
@@ -113,5 +113,17 @@ Watch here: <a href='https://vendee-livestream.com/${channel.username}'>Open str
 This is a user <a href='https://vendee-livestreams.com/${follower.username}'>${follower.displayName}</a>
 
 Total number of followers on your channel: ${followersCount}
+`,
+
+	newSponsorship: (plan: SponsorshipPlan, sponsor: User) => `
+<b>🎉 You've got a new sponsorship!</b>
+
+You have a new sponsor for the <b>${plan.title}</b> plan.
+
+💰 Amount: <b>$${plan.price}</b>
+👤 Sponsor: <a href='https://vendee-livestreams.com/${sponsor.username}'>${sponsor.displayName}</a>
+📅 Date: <b>${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</b>
+
+Thank you for your work and support on the VendeeLivestreams platform!
 `,
 }

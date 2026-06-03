@@ -12,7 +12,7 @@ import { RedisService } from '@/core/redis'
 import { parseBoolean } from '@/shared/utils'
 
 async function bootstrap() {
-	const app = await NestFactory.create(CoreModule)
+	const app = await NestFactory.create(CoreModule, { rawBody: true })
 	const config = app.get(ConfigService)
 	const redis = app.get(RedisService)
 

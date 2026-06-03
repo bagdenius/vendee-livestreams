@@ -31,4 +31,17 @@ export class ChannelService {
 	public async getFollowersCountByChannel(channelId: string) {
 		return await this.prisma.follow.count({ where: { followingId: channelId } })
 	}
+
+	public async getSponsorsByChannel(channelId: string) {
+		const channel = await this.prisma.user.findUnique({
+			where: { id: channelId },
+		})
+		if (!channel) throw new NotFoundException('Channel not found')
+
+		return await this.prisma.sponsorshipSubscription.findMany({
+			where: { channelId },
+			orderBy: { createdAt: 'desc' },
+			include: { plan: true, user: true, channel: true },
+		})
+	}
 }
