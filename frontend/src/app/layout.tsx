@@ -1,10 +1,11 @@
+import { ApolloClientProvider, ThemeProvider } from '@/providers'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { ApolloClientProvider, ThemeProvider } from '@/providers'
 
 import '@/styles/globals.css'
+import { Toaster } from '@/components/ui/common'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +37,7 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='flex min-h-full flex-col'>
+        <Toaster />
         <ApolloClientProvider>
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider

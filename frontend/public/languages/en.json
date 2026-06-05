@@ -1,3 +1,23 @@
 {
-	"home": { "title": "Homepage" }
+  "home": { "title": "Homepage" },
+  "auth": {
+    "signup": {
+      "heading": "Join Vendee Today",
+      "backButtonLabel": "Have an account? Log in",
+      "usernameLabel": "Username",
+      "usernameDescription": "It should be 3–20 characters long, unique, start with a letter and contain only letters, numbers, or underscores.",
+      "emailLabel": "Email",
+      "emailDescription": "We will use it to verify your account and help you recover access if needed.",
+      "passwordLabel": "Password",
+      "passwordDescription": "Create a secure password with at least 8 characters. Use a mix of letters, numbers and symbols for better protection.",
+      "submitButton": "Continue",
+      "successAlertTitle": "Check your inbox",
+      "successAlertDescription": "A registration confirmation email has been sent to your email address. If you don't see the email, check your spam folder.",
+      "errorMessage": "Failed to sign up!"
+    },
+    "verify": {
+      "successMessage": "Account verified"
+    },
+    "login": {}
+  }
 }

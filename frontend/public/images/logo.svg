@@ -1,0 +1,35 @@
+<svg width="1024" height="1024" viewBox="280 230 560 550" fill="none"
+  xmlns="http://www.w3.org/2000/svg" role="img">
+
+  <defs>
+    <linearGradient id="logo" x1="258" y1="730" x2="807" y2="286"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00D5FF" />
+      <stop offset="0.46" stop-color="#7C3BFF" />
+      <stop offset="1" stop-color="#FF3DCA" />
+    </linearGradient>
+  </defs>
+
+  <g>
+    <path
+      d="M330 287
+         C330 248 371 224 405 244
+         L772 460
+         C812 483 812 541 772 564
+         L574 685
+         L574 775
+         L493 725
+         L405 767
+         C371 787 330 763 330 724
+         V287Z
+         M456 385
+         C442 376 424 386 424 403
+         V621
+         C424 638 442 648 456 639
+         L640 531
+         C654 522 654 502 640 493
+         L456 385Z"
+      fill="url(#logo)"
+    />
+  </g>
+</svg>

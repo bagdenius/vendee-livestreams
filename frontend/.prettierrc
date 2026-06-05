@@ -7,11 +7,6 @@
   "jsxSingleQuote": true,
   "trailingComma": "all",
   "arrowParens": "always",
-
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "importOrderCaseInsensitive": true,
-
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^@app/(.*)$",
@@ -24,11 +19,14 @@
     "^@/store/(.*)$",
     "^@/styles/(.*)$",
     "^@/utils/(.*)$",
-    "^../(.*)$",
-    "^./(.*)$",
-    "(.scss)$"
+    "^.+\\.s?css$",
+    "^\\.\\./(.*)$",
+    "^\\./(.*)$"
   ],
-
+  "importOrderParserPlugins": ["typescript", "jsx"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true,
   "plugins": [
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
