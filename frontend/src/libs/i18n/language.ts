@@ -1,6 +1,7 @@
 'use server'
 
 import { cookies } from 'next/headers'
+
 import { defaultLanguage, I18N_COOKIE_NAME, type Language } from './i18n.config'
 
 export async function getCurrentLanguage() {

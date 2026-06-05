@@ -1,35 +1,36 @@
 {
-	"printWidth": 80,
-	"tabWidth": 2,
-	"useTabs": true,
-	"semi": false,
-	"singleQuote": true,
-	"jsxSingleQuote": true,
-	"trailingComma": "all",
-	"arrowParens": "always",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
 
-	"importOrder": [
-		"<THIRD_PARTY_MODULES>",
-		"^@app/(.*)$",
-		"^@/components/(.*)$",
-		"^@/graphql/(.*)$",
-		"^@/hooks/(.*)$",
-		"^@/libs/(.*)$",
-		"^@/providers/(.*)$",
-		"^@/schemas/(.*)$",
-		"^@/store/(.*)$",
-		"^@/styles/(.*)$",
-		"^@/utils/(.*)$",
-		"^../(.*)$",
-		"^./(.*)$",
-		"(.scss)$"
-	],
-	"importOrderSeparation": true,
-	"importOrderSortSpecifiers": true,
-	"importOrderCaseInsensitive": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true,
 
-	"plugins": [
-		"@trivago/prettier-plugin-sort-imports",
-		"prettier-plugin-tailwindcss"
-	]
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@app/(.*)$",
+    "^@/components/(.*)$",
+    "^@/graphql/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/libs/(.*)$",
+    "^@/providers/(.*)$",
+    "^@/schemas/(.*)$",
+    "^@/store/(.*)$",
+    "^@/styles/(.*)$",
+    "^@/utils/(.*)$",
+    "^../(.*)$",
+    "^./(.*)$",
+    "(.scss)$"
+  ],
+
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ]
 }
