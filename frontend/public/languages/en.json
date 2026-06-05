@@ -16,7 +16,10 @@
       "errorMessage": "Failed to sign up!"
     },
     "verify": {
-      "successMessage": "Account verified"
+      "heading": "Account verification at Vendee",
+      "successMessage": "Account verified",
+      "errorMessage": "Verification error",
+      "errorDescription": "Verification token is invalid or expired"
     },
     "login": {}
   }
