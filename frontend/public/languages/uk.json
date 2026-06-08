@@ -33,6 +33,28 @@
       "successMessage": "Ви успішно увійшли в систему",
       "successDescription": "Ласкаво просимо і бажаємо приємного перегляду!",
       "errorMessage": "Помилка при вході в систему"
+    },
+    "resetPassword": {
+      "heading": "Відновлення пароля",
+      "backButtonLabel": "Згадали пароль? Увійти",
+      "emailLabel": "Електронна пошта",
+      "emailDescription": "Електронна адреса, яка була використана для реєстрації",
+      "submitButton": "Скинути пароль",
+      "successAlertTitle": "Посилання відправлено",
+      "successAlertDescription": "Посилання для відновлення пароля було відправлено на вашу електронну адресу. Якщо у вас увімкнуті сповіщення в Telegram, посилання також було відправлено туди",
+      "errorMessage": "Помилка при скиданні пароля"
+    },
+    "newPassword": {
+      "heading": "Встановлення нового пароля",
+      "backButtonLabel": "Згадали пароль? Увійти",
+      "passwordLabel": "Новий пароль",
+      "passwordDescription": "Введіть новий пароль",
+      "passwordConfirmLabel": "Повторіть пароль",
+      "passwordConfirmDescription": "Повторіть свій новий пароль для підтвердження",
+      "submitButton": "Змінити пароль",
+      "successMessage": "Пароль успішно змінено",
+      "successDescription": "Тепер ви можете увійти, використовуючи новий пароль",
+      "errorMessage": "Помилка при встановленні нового пароля"
     }
   }
 }

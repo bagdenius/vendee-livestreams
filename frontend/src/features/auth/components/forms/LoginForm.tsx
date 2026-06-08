@@ -17,11 +17,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { REGEXP_ONLY_DIGITS } from 'input-otp'
 import { XIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { LoginInput, loginSchema } from '../../schemas'
+import { type LoginInput, loginSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
 
 export function LoginForm() {
@@ -91,7 +92,7 @@ export function LoginForm() {
                     autoComplete='pin'
                     disabled={isLoading}
                   >
-                    <InputOTPGroup className='w-full *:data-[slot=input-otp-slot]:h-16 *:data-[slot=input-otp-slot]:w-full *:data-[slot=input-otp-slot]:text-2xl'>
+                    <InputOTPGroup className='w-full gap-2 *:data-[slot=input-otp-slot]:h-16 *:data-[slot=input-otp-slot]:w-full *:data-[slot=input-otp-slot]:text-2xl'>
                       <InputOTPSlot index={0} />
                       <InputOTPSlot index={1} />
                       <InputOTPSlot index={2} />
@@ -140,8 +141,13 @@ export function LoginForm() {
                     data-invalid={fieldState.invalid && fieldState.isTouched}
                   >
                     <FieldLabel htmlFor='password'>
-                      {' '}
                       {t('passwordLabel')}
+                      <Link
+                        href='/account/recovery'
+                        className='ml-auto inline-block text-sm underline-offset-4 hover:underline'
+                      >
+                        {t('forgotPassword')}
+                      </Link>
                     </FieldLabel>
                     <Input
                       {...field}
@@ -149,7 +155,7 @@ export function LoginForm() {
                       type='password'
                       aria-invalid={fieldState.invalid && fieldState.isTouched}
                       placeholder='********'
-                      autoComplete='new-password'
+                      autoComplete='current-password'
                       disabled={isLoading}
                     />
                     {/* {fieldState.invalid && (

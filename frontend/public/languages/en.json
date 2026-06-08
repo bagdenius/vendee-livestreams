@@ -33,6 +33,28 @@
       "successMessage": "You have successfully logged in",
       "successDescription": "Welcome and enjoy watching our streams!",
       "errorMessage": "Failed to log in"
+    },
+    "resetPassword": {
+      "heading": "Password reset",
+      "backButtonLabel": "Remembered your password? Log in",
+      "emailLabel": "Email",
+      "emailDescription": "The email address used during registration.",
+      "submitButton": "Reset password",
+      "successAlertTitle": "Link sent",
+      "successAlertDescription": "A password reset link has been sent to your email address. If you have Telegram notifications enabled, the link has also been sent there.",
+      "errorMessage": "Failed to reset password"
+    },
+    "newPassword": {
+      "heading": "Setting a new password",
+      "backButtonLabel": "Remembered your password? Log in",
+      "passwordLabel": "New password",
+      "passwordDescription": "Enter your new password.",
+      "passwordConfirmLabel": "Repeat password",
+      "passwordConfirmDescription": "Repeat your new password to confirm it.",
+      "submitButton": "Set new pasword",
+      "successMessage": "Password changed successfully",
+      "successDescription": "You can now log in using your new password.",
+      "errorMessage": "Failed to set a new password"
     }
   }
 }

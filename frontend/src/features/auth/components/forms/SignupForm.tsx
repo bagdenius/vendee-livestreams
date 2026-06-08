@@ -19,7 +19,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { SignupInput, signupSchema } from '../../schemas'
+import { type SignupInput, signupSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
 
 export function SignupForm() {

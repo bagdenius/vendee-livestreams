@@ -1,2 +1,4 @@
 export * from './login.schema'
+export * from './new-password.schema'
+export * from './reset-password.schema'
 export * from './signup.schema'
