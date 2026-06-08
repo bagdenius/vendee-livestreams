@@ -12,17 +12,17 @@ import {
   Input,
   Spinner,
 } from '@/components/ui/common'
-import { useCreateUserMutation } from '@/graphql/generated'
+import { useSignupMutation } from '@/graphql/generated'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { CircleCheckIcon, XIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { CreateAccountInput, createAccountSchema } from '../../schemas'
+import { SignupInput, signupSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
-import { useState } from 'react'
-import { CircleCheckIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 
-export function CreateAccountForm() {
+export function SignupForm() {
   const t = useTranslations('auth.signup')
 
   const [isSuccess, setIsSuccess] = useState(false)
@@ -31,26 +31,26 @@ export function CreateAccountForm() {
     formState: { isValid },
     control,
     handleSubmit,
-  } = useForm<CreateAccountInput>({
-    resolver: zodResolver(createAccountSchema),
+  } = useForm<SignupInput>({
+    resolver: zodResolver(signupSchema),
     defaultValues: { username: '', email: '', password: '' },
     mode: 'onChange',
   })
 
-  const [createUser, { loading: isLoading }] = useCreateUserMutation({
+  const [signup, { loading: isLoading }] = useSignupMutation({
     onCompleted() {
-      // toast.success('Succesfully signed up!', {
-      //   description: 'Welcome and enjoy watching our streams!',
-      // })
       setIsSuccess(true)
     },
     onError({ message }) {
-      toast.error(t('errorMessage'), { description: message })
+      toast.error(t('errorMessage'), {
+        description: message,
+        cancel: { label: <XIcon />, onClick() {} },
+      })
     },
   })
 
-  function onSubmit(data: CreateAccountInput) {
-    createUser({ variables: { data } })
+  function onSubmit(data: SignupInput) {
+    signup({ variables: { data } })
   }
 
   return (

@@ -18,12 +18,15 @@ export function VerifyAccountForm() {
 
   const [verify] = useVerifyAccountMutation({
     onCompleted() {
-      toast.success(t('successMessage'))
+      toast.success(t('successMessage'), {
+        cancel: { label: 'Got it!', onClick() {} },
+      })
       router.push('/dashboard/settings')
     },
     onError() {
       toast.error(t('errorMessage'), {
         description: t('errorDescription'),
+        cancel: { label: 'Got it!', onClick() {} },
       })
     },
   })

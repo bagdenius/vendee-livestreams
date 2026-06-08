@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 const USERNAME_REGEX = /^[a-zA-Z][a-zA-Z0-9_]*$/
 
-export const createAccountSchema = z.object({
+export const signupSchema = z.object({
   username: z
     .string('Username should be a string')
     .min(3, 'Username should be at least 3 characters')
@@ -17,4 +17,4 @@ export const createAccountSchema = z.object({
     .min(8, 'Password should be at least 8 characters'),
 })
 
-export type CreateAccountInput = z.infer<typeof createAccountSchema>
+export type SignupInput = z.infer<typeof signupSchema>

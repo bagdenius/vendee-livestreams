@@ -37,7 +37,10 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='flex min-h-full flex-col'>
-        <Toaster />
+        <Toaster
+          position='top-center'
+          toastOptions={{ cancelButtonStyle: { height: '2.5rem' } }}
+        />
         <ApolloClientProvider>
           <NextIntlClientProvider messages={messages}>
             <ThemeProvider

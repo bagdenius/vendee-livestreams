@@ -21,6 +21,18 @@
       "errorMessage": "Verification error",
       "errorDescription": "Verification token is invalid or expired"
     },
-    "login": {}
+    "login": {
+      "heading": "Log in to Vendee",
+      "backButtonLabel": "Don't have an account? Sign up",
+      "pinLabel": "6-digit code",
+      "pinDescription": "Enter the code from your authenticator app.",
+      "loginLabel": "Username or Email",
+      "passwordLabel": "Password",
+      "forgotPassword": "Forgot your password?",
+      "submitButton": "Log in",
+      "successMessage": "You have successfully logged in",
+      "successDescription": "Welcome and enjoy watching our streams!",
+      "errorMessage": "Failed to log in"
+    }
   }
 }

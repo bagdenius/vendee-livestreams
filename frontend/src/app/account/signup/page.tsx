@@ -1,4 +1,4 @@
-import { CreateAccountForm } from '@/features/auth/components/forms'
+import { SignupForm } from '@/features/auth/components/forms'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
@@ -8,5 +8,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function SignupPage() {
-  return <CreateAccountForm />
+  return <SignupForm />
 }
