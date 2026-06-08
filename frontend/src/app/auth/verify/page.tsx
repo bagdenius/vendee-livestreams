@@ -7,7 +7,7 @@ interface VerifyPageProps {
 
 export default async function VerifyPage({ searchParams }: VerifyPageProps) {
   const { token } = await searchParams
-  if (!token) return redirect('/account/create')
+  if (!token) return redirect('/auth/signup')
 
   return <VerifyAccountForm />
 }

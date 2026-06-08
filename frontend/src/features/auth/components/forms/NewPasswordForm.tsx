@@ -42,7 +42,7 @@ export function NewPasswordForm() {
         description: t('successDescription'),
         cancel: { label: <XIcon />, onClick() {} },
       })
-      router.push('/account/login')
+      router.push('/auth/login')
     },
     onError({ message }) {
       toast.error(t('errorMessage'), {
@@ -60,7 +60,7 @@ export function NewPasswordForm() {
     <AuthWrapper
       heading={t('heading')}
       backButtonLabel={t('backButtonLabel')}
-      backButtonHref='/account/login'
+      backButtonHref='/auth/login'
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup>

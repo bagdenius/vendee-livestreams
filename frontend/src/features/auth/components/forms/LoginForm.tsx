@@ -24,11 +24,13 @@ import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { type LoginInput, loginSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
+import { useAuth } from '@/hooks'
 
 export function LoginForm() {
   const t = useTranslations('auth.login')
   const [isShowTwoFactor, setIsShowTwoFactor] = useState(false)
   const router = useRouter()
+  const { auth } = useAuth()
 
   const {
     formState: { isValid },
@@ -45,6 +47,7 @@ export function LoginForm() {
       if (data.loginUser.message) {
         setIsShowTwoFactor(true)
       } else {
+        auth()
         toast.success(t('successMessage'), {
           description: t('successDescription'),
           cancel: { label: <XIcon />, onClick() {} },
@@ -68,7 +71,7 @@ export function LoginForm() {
     <AuthWrapper
       heading={t('heading')}
       backButtonLabel={t('backButtonLabel')}
-      backButtonHref='/account/signup'
+      backButtonHref='/auth/signup'
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup>
@@ -143,7 +146,7 @@ export function LoginForm() {
                     <FieldLabel htmlFor='password'>
                       {t('passwordLabel')}
                       <Link
-                        href='/account/recovery'
+                        href='/auth/recovery'
                         className='ml-auto inline-block text-sm underline-offset-4 hover:underline'
                       >
                         {t('forgotPassword')}

@@ -7,17 +7,19 @@ import { useEffect } from 'react'
 import { toast } from 'sonner'
 import { AuthWrapper } from '../AuthWrapper'
 import { Spinner } from '@/components/ui/common'
+import { useAuth } from '@/hooks'
 
 export function VerifyAccountForm() {
   const t = useTranslations('auth.verify')
-
   const router = useRouter()
   const searchParams = useSearchParams()
+  const { auth } = useAuth()
 
   const token = searchParams.get('token') ?? ''
 
   const [verify] = useVerifyAccountMutation({
     onCompleted() {
+      auth()
       toast.success(t('successMessage'), {
         cancel: { label: 'Got it!', onClick() {} },
       })

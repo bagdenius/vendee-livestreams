@@ -57,7 +57,7 @@ export function ResetPasswordForm() {
     <AuthWrapper
       heading={t('heading')}
       backButtonLabel={t('backButtonLabel')}
-      backButtonHref='/account/login'
+      backButtonHref='/auth/login'
     >
       {isSuccess ? (
         <Alert>
