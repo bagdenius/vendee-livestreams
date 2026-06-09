@@ -1,0 +1,8 @@
+query GetMe {
+  getMe {
+    username
+    displayName
+    email
+    avatar
+  }
+}

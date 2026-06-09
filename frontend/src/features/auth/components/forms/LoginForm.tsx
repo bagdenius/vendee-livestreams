@@ -52,7 +52,7 @@ export function LoginForm() {
           description: t('successDescription'),
           cancel: { label: <XIcon />, onClick() {} },
         })
-        router.push('/dashboard/settings')
+        router.push('/')
       }
     },
     onError({ message }) {

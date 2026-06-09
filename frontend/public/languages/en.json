@@ -1,5 +1,54 @@
 {
-  "home": { "title": "Homepage" },
+  "layout": {
+    "logo": {
+      "platform": "Streaming platform"
+    },
+    "headerMenu": {
+      "login": "Log in",
+      "signup": "Sign up",
+      "profileMenu": {
+        "successLogoutMessage": "You have successfully logged out!",
+        "successLogoutDescription": "We'll be glad to see you again.",
+        "logoutErrorMessage": "Failed to logout!",
+        "channel": "My channel",
+        "dashboard": "Dashboard",
+        "logout": "Log out"
+      },
+      "notifications": {
+        "heading": "Notifications",
+        "loading": "Loading...",
+        "empty": "No new notifications"
+      }
+    },
+    "search": {
+      "placeholder": "Search"
+    },
+    "dashboardNav": {
+      "settings": "Settings",
+      "streamSettings": "Stream settings",
+      "keys": "Stream keys",
+      "chatSettings": "Chat settings",
+      "followers": "Followers",
+      "sponsors": "Sponsors",
+      "premium": "Premium plans",
+      "transactions": "Transactions"
+    },
+    "sidebarHeader": {
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "navigation": "Navigation",
+      "forYou": "For you"
+    },
+    "userNav": {
+      "home": "Home",
+      "categories": "Categories",
+      "streams": "Streams",
+      "recommended": "Recommended"
+    },
+    "recommended": {
+      "heading": "Recommended"
+    }
+  },
   "auth": {
     "signup": {
       "heading": "Join Vendee Today",
@@ -17,9 +66,9 @@
     },
     "verify": {
       "heading": "Account verification at Vendee",
-      "successMessage": "Account verified",
-      "errorMessage": "Verification error",
-      "errorDescription": "Verification token is invalid or expired"
+      "successMessage": "Account verified!",
+      "errorMessage": "Failed to verify your account!",
+      "errorDescription": "Verification token is invalid or expired."
     },
     "login": {
       "heading": "Log in to Vendee",
@@ -30,9 +79,9 @@
       "passwordLabel": "Password",
       "forgotPassword": "Forgot your password?",
       "submitButton": "Log in",
-      "successMessage": "You have successfully logged in",
-      "successDescription": "Welcome and enjoy watching our streams!",
-      "errorMessage": "Failed to log in"
+      "successMessage": "You have successfully logged in!",
+      "successDescription": "Welcome and enjoy watching our streams.",
+      "errorMessage": "Failed to log in!"
     },
     "resetPassword": {
       "heading": "Password reset",
@@ -42,7 +91,7 @@
       "submitButton": "Reset password",
       "successAlertTitle": "Link sent",
       "successAlertDescription": "A password reset link has been sent to your email address. If you have Telegram notifications enabled, the link has also been sent there.",
-      "errorMessage": "Failed to reset password"
+      "errorMessage": "Failed to reset password!"
     },
     "newPassword": {
       "heading": "Setting a new password",
@@ -52,9 +101,9 @@
       "passwordConfirmLabel": "Repeat password",
       "passwordConfirmDescription": "Repeat your new password to confirm it.",
       "submitButton": "Set new pasword",
-      "successMessage": "Password changed successfully",
+      "successMessage": "Password changed successfully!",
       "successDescription": "You can now log in using your new password.",
-      "errorMessage": "Failed to set a new password"
+      "errorMessage": "Failed to set a new password!"
     }
   }
 }

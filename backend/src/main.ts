@@ -5,6 +5,7 @@ import { RedisStore } from 'connect-redis'
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import graphqlUpload from 'graphql-upload/graphqlUploadExpress.mjs'
+import morgan from 'morgan'
 import ms, { type StringValue } from 'ms'
 
 import { CoreModule } from '@/core'
@@ -47,6 +48,9 @@ async function bootstrap() {
 		credentials: true,
 		exposedHeaders: ['set-cookie'],
 	})
+
+	if (config.getOrThrow<string>('NODE_ENV') !== 'production')
+		app.use(morgan('dev'))
 
 	await app.listen(config.getOrThrow<number>('APPLICATION_PORT'))
 }

@@ -1,5 +1,54 @@
 {
-  "home": { "title": "Головна сторінка" },
+  "layout": {
+    "logo": {
+      "platform": "Стримінгова платформа"
+    },
+    "headerMenu": {
+      "login": "Увійти",
+      "signup": "Зареєструватись",
+      "profileMenu": {
+        "successLogoutMessage": "Ви успішно вийшли із системи!",
+        "successLogoutDescription": "Будемо раді бачити вас знову.",
+        "logoutErrorMessage": "Помилка при виході з системи!",
+        "channel": "Мій канал",
+        "dashboard": "Панель управління",
+        "logout": "Вийти",
+        "notifications": {
+          "heading": "Сповіщення",
+          "loading": "Завантаження...",
+          "empty": "Нових сповіщень немає"
+        }
+      }
+    },
+    "search": {
+      "placeholder": "Пошук"
+    },
+    "dashboardNav": {
+      "settings": "Налаштування",
+      "streamSettings": "Налаштування трансляції",
+      "keys": "Ключі для трансляції",
+      "chatSettings": "Налаштування чату",
+      "followers": "Підписники",
+      "sponsors": "Спонсори",
+      "premium": "Преміум плани",
+      "transactions": "Транзакції"
+    },
+    "sidebarHeader": {
+      "expand": "Розгорнути",
+      "collapse": "Згорнути",
+      "navigation": "Навігація",
+      "forYou": "Для вас"
+    },
+    "userNav": {
+      "home": "Головна",
+      "categories": "Категорії",
+      "streams": "Трансляції",
+      "recommended": "Рекомендації"
+    },
+    "recommended": {
+      "heading": "Рекомендації"
+    }
+  },
   "auth": {
     "signup": {
       "heading": "Приєднуйтесь до Vendee сьогодні",
@@ -17,9 +66,9 @@
     },
     "verify": {
       "heading": "Верифікація акаунту Vendee",
-      "successMessage": "Акаунт успішно верифіковано",
-      "errorMessage": "Помилка верифікації",
-      "errorDescription": "Токен верифікації некоректний або недійсний"
+      "successMessage": "Акаунт успішно верифіковано!",
+      "errorMessage": "Помилка верифікації!",
+      "errorDescription": "Токен верифікації некоректний або недійсний."
     },
     "login": {
       "heading": "Увійти до Vendee",
@@ -30,31 +79,31 @@
       "passwordLabel": "Пароль",
       "forgotPassword": "Забули пароль?",
       "submitButton": "Увійти",
-      "successMessage": "Ви успішно увійшли в систему",
-      "successDescription": "Ласкаво просимо і бажаємо приємного перегляду!",
-      "errorMessage": "Помилка при вході в систему"
+      "successMessage": "Ви успішно увійшли в систему!",
+      "successDescription": "Ласкаво просимо і бажаємо приємного перегляду.",
+      "errorMessage": "Помилка при вході в систему!"
     },
     "resetPassword": {
       "heading": "Відновлення пароля",
       "backButtonLabel": "Згадали пароль? Увійти",
       "emailLabel": "Електронна пошта",
-      "emailDescription": "Електронна адреса, яка була використана для реєстрації",
+      "emailDescription": "Електронна адреса, яка була використана для реєстрації.",
       "submitButton": "Скинути пароль",
       "successAlertTitle": "Посилання відправлено",
-      "successAlertDescription": "Посилання для відновлення пароля було відправлено на вашу електронну адресу. Якщо у вас увімкнуті сповіщення в Telegram, посилання також було відправлено туди",
-      "errorMessage": "Помилка при скиданні пароля"
+      "successAlertDescription": "Посилання для відновлення пароля було відправлено на вашу електронну адресу. Якщо у вас увімкнуті сповіщення в Telegram, посилання також було відправлено туди.",
+      "errorMessage": "Помилка при скиданні пароля!"
     },
     "newPassword": {
       "heading": "Встановлення нового пароля",
       "backButtonLabel": "Згадали пароль? Увійти",
       "passwordLabel": "Новий пароль",
-      "passwordDescription": "Введіть новий пароль",
+      "passwordDescription": "Введіть новий пароль.",
       "passwordConfirmLabel": "Повторіть пароль",
-      "passwordConfirmDescription": "Повторіть свій новий пароль для підтвердження",
+      "passwordConfirmDescription": "Повторіть свій новий пароль для підтвердження.",
       "submitButton": "Змінити пароль",
-      "successMessage": "Пароль успішно змінено",
-      "successDescription": "Тепер ви можете увійти, використовуючи новий пароль",
-      "errorMessage": "Помилка при встановленні нового пароля"
+      "successMessage": "Пароль успішно змінено!",
+      "successDescription": "Тепер ви можете увійти, використовуючи новий пароль.",
+      "errorMessage": "Помилка при встановленні нового пароля!"
     }
   }
 }
