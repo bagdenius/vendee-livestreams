@@ -9,6 +9,9 @@
 # Build cache
 /.angular
 
+# Environments
+*/environments/environment.*.ts
+
 # Node
 /node_modules
 npm-debug.log

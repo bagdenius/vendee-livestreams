@@ -1,0 +1,109 @@
+{
+  "layout": {
+    "logo": {
+      "platform": "Streaming platform"
+    },
+    "headerMenu": {
+      "login": "Log in",
+      "signup": "Sign up",
+      "profileMenu": {
+        "successLogoutMessage": "You have successfully logged out!",
+        "successLogoutDescription": "We'll be glad to see you again.",
+        "logoutErrorMessage": "Failed to logout!",
+        "channel": "My channel",
+        "dashboard": "Dashboard",
+        "logout": "Log out"
+      },
+      "notifications": {
+        "heading": "Notifications",
+        "loading": "Loading...",
+        "empty": "No new notifications"
+      }
+    },
+    "search": {
+      "placeholder": "Search"
+    },
+    "dashboardNav": {
+      "settings": "Settings",
+      "streamSettings": "Stream settings",
+      "keys": "Stream keys",
+      "chatSettings": "Chat settings",
+      "followers": "Followers",
+      "sponsors": "Sponsors",
+      "premium": "Premium plans",
+      "transactions": "Transactions"
+    },
+    "sidebarHeader": {
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "navigation": "Navigation",
+      "forYou": "For you"
+    },
+    "userNav": {
+      "home": "Home",
+      "categories": "Categories",
+      "streams": "Streams",
+      "recommended": "Recommended"
+    },
+    "recommended": {
+      "heading": "Recommended"
+    }
+  },
+  "auth": {
+    "signup": {
+      "heading": "Join Vendee Today",
+      "backButtonLabel": "Have an account? Log in",
+      "usernameLabel": "Username",
+      "usernameDescription": "It should be 3–20 characters long, unique, start with a letter and contain only letters, numbers, or underscores.",
+      "emailLabel": "Email",
+      "emailDescription": "We will use it to verify your account and help you recover access if needed.",
+      "passwordLabel": "Password",
+      "passwordDescription": "Create a secure password with at least 8 characters. Use a mix of letters, numbers and symbols for better protection.",
+      "submitButton": "Continue",
+      "successAlertTitle": "Check your inbox",
+      "successAlertDescription": "A registration confirmation email has been sent to your email address. If you don't see the email, check your spam folder.",
+      "errorMessage": "Failed to sign up!"
+    },
+    "verify": {
+      "heading": "Account verification at Vendee",
+      "successMessage": "Account verified!",
+      "errorMessage": "Failed to verify your account!",
+      "errorDescription": "Verification token is invalid or expired."
+    },
+    "login": {
+      "heading": "Log in to Vendee",
+      "backButtonLabel": "Don't have an account? Sign up",
+      "pinLabel": "6-digit code",
+      "pinDescription": "Enter the code from your authenticator app.",
+      "loginLabel": "Username or Email",
+      "passwordLabel": "Password",
+      "forgotPassword": "Forgot your password?",
+      "submitButton": "Log in",
+      "successMessage": "You have successfully logged in!",
+      "successDescription": "Welcome and enjoy watching our streams.",
+      "errorMessage": "Failed to log in!"
+    },
+    "resetPassword": {
+      "heading": "Password reset",
+      "backButtonLabel": "Remembered your password? Log in",
+      "emailLabel": "Email",
+      "emailDescription": "The email address used during registration.",
+      "submitButton": "Reset password",
+      "successAlertTitle": "Link sent",
+      "successAlertDescription": "A password reset link has been sent to your email address. If you have Telegram notifications enabled, the link has also been sent there.",
+      "errorMessage": "Failed to reset password!"
+    },
+    "newPassword": {
+      "heading": "Setting a new password",
+      "backButtonLabel": "Remembered your password? Log in",
+      "passwordLabel": "New password",
+      "passwordDescription": "Enter your new password.",
+      "passwordConfirmLabel": "Repeat password",
+      "passwordConfirmDescription": "Repeat your new password to confirm it.",
+      "submitButton": "Set new pasword",
+      "successMessage": "Password changed successfully!",
+      "successDescription": "You can now log in using your new password.",
+      "errorMessage": "Failed to set a new password!"
+    }
+  }
+}
