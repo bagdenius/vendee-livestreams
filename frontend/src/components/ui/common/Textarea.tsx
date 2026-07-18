@@ -1,4 +1,4 @@
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/utils/index'
 import type { ComponentProps } from 'react'
 
 function Textarea({ className, ...props }: ComponentProps<'textarea'>) {

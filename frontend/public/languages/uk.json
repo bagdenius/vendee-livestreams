@@ -141,6 +141,21 @@
           "errorUpdateMessage": "При оновленні аватара виникла помилка",
           "successRemoveMessage": "Аватар успішно видалено",
           "errorRemoveMessage": "При видаленні аватара виникла помилка"
+        },
+        "info": {
+          "heading": "Налаштування профілю",
+          "usernameLabel": "Ім'я користувача",
+          "usernamePlaceholder": "johndoe",
+          "usernameDescription": "Під цим іменем вас будуть знати інші користувачі",
+          "displayNameLabel": "Ім'я, що відображається",
+          "displayNamePlaceholder": "John Doe",
+          "displayNameDescription": "Проставте прописні літери в імені, що відображається, за власним бажанням",
+          "bioLabel": "Про себе",
+          "bioPlaceholder": "Я люблю програмувати, грати в PUBG та CS2...",
+          "bioDescription": "Інформація про себе має складатись не більше ніж з 300 символів",
+          "submitButton": "Зберегти зміни",
+          "successMessage": "Профіль успішно оновлено",
+          "errorMessage": "При оновлені профілю виникла помилка"
         }
       }
     }

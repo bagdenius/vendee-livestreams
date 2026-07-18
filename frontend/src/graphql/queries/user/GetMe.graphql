@@ -4,5 +4,6 @@ query GetMe {
     displayName
     email
     avatar
+    bio
   }
 }

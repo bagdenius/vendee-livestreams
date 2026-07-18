@@ -140,6 +140,21 @@
           "errorUpdateMessage": "An error occurred while updating the avatar",
           "successRemoveMessage": "Avatar deleted successfully",
           "errorRemoveMessage": "An error occurred while deleting the avatar"
+        },
+        "info": {
+          "heading": "Profile settings",
+          "usernameLabel": "Username",
+          "usernamePlaceholder": "johndoe",
+          "usernameDescription": "This is the name other users will know you by",
+          "displayNameLabel": "Display name",
+          "displayNamePlaceholder": "John Doe",
+          "displayNameDescription": "Use capitalization in your display name however you prefer",
+          "bioLabel": "Bio",
+          "bioPlaceholder": "I love programming, playing PUBG, and CS2...",
+          "bioDescription": "Your bio should not exceed 300 characters",
+          "submitButton": "Save changes",
+          "successMessage": "Profile updated successfully",
+          "errorMessage": "An error occurred while updating the profile"
         }
       }
     }

@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Avatar,
-  Button,
-  Field,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-  Input,
-  Skeleton,
-} from '@/components/ui/common'
+import { Button, FieldGroup, Input, Skeleton } from '@/components/ui/common'
 import { ChannelAvatar } from '@/components/ui/elements'
 import { ConfirmModal } from '@/components/ui/elements/ConfirmModal'
 import { FormWrapper } from '@/components/ui/elements/FormWrapper'
@@ -22,12 +13,11 @@ import {
   UploadFileInput,
   uploadFileSchema,
 } from '@/shared/schemas/upload-file.schema'
-import { getMediaSource } from '@/shared/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TrashIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { ChangeEvent, useRef } from 'react'
-import { Controller, Form, useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export function ChangeAvatarForm() {
@@ -83,7 +73,7 @@ export function ChangeAvatarForm() {
           <Controller
             name='file'
             control={form.control}
-            render={({ field, fieldState }) => (
+            render={({ field }) => (
               <div className='px-5 pb-5'>
                 <div className='w-full items-center space-x-6 lg:flex'>
                   <ChannelAvatar
