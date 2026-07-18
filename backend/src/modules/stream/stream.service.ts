@@ -104,7 +104,7 @@ export class StreamService {
 		for await (const chunk of file.file.createReadStream()) chunks.push(chunk)
 
 		const buffer = Buffer.concat(chunks)
-		const filename = `/streams/${user.username}.webp`
+		const filename = `streams/${user.username}.webp`
 
 		const processedBuffer = await sharp(buffer, {
 			animated: file.file.filename.endsWith('.gif'),

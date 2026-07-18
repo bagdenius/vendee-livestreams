@@ -4,7 +4,7 @@ import {
 	Injectable,
 } from '@nestjs/common'
 import { User } from '@prisma/generated/client'
-import Upload from 'graphql-upload/Upload.mjs'
+import { FileUpload } from 'graphql-upload/processRequest.mjs'
 import sharp from 'sharp'
 
 import { PrismaService } from '@/core/prisma'
@@ -23,20 +23,19 @@ export class ProfileService {
 		private readonly storageService: StorageService,
 	) {}
 
-	public async changeAvatar(user: User, file: Upload) {
-		if (!file.file)
-			throw new BadRequestException('Upoload file is not provided')
+	public async changeAvatar(user: User, file: FileUpload) {
+		if (!file) throw new BadRequestException('Upload file is not provided')
 
 		if (user.avatar) await this.storageService.remove(user.avatar)
 
 		const chunks: Buffer[] = []
-		for await (const chunk of file.file.createReadStream()) chunks.push(chunk)
+		for await (const chunk of file.createReadStream()) chunks.push(chunk)
 
 		const buffer = Buffer.concat(chunks)
-		const filename = `/channels/${user.username}.webp`
+		const filename = `channels/${user.username}.webp`
 
 		const processedBuffer = await sharp(buffer, {
-			animated: file.file.filename.endsWith('.gif'),
+			animated: file.filename.endsWith('.gif'),
 		})
 			.resize(512, 512)
 			.webp()

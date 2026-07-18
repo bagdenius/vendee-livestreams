@@ -27,6 +27,6 @@ export class FileValidationPipe implements PipeTransform {
 		if (!isFileSizeValid)
 			throw new BadRequestException('File size should be under 10MB')
 
-		return true
+		return value
 	}
 }
