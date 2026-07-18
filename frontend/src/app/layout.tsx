@@ -6,6 +6,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 
 import '@/styles/globals.css'
 import { Toaster } from '@/components/ui/common'
+import { TooltipProvider } from '@/components/ui/common/Tooltip'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -49,7 +50,7 @@ export default async function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              {children}
+              <TooltipProvider>{children}</TooltipProvider>
             </ThemeProvider>
           </NextIntlClientProvider>
         </ApolloClientProvider>

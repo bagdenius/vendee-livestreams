@@ -1,0 +1,33 @@
+'use client'
+
+import { useMediaQuery, useSidebar } from '@/hooks'
+import { cn } from '@/utils'
+import { PropsWithChildren, useEffect } from 'react'
+
+export default function LayoutContainer({
+  children,
+}: PropsWithChildren<unknown>) {
+  const isMobile = useMediaQuery('(max-width: 1024px)')
+
+  const { isCollapsed, open, close } = useSidebar()
+
+  useEffect(() => {
+    console.log('isMobile: ', isMobile, 'isCollapsed:', isCollapsed)
+
+    if (isMobile && !isCollapsed) close()
+    else {
+      if (isCollapsed) open()
+    }
+  }, [isMobile])
+
+  return (
+    <main
+      className={cn(
+        'mt-15 flex-1 p-8',
+        isCollapsed ? 'ml-16' : 'ml:16 lg:ml-64',
+      )}
+    >
+      {children}
+    </main>
+  )
+}

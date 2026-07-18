@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { ProfileMenu } from './ProfileMenu'
 
 export function HeaderMenu() {
-  const t = useTranslations('layout.headerMenu')
+  const t = useTranslations('layout.header.menu')
   const { isAuthentificated } = useAuth()
 
   return (

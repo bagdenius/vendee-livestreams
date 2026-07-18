@@ -9,7 +9,7 @@ import { useTranslations } from 'next-intl'
 import { Fragment } from 'react/jsx-runtime'
 
 export function NotificationsList() {
-  const t = useTranslations('layout.headerMenu.notifications')
+  const t = useTranslations('layout.header.menu.profile.notifications')
   const { refetch } = useGetUnreadNotificationsCountQuery()
   const { data, loading } = useGetNotificiationsByUserQuery({
     onCompleted() {

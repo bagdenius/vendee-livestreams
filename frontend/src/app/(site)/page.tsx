@@ -9,7 +9,6 @@ export default function Homepage() {
   return (
     <div>
       <div>{isLoading ? 'Loading...' : JSON.stringify(user)}</div>
-      {user && <ChannelAvatar channel={user} isLive={false} size='default' />}
     </div>
   )
 }

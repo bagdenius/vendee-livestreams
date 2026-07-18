@@ -1,4 +1,6 @@
 import { Header } from '@/components/layout/header'
+import LayoutContainer from '@/components/layout/LayoutContainer'
+import Sidebar from '@/components/layout/sidebar/Sidebar'
 import type { PropsWithChildren } from 'react'
 
 export default function SiteLayout({ children }: PropsWithChildren) {
@@ -6,7 +8,8 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     <div className='flex h-full flex-col'>
       <div className='flex-1'>
         <Header />
-        <main className='mt-15'>{children}</main>
+        <Sidebar />
+        <LayoutContainer>{children}</LayoutContainer>
       </div>
     </div>
   )

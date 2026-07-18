@@ -3,52 +3,58 @@
     "logo": {
       "platform": "Стримінгова платформа"
     },
-    "headerMenu": {
-      "login": "Увійти",
-      "signup": "Зареєструватись",
-      "profileMenu": {
-        "successLogoutMessage": "Ви успішно вийшли із системи!",
-        "successLogoutDescription": "Будемо раді бачити вас знову.",
-        "logoutErrorMessage": "Помилка при виході з системи!",
-        "channel": "Мій канал",
-        "dashboard": "Панель управління",
-        "logout": "Вийти",
-        "notifications": {
-          "heading": "Сповіщення",
-          "loading": "Завантаження...",
-          "empty": "Нових сповіщень немає"
+    "header": {
+      "menu": {
+        "login": "Увійти",
+        "signup": "Зареєструватись",
+        "profile": {
+          "successLogoutMessage": "Ви успішно вийшли із системи!",
+          "successLogoutDescription": "Будемо раді бачити вас знову.",
+          "logoutErrorMessage": "Помилка при виході з системи!",
+          "channel": "Мій канал",
+          "dashboard": "Панель управління",
+          "logout": "Вийти",
+          "notifications": {
+            "heading": "Сповіщення",
+            "loading": "Завантаження...",
+            "empty": "Нових сповіщень немає"
+          }
         }
+      },
+      "search": {
+        "placeholder": "Пошук"
       }
     },
-    "search": {
-      "placeholder": "Пошук"
-    },
-    "dashboardNav": {
-      "settings": "Налаштування",
-      "streamSettings": "Налаштування трансляції",
-      "keys": "Ключі для трансляції",
-      "chatSettings": "Налаштування чату",
-      "followers": "Підписники",
-      "sponsors": "Спонсори",
-      "premium": "Преміум плани",
-      "transactions": "Транзакції"
-    },
-    "sidebarHeader": {
-      "expand": "Розгорнути",
-      "collapse": "Згорнути",
-      "navigation": "Навігація",
-      "forYou": "Для вас"
-    },
-    "userNav": {
-      "home": "Головна",
-      "categories": "Категорії",
-      "streams": "Трансляції",
-      "recommended": "Рекомендації"
-    },
-    "recommended": {
-      "heading": "Рекомендації"
+
+    "sidebar": {
+      "dashboardNav": {
+        "settings": "Налаштування",
+        "streamSettings": "Налаштування трансляції",
+        "keys": "Ключі для трансляції",
+        "chatSettings": "Налаштування чату",
+        "followers": "Підписники",
+        "sponsors": "Спонсори",
+        "premium": "Преміум плани",
+        "transactions": "Транзакції"
+      },
+      "header": {
+        "expand": "Розгорнути",
+        "collapse": "Згорнути",
+        "navigation": "Навігація",
+        "forYou": "Для вас"
+      },
+      "userNav": {
+        "home": "Головна",
+        "categories": "Категорії",
+        "streams": "Трансляції",
+        "recommended": "Рекомендації"
+      },
+      "recommended": {
+        "heading": "Рекомендації"
+      }
     }
   },
+
   "auth": {
     "signup": {
       "heading": "Приєднуйтесь до Vendee сьогодні",
@@ -104,6 +110,12 @@
       "successMessage": "Пароль успішно змінено!",
       "successDescription": "Тепер ви можете увійти, використовуючи новий пароль.",
       "errorMessage": "Помилка при встановленні нового пароля!"
+    }
+  },
+
+  "components": {
+    "liveBadge": {
+      "text": "В ЕФІРІ"
     }
   }
 }

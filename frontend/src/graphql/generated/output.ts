@@ -670,6 +670,11 @@ export type VerifyAccountMutationVariables = Exact<{
 
 export type VerifyAccountMutation = { verifyAccount: { message: string | null, user: { isEmailVerified: boolean } | null } };
 
+export type GetRecommendedChannelsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetRecommendedChannelsQuery = { getRecommendedChannels: Array<{ id: string, username: string, avatar: string | null, isVerified: boolean, stream: { isLive: boolean } }> };
+
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -911,6 +916,54 @@ export function useVerifyAccountMutation(baseOptions?: Apollo.MutationHookOption
 export type VerifyAccountMutationHookResult = ReturnType<typeof useVerifyAccountMutation>;
 export type VerifyAccountMutationResult = Apollo.MutationResult<VerifyAccountMutation>;
 export type VerifyAccountMutationOptions = Apollo.BaseMutationOptions<VerifyAccountMutation, VerifyAccountMutationVariables>;
+export const GetRecommendedChannelsDocument = gql`
+    query GetRecommendedChannels {
+  getRecommendedChannels {
+    id
+    username
+    avatar
+    isVerified
+    stream {
+      isLive
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetRecommendedChannelsQuery__
+ *
+ * To run a query within a React component, call `useGetRecommendedChannelsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetRecommendedChannelsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetRecommendedChannelsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetRecommendedChannelsQuery(baseOptions?: Apollo.QueryHookOptions<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>(GetRecommendedChannelsDocument, options);
+      }
+export function useGetRecommendedChannelsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>(GetRecommendedChannelsDocument, options);
+        }
+// @ts-ignore
+export function useGetRecommendedChannelsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>): Apollo.UseSuspenseQueryResult<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>;
+export function useGetRecommendedChannelsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>): Apollo.UseSuspenseQueryResult<GetRecommendedChannelsQuery | undefined, GetRecommendedChannelsQueryVariables>;
+export function useGetRecommendedChannelsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>(GetRecommendedChannelsDocument, options);
+        }
+export type GetRecommendedChannelsQueryHookResult = ReturnType<typeof useGetRecommendedChannelsQuery>;
+export type GetRecommendedChannelsLazyQueryHookResult = ReturnType<typeof useGetRecommendedChannelsLazyQuery>;
+export type GetRecommendedChannelsSuspenseQueryHookResult = ReturnType<typeof useGetRecommendedChannelsSuspenseQuery>;
+export type GetRecommendedChannelsQueryResult = Apollo.QueryResult<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>;
 export const GetMeDocument = gql`
     query GetMe {
   getMe {
