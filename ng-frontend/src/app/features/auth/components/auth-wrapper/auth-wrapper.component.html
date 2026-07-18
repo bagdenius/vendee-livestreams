@@ -1,0 +1,20 @@
+<div class="flex h-full items-center justify-center">
+  <mat-card class="w-120">
+    <mat-card-header class="flex flex-row items-center justify-center gap-2">
+      <img matCardAvatar src="/images/logo.svg" alt="Vendee logo" width="35" height="35" />
+      <mat-card-title class="text-2xl">
+        {{ heading() }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="mt-2">
+      <ng-content />
+    </mat-card-content>
+    <mat-card-actions class="border-0">
+      @if (backButtonLabel() && backButtonHref()) {
+        <a mat-button class="text-primary h-10 w-full" [routerLink]="backButtonHref()">
+          {{ backButtonLabel() }}
+        </a>
+      }
+    </mat-card-actions>
+  </mat-card>
+</div>
