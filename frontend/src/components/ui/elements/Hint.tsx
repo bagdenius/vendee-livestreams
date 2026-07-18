@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react'
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '../common/Tooltip'
 
 interface HintProps {
@@ -8,7 +9,7 @@ interface HintProps {
   align?: 'start' | 'center' | 'end'
 }
 
-export default function Hint({ children, label, side, align }: HintProps) {
+export function Hint({ children, label, side, align }: HintProps) {
   return (
     <Tooltip>
       <TooltipTrigger render={children} />

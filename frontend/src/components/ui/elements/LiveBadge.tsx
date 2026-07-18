@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 
-export default function LiveBadge() {
+export function LiveBadge() {
   const t = useTranslations('components.liveBadge')
 
   return (

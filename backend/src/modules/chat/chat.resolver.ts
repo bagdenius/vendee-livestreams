@@ -23,8 +23,8 @@ export class ChatResolver {
 		this.pubSub = new PubSub()
 	}
 
-	@Query(() => [ChatMessageModel], { name: 'findMessagesByStream' })
-	public async findByStream(@Args('streamId') streamId: string) {
+	@Query(() => [ChatMessageModel], { name: 'getMessagesByStream' })
+	public async getByStream(@Args('streamId') streamId: string) {
 		return this.chatService.getByStream(streamId)
 	}
 

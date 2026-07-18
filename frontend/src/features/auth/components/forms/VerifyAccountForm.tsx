@@ -1,13 +1,16 @@
 'use client'
 
-import { useVerifyAccountMutation } from '@/graphql/generated'
+import { useAuth } from '@/hooks'
 import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { toast } from 'sonner'
-import { AuthWrapper } from '../AuthWrapper'
+
 import { Spinner } from '@/components/ui/common'
-import { useAuth } from '@/hooks'
+
+import { useVerifyAccountMutation } from '@/graphql/generated'
+
+import { AuthWrapper } from '../AuthWrapper'
 
 export function VerifyAccountForm() {
   const t = useTranslations('auth.verify')

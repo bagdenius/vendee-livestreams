@@ -1,12 +1,14 @@
 'use client'
 
-import { Separator } from '@/components/ui/common'
-import ChannelItem from '@/components/ui/elements/ChannelItem'
-import { useGetRecommendedChannelsQuery } from '@/graphql/generated'
 import { useSidebar } from '@/hooks'
 import { useTranslations } from 'next-intl'
 
-export default function RecommendedChannels() {
+import { Separator } from '@/components/ui/common'
+import { ChannelItem } from '@/components/ui/elements'
+
+import { useGetRecommendedChannelsQuery } from '@/graphql/generated'
+
+export function RecommendedChannels() {
   const t = useTranslations('layout.sidebar.recommended')
   const { isCollapsed } = useSidebar()
 

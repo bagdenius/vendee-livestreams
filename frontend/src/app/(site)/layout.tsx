@@ -1,7 +1,8 @@
-import { Header } from '@/components/layout/header'
-import LayoutContainer from '@/components/layout/LayoutContainer'
-import Sidebar from '@/components/layout/sidebar/Sidebar'
 import type { PropsWithChildren } from 'react'
+
+import { Header } from '@/components/layout/header'
+import { LayoutContainer } from '@/components/layout/LayoutContainer'
+import { Sidebar } from '@/components/layout/sidebar/Sidebar'
 
 export default function SiteLayout({ children }: PropsWithChildren) {
   return (

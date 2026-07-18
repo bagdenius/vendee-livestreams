@@ -1,21 +1,24 @@
 'use client'
 
-import { GetRecommendedChannelsQuery } from '@/graphql/generated'
 import { useSidebar } from '@/hooks'
 import { cn } from '@/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { GetRecommendedChannelsQuery } from '@/graphql/generated'
+
 import { Button } from '../common'
+
 import { ChannelAvatar } from './ChannelAvatar'
 import { ChannelVerified } from './ChannelVerified'
-import Hint from './Hint'
-import LiveBadge from './LiveBadge'
+import { Hint } from './Hint'
+import { LiveBadge } from './LiveBadge'
 
 interface ChannelItemProps {
   channel: GetRecommendedChannelsQuery['getRecommendedChannels'][0]
 }
 
-export default function ChannelItem({ channel }: ChannelItemProps) {
+export function ChannelItem({ channel }: ChannelItemProps) {
   const pathname = usePathname()
   const { isCollapsed } = useSidebar()
 

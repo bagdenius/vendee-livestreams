@@ -4,9 +4,10 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'
 
-import '@/styles/globals.css'
 import { Toaster } from '@/components/ui/common'
 import { TooltipProvider } from '@/components/ui/common/Tooltip'
+
+import '@/styles/globals.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

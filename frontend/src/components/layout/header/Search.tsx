@@ -1,10 +1,11 @@
 'use client'
 
-import { Button, Input } from '@/components/ui/common'
 import { SearchIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { SubmitEvent, useState } from 'react'
+
+import { Button, Input } from '@/components/ui/common'
 
 export function Search() {
   const t = useTranslations('layout.header.search')

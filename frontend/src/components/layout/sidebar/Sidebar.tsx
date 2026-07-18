@@ -3,11 +3,12 @@
 import { useSidebar } from '@/hooks'
 import { cn } from '@/utils'
 import { usePathname } from 'next/navigation'
-import DashboardNav from './DashboardNav'
-import SidebarHeader from './SidebarHeader'
-import UserNav from './UserNav'
 
-export default function Sidebar() {
+import { DashboardNav } from './DashboardNav'
+import { SidebarHeader } from './SidebarHeader'
+import { UserNav } from './UserNav'
+
+export function Sidebar() {
   const { isCollapsed } = useSidebar()
   const pathname = usePathname()
 

@@ -1,6 +1,9 @@
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/common'
-import { useGetUnreadNotificationsCountQuery } from '@/graphql/generated'
 import { BellIcon } from 'lucide-react'
+
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/common'
+
+import { useGetUnreadNotificationsCountQuery } from '@/graphql/generated'
+
 import { NotificationsList } from './NotificationsList'
 
 export function Notifications() {

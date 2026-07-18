@@ -8,10 +8,11 @@ import {
   UsersIcon,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { Route } from './route.interface'
-import SidebarItem from './SidebarItem'
 
-export default function DashboardNav() {
+import { Route } from './route.interface'
+import { SidebarItem } from './SidebarItem'
+
+export function DashboardNav() {
   const t = useTranslations('layout.sidebar.dashboardNav')
 
   const routes: Route[] = [

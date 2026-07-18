@@ -392,7 +392,6 @@ export type PlanModel = {
 
 export type Query = {
   __typename?: 'Query';
-  findMessagesByStream: Array<ChatMessageModel>;
   generateTotpSecret: TotpModel;
   getAllStreams: Array<StreamModel>;
   getCategories: Array<CategoryModel>;
@@ -401,6 +400,7 @@ export type Query = {
   getCurrentSession: SessionModel;
   getFollowersCountByChannel: Scalars['Float']['output'];
   getMe: UserModel;
+  getMessagesByStream: Array<ChatMessageModel>;
   getMyFollowers: Array<FollowModel>;
   getMySponsors: Array<SubscriptionModel>;
   getMySponsorshipPlans: Array<PlanModel>;
@@ -414,11 +414,6 @@ export type Query = {
   getSocialLinks: Array<SocialLinkModel>;
   getSponsorsByChannel: Array<SubscriptionModel>;
   getUnreadNotificationsCount: Scalars['Float']['output'];
-};
-
-
-export type QueryFindMessagesByStreamArgs = {
-  streamId: Scalars['String']['input'];
 };
 
 
@@ -439,6 +434,11 @@ export type QueryGetChannelByUsernameArgs = {
 
 export type QueryGetFollowersCountByChannelArgs = {
   channelId: Scalars['String']['input'];
+};
+
+
+export type QueryGetMessagesByStreamArgs = {
+  streamId: Scalars['String']['input'];
 };
 
 

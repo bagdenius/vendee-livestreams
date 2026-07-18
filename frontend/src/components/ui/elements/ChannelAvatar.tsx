@@ -1,9 +1,11 @@
 'use client'
 
-import { GetMeQuery } from '@/graphql/generated'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { Avatar, AvatarFallback, AvatarImage } from '../common'
 import { cn, getMediaSource } from '@/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+import { GetMeQuery } from '@/graphql/generated'
+
+import { Avatar, AvatarFallback, AvatarImage } from '../common'
 
 const avatarSizes = cva('', {
   variants: { size: { sm: 'size-7', default: 'size-9', lg: 'size-14' } },

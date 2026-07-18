@@ -1,12 +1,15 @@
+import parse from 'html-react-parser'
+import { useTranslations } from 'next-intl'
+import { Fragment } from 'react/jsx-runtime'
+
 import { Separator, Spinner } from '@/components/ui/common'
+
 import {
   useGetNotificiationsByUserQuery,
   useGetUnreadNotificationsCountQuery,
 } from '@/graphql/generated'
+
 import { getNotificationIcon } from '@/utils/get-notification-icon.util'
-import parse from 'html-react-parser'
-import { useTranslations } from 'next-intl'
-import { Fragment } from 'react/jsx-runtime'
 
 export function NotificationsList() {
   const t = useTranslations('layout.header.menu.profile.notifications')

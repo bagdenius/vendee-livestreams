@@ -1,18 +1,20 @@
 'use client'
 
-import { Button } from '@/components/ui/common'
-import Hint from '@/components/ui/elements/Hint'
 import { useSidebar } from '@/hooks'
 import { cn } from '@/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { Button } from '@/components/ui/common'
+import { Hint } from '@/components/ui/elements/Hint'
+
 import { Route } from './route.interface'
 
 interface SidebarItemProps {
   route: Route
 }
 
-export default function SidebarItem({ route }: SidebarItemProps) {
+export function SidebarItem({ route }: SidebarItemProps) {
   const pathname = usePathname()
   const { isCollapsed } = useSidebar()
 

@@ -1,10 +1,11 @@
 import { FolderIcon, HomeIcon, RadioIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { Route } from './route.interface'
-import SidebarItem from './SidebarItem'
-import RecommendedChannels from './RecommendedChannels'
 
-export default function UserNav() {
+import { RecommendedChannels } from './RecommendedChannels'
+import { Route } from './route.interface'
+import { SidebarItem } from './SidebarItem'
+
+export function UserNav() {
   const t = useTranslations('layout.sidebar.userNav')
 
   const routes: Route[] = [

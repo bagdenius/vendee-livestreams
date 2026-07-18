@@ -226,7 +226,6 @@ type PlanModel {
 }
 
 type Query {
-  findMessagesByStream(streamId: String!): [ChatMessageModel!]!
   generateTotpSecret: TotpModel!
   getAllStreams(filters: FiltersInput!): [StreamModel!]!
   getCategories: [CategoryModel!]!
@@ -235,6 +234,7 @@ type Query {
   getCurrentSession: SessionModel!
   getFollowersCountByChannel(channelId: String!): Float!
   getMe: UserModel!
+  getMessagesByStream(streamId: String!): [ChatMessageModel!]!
   getMyFollowers: [FollowModel!]!
   getMySponsors: [SubscriptionModel!]!
   getMySponsorshipPlans: [PlanModel!]!

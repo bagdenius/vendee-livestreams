@@ -1,4 +1,3 @@
-import { NotificationType } from '@/graphql/generated'
 import {
   BellIcon,
   CheckIcon,
@@ -7,6 +6,8 @@ import {
   RadioIcon,
   UserIcon,
 } from 'lucide-react'
+
+import { NotificationType } from '@/graphql/generated'
 
 export function getNotificationIcon(type: NotificationType) {
   switch (type) {

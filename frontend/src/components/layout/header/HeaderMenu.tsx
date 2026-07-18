@@ -1,9 +1,11 @@
 'use client'
 
-import { Button } from '@/components/ui/common'
 import { useAuth } from '@/hooks'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+
+import { Button } from '@/components/ui/common'
+
 import { ProfileMenu } from './ProfileMenu'
 
 export function HeaderMenu() {

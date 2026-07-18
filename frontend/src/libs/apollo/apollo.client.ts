@@ -1,4 +1,5 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
+
 import { SERVER_URL } from '../constants'
 
 const httpLink = new HttpLink({

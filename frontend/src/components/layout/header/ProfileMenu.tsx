@@ -1,5 +1,12 @@
 'use client'
 
+import { useAuth, useCurrentUser } from '@/hooks'
+import { LayoutDashboardIcon, LogOutIcon, UserIcon, XIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,13 +17,9 @@ import {
   Spinner,
 } from '@/components/ui/common'
 import { ChannelAvatar } from '@/components/ui/elements'
+
 import { useLogoutUserMutation } from '@/graphql/generated'
-import { useAuth, useCurrentUser } from '@/hooks'
-import { LayoutDashboardIcon, LogOutIcon, UserIcon, XIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { toast } from 'sonner'
+
 import { Notifications } from './notifications'
 
 export function ProfileMenu() {

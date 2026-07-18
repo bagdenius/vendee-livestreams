@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
+
 import {
   useClearSessionCookieMutation,
   useGetMeQuery,
 } from '@/graphql/generated'
+
 import { useAuth } from './useAuth'
-import { useEffect } from 'react'
 
 export function useCurrentUser() {
   const { isAuthentificated, exit } = useAuth()

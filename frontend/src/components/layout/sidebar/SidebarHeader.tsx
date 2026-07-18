@@ -1,13 +1,13 @@
 'use client'
 
-import { Button } from '@/components/ui/common'
-import Hint from '@/components/ui/elements/Hint'
 import { useSidebar } from '@/hooks'
 import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { usePathname } from 'next/navigation'
 
-export default function SidebarHeader() {
+import { Button } from '@/components/ui/common'
+import { Hint } from '@/components/ui/elements/Hint'
+
+export function SidebarHeader() {
   const t = useTranslations('layout.sidebar.header')
 
   const { isCollapsed, open, close } = useSidebar()

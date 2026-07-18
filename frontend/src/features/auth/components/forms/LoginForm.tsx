@@ -1,5 +1,16 @@
 'use client'
 
+import { useAuth } from '@/hooks'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { REGEXP_ONLY_DIGITS } from 'input-otp'
+import { XIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+
 import {
   Button,
   Field,
@@ -12,19 +23,11 @@ import {
   InputOTPSlot,
   Spinner,
 } from '@/components/ui/common'
+
 import { useLoginMutation } from '@/graphql/generated'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { REGEXP_ONLY_DIGITS } from 'input-otp'
-import { XIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+
 import { type LoginInput, loginSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
-import { useAuth } from '@/hooks'
 
 export function LoginForm() {
   const t = useTranslations('auth.login')

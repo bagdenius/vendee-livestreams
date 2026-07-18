@@ -1,3 +1,7 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { PropsWithChildren } from 'react'
+
 import {
   Button,
   Card,
@@ -6,9 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/common'
-import Image from 'next/image'
-import Link from 'next/link'
-import { PropsWithChildren } from 'react'
 
 interface AuthWrapperProps {
   heading: string

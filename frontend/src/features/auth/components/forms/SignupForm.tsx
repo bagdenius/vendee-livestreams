@@ -1,5 +1,12 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
+import { CircleCheckIcon, XIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+
 import {
   Alert,
   AlertDescription,
@@ -12,13 +19,9 @@ import {
   Input,
   Spinner,
 } from '@/components/ui/common'
+
 import { useSignupMutation } from '@/graphql/generated'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { CircleCheckIcon, XIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import { useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
-import { toast } from 'sonner'
+
 import { type SignupInput, signupSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
 

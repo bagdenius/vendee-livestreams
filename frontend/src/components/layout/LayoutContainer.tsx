@@ -4,9 +4,7 @@ import { useMediaQuery, useSidebar } from '@/hooks'
 import { cn } from '@/utils'
 import { PropsWithChildren, useEffect } from 'react'
 
-export default function LayoutContainer({
-  children,
-}: PropsWithChildren<unknown>) {
+export function LayoutContainer({ children }: PropsWithChildren<unknown>) {
   const isMobile = useMediaQuery('(max-width: 1024px)')
 
   const { isCollapsed, open, close } = useSidebar()

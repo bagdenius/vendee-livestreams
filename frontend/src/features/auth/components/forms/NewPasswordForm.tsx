@@ -1,14 +1,5 @@
 'use client'
 
-import {
-  Button,
-  Field,
-  FieldGroup,
-  FieldLabel,
-  Input,
-  Spinner,
-} from '@/components/ui/common'
-import { useSetNewPasswordMutation } from '@/graphql/generated'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { XIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -17,6 +8,18 @@ import { useParams, useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+
+import {
+  Button,
+  Field,
+  FieldGroup,
+  FieldLabel,
+  Input,
+  Spinner,
+} from '@/components/ui/common'
+
+import { useSetNewPasswordMutation } from '@/graphql/generated'
+
 import { type NewPasswordInput, newPasswordSchema } from '../../schemas'
 import { AuthWrapper } from '../AuthWrapper'
 
