@@ -3,7 +3,7 @@
 import { useCurrentUser } from '@/hooks'
 
 export default function Homepage() {
-  const { user, isLoading } = useCurrentUser()
+  const { user, isLoadingUser: isLoading } = useCurrentUser()
 
   return (
     <div>

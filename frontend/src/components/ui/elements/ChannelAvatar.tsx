@@ -1,6 +1,6 @@
 'use client'
 
-import { cn, getMediaSource } from '@/utils'
+import { cn, getMediaSource } from '@/shared/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { GetMeQuery } from '@/graphql/generated'
@@ -8,7 +8,9 @@ import { GetMeQuery } from '@/graphql/generated'
 import { Avatar, AvatarFallback, AvatarImage } from '../common'
 
 const avatarSizes = cva('', {
-  variants: { size: { sm: 'size-7', default: 'size-9', lg: 'size-14' } },
+  variants: {
+    size: { sm: 'size-7', default: 'size-9', lg: 'size-14', xl: 'size-32' },
+  },
   defaultVariants: { size: 'default' },
 })
 
@@ -27,7 +29,7 @@ export function ChannelAvatar({ size, channel, isLive }: ChannelAvatarProps) {
           src={getMediaSource(channel.avatar!)}
           className='object-cover'
         />
-        <AvatarFallback className='text-lg'>
+        <AvatarFallback className={cn(size === 'xl' ? 'text-5xl' : 'text-xl')}>
           {channel.username[0]}
         </AvatarFallback>
       </Avatar>

@@ -1,5 +1,6 @@
 export * from './ChannelAvatar'
 export * from './ChannelItem'
 export * from './ChannelVerified'
+export * from './Heading'
 export * from './Hint'
 export * from './LiveBadge'

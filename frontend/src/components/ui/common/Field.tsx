@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { type ComponentProps, type ReactNode, useMemo } from 'react'
 

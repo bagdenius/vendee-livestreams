@@ -1,7 +1,7 @@
 'use client'
 
 import { useSidebar } from '@/hooks'
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 

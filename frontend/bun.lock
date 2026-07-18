@@ -8,6 +8,7 @@
         "@apollo/client": "3",
         "@base-ui/react": "^1.5.0",
         "@hookform/resolvers": "^5.4.0",
+        "apollo-upload-client": "18",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "graphql": "^16.14.1",
@@ -34,6 +35,7 @@
         "@parcel/watcher": "^2.5.6",
         "@tailwindcss/postcss": "^4",
         "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+        "@types/apollo-upload-client": "18",
         "@types/node": "^20",
         "@types/react": "^19",
         "@types/react-dom": "^19",
@@ -466,6 +468,10 @@
 
     "@ts-morph/common": ["@ts-morph/common@0.27.0", "", { "dependencies": { "fast-glob": "^3.3.3", "minimatch": "^10.0.1", "path-browserify": "^1.0.1" } }, "sha512-Wf29UqxWDpc+i61k3oIOzcUfQt79PIT9y/MWfAGlrkjg6lBC1hwDECLXPVJAhWjiGbfBCxZd65F/LIZF3+jeJQ=="],
 
+    "@types/apollo-upload-client": ["@types/apollo-upload-client@18.0.1", "", { "dependencies": { "@apollo/client": "^3.8.0", "@types/extract-files": "*", "graphql": "14 - 16" } }, "sha512-qumgUkhs9pqJAxlDtzmn3WTrJ9oAHBb6i9A7aR1HQyjLpX9+LRL5V84aErv5ZwcCSR2zEgG8cFsuBVYfZHFSRA=="],
+
+    "@types/extract-files": ["@types/extract-files@13.0.2", "", {}, "sha512-4sd7uDB0OVZmwH2wD6w7Qlpr2P5Pn8C9IGwnaq9aiiBDD3Lou7CwFjjkJTDYCDsEvk9zxAtmv9TaMg1lt/YJfA=="],
+
     "@types/node": ["@types/node@20.19.41", "", { "dependencies": { "undici-types": "~6.21.0" } }, "sha512-ECymXOukMnOoVkC2bb1Vc/w/836DXncOg5m8Xj1RH7xSHZJWNYY6Zh7EH477vcnD5egKNNfy2RpNOmuChhFPgQ=="],
 
     "@types/react": ["@types/react@19.2.16", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-esJiCAnl0kfpNdE69f3So4WJUXy95dLZydX0KwK46riIHDzHM7O9Vtf9xCHW0PXIqvgqNrswl522kA/5yx+F4w=="],
@@ -511,6 +517,8 @@
     "ansi-regex": ["ansi-regex@6.2.2", "", {}, "sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg=="],
 
     "ansi-styles": ["ansi-styles@6.2.3", "", {}, "sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg=="],
+
+    "apollo-upload-client": ["apollo-upload-client@18.0.1", "", { "dependencies": { "extract-files": "^13.0.0" }, "peerDependencies": { "@apollo/client": "^3.8.0", "graphql": "14 - 16" } }, "sha512-OQvZg1rK05VNI79D658FUmMdoI2oB/KJKb6QGMa2Si25QXOaAvLMBFUEwJct7wf+19U8vk9ILhidBOU1ZWv6QA=="],
 
     "argparse": ["argparse@2.0.1", "", {}, "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="],
 
@@ -699,6 +707,8 @@
     "express": ["express@5.2.1", "", { "dependencies": { "accepts": "^2.0.0", "body-parser": "^2.2.1", "content-disposition": "^1.0.0", "content-type": "^1.0.5", "cookie": "^0.7.1", "cookie-signature": "^1.2.1", "debug": "^4.4.0", "depd": "^2.0.0", "encodeurl": "^2.0.0", "escape-html": "^1.0.3", "etag": "^1.8.1", "finalhandler": "^2.1.0", "fresh": "^2.0.0", "http-errors": "^2.0.0", "merge-descriptors": "^2.0.0", "mime-types": "^3.0.0", "on-finished": "^2.4.1", "once": "^1.4.0", "parseurl": "^1.3.3", "proxy-addr": "^2.0.7", "qs": "^6.14.0", "range-parser": "^1.2.1", "router": "^2.2.0", "send": "^1.1.0", "serve-static": "^2.2.0", "statuses": "^2.0.1", "type-is": "^2.0.1", "vary": "^1.1.2" } }, "sha512-hIS4idWWai69NezIdRt2xFVofaF4j+6INOpJlVOLDO8zXGpUVEVzIYk12UUi2JzjEzWL3IOAxcTubgz9Po0yXw=="],
 
     "express-rate-limit": ["express-rate-limit@8.5.2", "", { "dependencies": { "ip-address": "^10.2.0" }, "peerDependencies": { "express": ">= 4.11" } }, "sha512-5Kb34ipNX694DH48vN9irak1Qx30nb0PLYHXfJgw4YEjiC3ZEmZJhwOp+VfiCYwFzvFTdB9QkArYS5kXa2cx2A=="],
+
+    "extract-files": ["extract-files@13.0.0", "", { "dependencies": { "is-plain-obj": "^4.1.0" } }, "sha512-FXD+2Tsr8Iqtm3QZy1Zmwscca7Jx3mMC5Crr+sEP1I303Jy1CYMuYCm7hRTplFNg3XdUavErkxnTzpaqdSoi6g=="],
 
     "fast-deep-equal": ["fast-deep-equal@3.1.3", "", {}, "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="],
 

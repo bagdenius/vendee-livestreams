@@ -26,7 +26,7 @@ export function ProfileMenu() {
   const t = useTranslations('layout.header.menu.profile')
   const router = useRouter()
   const { exit } = useAuth()
-  const { user, isLoading } = useCurrentUser()
+  const { user, isLoadingUser: isLoading } = useCurrentUser()
   const [logout] = useLogoutUserMutation({
     onCompleted() {
       exit()

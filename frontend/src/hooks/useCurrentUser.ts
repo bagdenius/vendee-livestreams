@@ -25,7 +25,7 @@ export function useCurrentUser() {
 
   return {
     user: data?.getMe,
-    isLoading: loading,
+    isLoadingUser: loading,
     refetch,
   }
 }

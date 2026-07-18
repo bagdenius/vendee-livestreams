@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import { Menu as MenuPrimitive } from '@base-ui/react/menu'
 import { CheckIcon, ChevronRightIcon } from 'lucide-react'
 import type { ComponentProps } from 'react'

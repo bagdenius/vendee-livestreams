@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import { Separator as SeparatorPrimitive } from '@base-ui/react/separator'
 
 function Separator({

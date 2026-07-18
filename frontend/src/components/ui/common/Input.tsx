@@ -1,4 +1,4 @@
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import { Input as InputPrimitive } from '@base-ui/react/input'
 import { type ComponentProps } from 'react'
 

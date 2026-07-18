@@ -112,9 +112,41 @@
     }
   },
 
-  "components": {
-    "liveBadge": {
-      "text": "LIVE"
+  "dashboard": {
+    "settings": {
+      "header": {
+        "heading": "Settings",
+        "description": "Here you can manage your settings",
+        "profile": "Profile",
+        "account": "Account",
+        "appearance": "Appearance",
+        "notifications": "Notifications",
+        "sessions": "Sessions"
+      },
+      "profile": {
+        "header": {
+          "heading": "Profile",
+          "description": "Customize your profile, update your avatar, change your personal information, and add social media links to make your page more attractive to other users."
+        },
+        "avatar": {
+          "heading": "Profile picture",
+          "updateButton": "Update avatar",
+          "confirmModal": {
+            "heading": "Delete avatar",
+            "message": "Are you sure you want to delete your profile picture? This action cannot be undone."
+          },
+          "info": "Supported formats: JPG, JPEG, PNG, WEBP, and GIF. Maximum file size: 10 MB.",
+          "successUpdateMessage": "Avatar updated successfully",
+          "errorUpdateMessage": "An error occurred while updating the avatar",
+          "successRemoveMessage": "Avatar deleted successfully",
+          "errorRemoveMessage": "An error occurred while deleting the avatar"
+        }
+      }
     }
+  },
+
+  "components": {
+    "liveBadge": { "text": "LIVE" },
+    "confirmModal": { "cancel": "Cancel", "continue": "Continue" }
   }
 }

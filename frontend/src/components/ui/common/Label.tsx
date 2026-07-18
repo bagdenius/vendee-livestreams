@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import type { ComponentProps } from 'react'
 
 function Label({ className, ...props }: ComponentProps<'label'>) {

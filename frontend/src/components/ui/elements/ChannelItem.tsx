@@ -1,13 +1,13 @@
 'use client'
 
 import { useSidebar } from '@/hooks'
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { GetRecommendedChannelsQuery } from '@/graphql/generated'
 
-import { Button } from '../common'
+import { Button, Skeleton } from '../common'
 
 import { ChannelAvatar } from './ChannelAvatar'
 import { ChannelVerified } from './ChannelVerified'
@@ -54,4 +54,8 @@ export function ChannelItem({ channel }: ChannelItemProps) {
       }
     />
   )
+}
+
+export function ChannelItemSkeleton() {
+  return <Skeleton className='mt-3 h-11 w-full' />
 }

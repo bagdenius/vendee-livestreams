@@ -1,4 +1,4 @@
-import { cn } from '@/utils'
+import { cn } from '@/shared/utils'
 import { Loader2Icon } from 'lucide-react'
 import type { ComponentProps } from 'react'
 

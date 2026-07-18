@@ -9,7 +9,7 @@ import {
   useGetUnreadNotificationsCountQuery,
 } from '@/graphql/generated'
 
-import { getNotificationIcon } from '@/utils/get-notification-icon.util'
+import { getNotificationIcon } from '@/shared/utils/get-notification-icon.util'
 
 export function NotificationsList() {
   const t = useTranslations('layout.header.menu.profile.notifications')
