@@ -144,7 +144,7 @@ export function ChangeInfoForm() {
             )}
           />
           <Separator />
-          <div className='flex justify-end p-5'>
+          <div className='flex justify-end px-5'>
             <Button
               type='submit'
               disabled={!isValid || !isDirty || isChangingProfile}
@@ -159,5 +159,5 @@ export function ChangeInfoForm() {
 }
 
 export function ChangeInfoFormSkeleton() {
-  return <Skeleton className='h-96 w-full' />
+  return <Skeleton className='h-140 w-full' />
 }

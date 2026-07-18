@@ -155,6 +155,30 @@
           "submitButton": "Save changes",
           "successMessage": "Profile updated successfully",
           "errorMessage": "An error occurred while updating the profile"
+        },
+        "socialLinks": {
+          "addForm": {
+            "heading": "Social links",
+            "titleLabel": "Link title",
+            "titlePlaceholder": "GitHub",
+            "titleDescription": "The text displayed for the link",
+            "urlLabel": "Page URL",
+            "urlPlaceholder": "https://github.com/bagdenius",
+            "urlDescription": "The URL of your social media profile. Enter the full URL, for example: https://github.com/bagdenius",
+            "submitButton": "Add",
+            "successMessage": "Link added successfully",
+            "errorMessage": "An error occurred while adding the link"
+          },
+          "editForm": {
+            "cancelButton": "Cancel",
+            "submitButton": "Save",
+            "successUpdateMessage": "Link updated successfully",
+            "errorUpdateMessage": "An error occurred while updating the link",
+            "successRemoveMessage": "Link deleted successfully",
+            "errorRemoveMessage": "An error occurred while deleting the link"
+          },
+          "successReorderMessage": "Link order updated successfully",
+          "errorReorderMessage": "An error occurred while updating the link order"
         }
       }
     }

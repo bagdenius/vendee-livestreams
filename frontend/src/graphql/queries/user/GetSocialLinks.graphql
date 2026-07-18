@@ -1,0 +1,8 @@
+query GetSocialLinks {
+  getSocialLinks {
+    id
+    title
+    url
+    position
+  }
+}
