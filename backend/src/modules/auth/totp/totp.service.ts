@@ -41,8 +41,8 @@ export class TotpService {
 			secret,
 		})
 
-		const delta = totp.validate({ token: pin })
-		if (!delta) throw new BadRequestException('Wrong code')
+		const delta = totp.validate({ token: pin, window: 0 })
+		if (delta === null) throw new BadRequestException('Wrong code')
 
 		await this.prisma.user.update({
 			where: { id: user.id },
