@@ -74,7 +74,8 @@ export class SessionService {
 				OR: [{ username: { equals: login } }, { email: { equals: login } }],
 			},
 		})
-		if (!user) throw new NotFoundException('User with provided login not found')
+		if (!user || user.isDeactivated)
+			throw new NotFoundException('User with provided login not found')
 
 		const isValidPassword = await verify(user.password, password)
 		if (!isValidPassword) throw new UnauthorizedException('Wrong password')

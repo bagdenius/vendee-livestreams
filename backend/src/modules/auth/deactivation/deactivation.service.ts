@@ -10,8 +10,10 @@ import { verify } from 'argon2'
 import type { Request } from 'express'
 
 import { PrismaService } from '@/core/prisma'
+import { RedisService } from '@/core/redis'
 import { MailService } from '@/modules/libs/mail'
 import { TelegramService } from '@/modules/libs/telegram'
+import { RedisSession } from '@/shared/types'
 import {
 	destroySession,
 	generateToken,
@@ -25,6 +27,7 @@ export class DeactivationService {
 	public constructor(
 		private readonly configService: ConfigService,
 		private readonly prisma: PrismaService,
+		private readonly redis: RedisService,
 		private readonly mailer: MailService,
 		private readonly telegramService: TelegramService,
 	) {}
@@ -38,7 +41,7 @@ export class DeactivationService {
 		const hasExpired = new Date(existingToken.expiresIn) < new Date()
 		if (hasExpired) throw new BadRequestException('Token has expired')
 
-		await this.prisma.user.update({
+		const user = await this.prisma.user.update({
 			where: { id: existingToken.userId },
 			data: { isDeactivated: true, deactivatedAt: new Date() },
 		})
@@ -47,10 +50,12 @@ export class DeactivationService {
 			where: { id: existingToken.id, type: TokenType.DEACTIVATE_ACCOUNT },
 		})
 
+		await this.clearSessions(user.id)
+
 		return destroySession(req, this.configService)
 	}
 
-	public async sendDeactivationToken(
+	private async sendDeactivationToken(
 		req: Request,
 		user: User,
 		userAgent: string,
@@ -81,6 +86,21 @@ export class DeactivationService {
 			)
 
 		return true
+	}
+
+	private async clearSessions(userId: string) {
+		const keys = await this.redis.keys(
+			`${this.configService.getOrThrow<string>('SESSION_FOLDER')}*`,
+		)
+		if (!keys?.length) throw new NotFoundException('Sessions not found')
+
+		for (const key of keys) {
+			const sessionData = await this.redis.get(key)
+			if (sessionData) {
+				const session = JSON.parse(sessionData) as RedisSession
+				if (session.userId === userId) await this.redis.del(key)
+			}
+		}
 	}
 
 	public async deactivate(
