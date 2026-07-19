@@ -10,13 +10,9 @@ import {
   Separator,
   Skeleton,
   Spinner,
-  Textarea,
 } from '@/components/ui/common'
 import { FormWrapper } from '@/components/ui/elements/FormWrapper'
-import {
-  useChangeEmailMutation,
-  useChangeProfileInfoMutation,
-} from '@/graphql/generated'
+import { useChangeEmailMutation } from '@/graphql/generated'
 import { useCurrentUser } from '@/hooks'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'

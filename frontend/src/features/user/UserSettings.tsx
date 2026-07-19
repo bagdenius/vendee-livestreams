@@ -10,6 +10,7 @@ import { ChangeAvatarForm } from './profile/ChangeAvatarForm'
 import { ChangeInfoForm } from './profile/ChangeInfoForm'
 import { SocialLinksForm } from './profile/social-link-form/SocialLinksForm'
 import { ChangeEmailForm } from './account/ChangeEmailForm'
+import { ChangePasswordForm } from './account/ChangePasswordForm'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')
@@ -49,6 +50,7 @@ export function UserSettings() {
               description={t('account.header.description')}
             />
             <ChangeEmailForm />
+            <ChangePasswordForm />
           </div>
         </TabsContent>
         <TabsContent value='appearance'>Appearance</TabsContent>
