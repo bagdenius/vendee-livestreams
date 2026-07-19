@@ -613,6 +613,12 @@ export type CreateUserInput = {
   username: string;
 };
 
+export type DeactivateAccountInput = {
+  email: string;
+  password: string;
+  pin?: string | null | undefined;
+};
+
 export type EnableTotpInput = {
   pin: string;
   secret: string;
@@ -659,6 +665,13 @@ export type ClearSessionCookieMutationVariables = Exact<{ [key: string]: never; 
 
 
 export type ClearSessionCookieMutation = { clearSessionCookie: boolean };
+
+export type DeactivateAccountMutationVariables = Exact<{
+  data: DeactivateAccountInput;
+}>;
+
+
+export type DeactivateAccountMutation = { deactivateAccount: { message: string | null, user: { isDeactivated: boolean } | null } };
 
 export type LoginMutationVariables = Exact<{
   data: LoginInput;
@@ -835,6 +848,42 @@ export function useClearSessionCookieMutation(baseOptions?: Apollo.MutationHookO
 export type ClearSessionCookieMutationHookResult = ReturnType<typeof useClearSessionCookieMutation>;
 export type ClearSessionCookieMutationResult = Apollo.MutationResult<ClearSessionCookieMutation>;
 export type ClearSessionCookieMutationOptions = Apollo.BaseMutationOptions<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>;
+export const DeactivateAccountDocument = gql`
+    mutation DeactivateAccount($data: DeactivateAccountInput!) {
+  deactivateAccount(data: $data) {
+    user {
+      isDeactivated
+    }
+    message
+  }
+}
+    `;
+export type DeactivateAccountMutationFn = Apollo.MutationFunction<DeactivateAccountMutation, DeactivateAccountMutationVariables>;
+
+/**
+ * __useDeactivateAccountMutation__
+ *
+ * To run a mutation, you first call `useDeactivateAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeactivateAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deactivateAccountMutation, { data, loading, error }] = useDeactivateAccountMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useDeactivateAccountMutation(baseOptions?: Apollo.MutationHookOptions<DeactivateAccountMutation, DeactivateAccountMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeactivateAccountMutation, DeactivateAccountMutationVariables>(DeactivateAccountDocument, options);
+      }
+export type DeactivateAccountMutationHookResult = ReturnType<typeof useDeactivateAccountMutation>;
+export type DeactivateAccountMutationResult = Apollo.MutationResult<DeactivateAccountMutation>;
+export type DeactivateAccountMutationOptions = Apollo.BaseMutationOptions<DeactivateAccountMutation, DeactivateAccountMutationVariables>;
 export const LoginDocument = gql`
     mutation Login($data: LoginInput!) {
   loginUser(data: $data) {

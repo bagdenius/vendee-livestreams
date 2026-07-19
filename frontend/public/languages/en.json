@@ -109,6 +109,19 @@
       "successMessage": "Password changed successfully!",
       "successDescription": "You can now log in using your new password.",
       "errorMessage": "Failed to set a new password!"
+    },
+    "deactivation": {
+      "heading": "Account deactivation",
+      "backButtonLabel": "Back to dashboard",
+      "emailLabel": "Email address",
+      "emailDescription": "The email address you used during registration",
+      "passwordLabel": "Password",
+      "passwordDescription": "The password you created during registration",
+      "pinLabel": "6-digit code",
+      "pinDescription": "A verification code has been sent to your email address. If you have Telegram notifications enabled, the code has also been sent there.",
+      "submitButton": "Deactivate account",
+      "successMessage": "Account deactivated successfully",
+      "errorMessage": "An error occurred while deactivating your account"
     }
   },
 
@@ -237,7 +250,7 @@
             "heading": "Confirm account deactivation",
             "message": "Are you sure you want to deactivate your account? You can restore access only within the next 7 days."
           },
-          "deactivateButton": "Deactivate account"
+          "button": "Deactivate account"
         }
       }
     }

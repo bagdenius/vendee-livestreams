@@ -1,20 +1,27 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
 export function proxy(request: NextRequest) {
-  const { url } = request
-  const session = request.cookies.get('session')?.value
-  const isAuthPage = url.includes('/auth')
+  const {
+    url,
+    nextUrl: { pathname },
+    cookies,
+  } = request
 
-  if (isAuthPage) {
-    if (session)
-      return NextResponse.redirect(new URL('/dashboard/settings', url))
-    return NextResponse.next()
-  }
+  const session = cookies.get('session')?.value
 
-  if (!session)
-    return NextResponse.redirect(new URL('/auth/login', request.url))
+  const isAuthRoute = pathname.startsWith('/auth')
+  const isDeactivationRoute = pathname === '/auth/deactivation'
+  const isDashboardRoute = pathname.startsWith('/dashboard')
+
+  if (!session && (isDashboardRoute || isDeactivationRoute))
+    return NextResponse.redirect(new URL('/auth/login', url))
+
+  if (session && isAuthRoute && !isDeactivationRoute)
+    return NextResponse.redirect(new URL('/dashboard/settings', url))
+
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/auth/:path', '/dashboard/:path'],
+  matcher: ['/auth/:path*', '/dashboard/:path*'],
 }
