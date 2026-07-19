@@ -98,7 +98,7 @@ export function LoginForm() {
                     autoComplete='pin'
                     disabled={isLoading}
                   >
-                    <InputOTPGroup className='w-full gap-2 *:data-[slot=input-otp-slot]:h-16 *:data-[slot=input-otp-slot]:w-full *:data-[slot=input-otp-slot]:text-2xl'>
+                    <InputOTPGroup className='w-full *:data-[slot=input-otp-slot]:h-16 *:data-[slot=input-otp-slot]:w-full *:data-[slot=input-otp-slot]:text-2xl'>
                       <InputOTPSlot index={0} />
                       <InputOTPSlot index={1} />
                       <InputOTPSlot index={2} />

@@ -11,6 +11,7 @@ import { ChangeInfoForm } from './profile/ChangeInfoForm'
 import { SocialLinksForm } from './profile/social-link-form/SocialLinksForm'
 import { ChangeEmailForm } from './account/ChangeEmailForm'
 import { ChangePasswordForm } from './account/ChangePasswordForm'
+import { WrapperTotp } from './account/totp/WrapperTotp'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')
@@ -51,6 +52,11 @@ export function UserSettings() {
             />
             <ChangeEmailForm />
             <ChangePasswordForm />
+            <Heading
+              title={t('account.header.securityHeading')}
+              description={t('account.header.securityDescription')}
+            />
+            <WrapperTotp />
           </div>
         </TabsContent>
         <TabsContent value='appearance'>Appearance</TabsContent>
