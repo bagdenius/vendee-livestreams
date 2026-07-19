@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl'
 import { ChangeAvatarForm } from './profile/ChangeAvatarForm'
 import { ChangeInfoForm } from './profile/ChangeInfoForm'
 import { SocialLinksForm } from './profile/social-link-form/SocialLinksForm'
+import { ChangeEmailForm } from './account/ChangeEmailForm'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')
@@ -41,7 +42,15 @@ export function UserSettings() {
             <SocialLinksForm />
           </div>
         </TabsContent>
-        <TabsContent value='account'>Account</TabsContent>
+        <TabsContent value='account'>
+          <div className='mt-5 space-y-6'>
+            <Heading
+              title={t('account.header.heading')}
+              description={t('account.header.description')}
+            />
+            <ChangeEmailForm />
+          </div>
+        </TabsContent>
         <TabsContent value='appearance'>Appearance</TabsContent>
         <TabsContent value='notifications'>Notifications</TabsContent>
         <TabsContent value='sessions'>Sessions</TabsContent>
