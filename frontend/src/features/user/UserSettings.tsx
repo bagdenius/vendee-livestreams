@@ -13,6 +13,9 @@ import { ChangeEmailForm } from './account/ChangeEmailForm'
 import { ChangePasswordForm } from './account/ChangePasswordForm'
 import { WrapperTotp } from './account/totp/WrapperTotp'
 import { DeactivationCard } from './account/DeactivationCard'
+import ChangeThemeForm from './appearance/ChangeThemeForm'
+import ChangeLanguageForm from './appearance/ChangeLanguageForm'
+import ChangeThemeColorForm from './appearance/ChangeThemeColorForm'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')
@@ -65,7 +68,17 @@ export function UserSettings() {
             <DeactivationCard />
           </div>
         </TabsContent>
-        <TabsContent value='appearance'>Appearance</TabsContent>
+        <TabsContent value='appearance'>
+          <div className='mt-5 space-y-6'>
+            <Heading
+              title={t('appearance.header.heading')}
+              description={t('appearance.header.description')}
+            />
+            <ChangeThemeForm />
+            <ChangeLanguageForm />
+            <ChangeThemeColorForm />
+          </div>
+        </TabsContent>
         <TabsContent value='notifications'>Notifications</TabsContent>
         <TabsContent value='sessions'>Sessions</TabsContent>
       </Tabs>

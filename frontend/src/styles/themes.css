@@ -1,0 +1,79 @@
+.theme-color-violet {
+  --primary: hsl(275 82% 38%);
+  --primary-foreground: hsl(210 20% 98%);
+}
+
+.dark .theme-color-violet {
+  --primary: hsl(275 82% 38%);
+  --primary-foreground: hsl(210 20% 98%);
+}
+
+.theme-color-blue {
+  --primary: hsl(204 70% 53%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-blue {
+  --primary: hsl(204 70% 53%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.theme-color-turquoise {
+  --primary: hsl(176 77% 41%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-turquoise {
+  --primary: hsl(176 77% 41%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.theme-color-yellow {
+  --primary: hsl(48 89% 50%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-yellow {
+  --primary: hsl(48 89% 50%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.theme-color-peach {
+  --primary: hsl(17 94% 67%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-peach {
+  --primary: hsl(17 94% 67%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.theme-color-pink {
+  --primary: hsl(330.4 81.2% 60.4%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-pink {
+  --primary: hsl(330.4 81.2% 60.4%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.theme-color-rose {
+  --primary: hsl(340 82% 52%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-rose {
+  --primary: hsl(340 82% 52%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.theme-color-red {
+  --primary: hsl(0 72.2% 50.6%);
+  --primary-foreground: hsl(210 40% 98%);
+}
+
+.dark .theme-color-red {
+  --primary: hsl(0 72.2% 50.6%);
+  --primary-foreground: hsl(210 40% 98%);
+}

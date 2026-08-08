@@ -8,6 +8,8 @@ import { Toaster } from '@/components/ui/common'
 import { TooltipProvider } from '@/components/ui/common/Tooltip'
 
 import '@/styles/globals.css'
+import '@/styles/themes.css'
+import ThemeColorSwitcher from '@/components/ui/elements/ThemeColorSwitcher'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,6 +41,7 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className='flex min-h-full flex-col'>
+        <ThemeColorSwitcher />
         <Toaster
           position='top-center'
           toastOptions={{ cancelButtonStyle: { height: '2.5rem' } }}

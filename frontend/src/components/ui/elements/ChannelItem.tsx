@@ -45,7 +45,7 @@ export function ChannelItem({ channel }: ChannelItemProps) {
           <ChannelAvatar size='sm' channel={channel} isLive={stream.isLive} />
           <h2 className='truncate pl-3'>{username}</h2>
           {isVerified && <ChannelVerified size='sm' />}
-          {!stream.isLive && (
+          {stream.isLive && (
             <div className='absolute right-5'>
               <LiveBadge />
             </div>

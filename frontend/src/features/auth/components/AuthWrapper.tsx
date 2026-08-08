@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/common'
+import LogoImage from '@/components/images/LogoImage'
 
 interface AuthWrapperProps {
   heading: string
@@ -27,12 +28,7 @@ export function AuthWrapper({
     <div className='flex h-full items-center justify-center'>
       <Card className='w-120'>
         <CardHeader className='flex items-center justify-center gap-2'>
-          <Image
-            src='/images/logo.svg'
-            alt='Vendee logo'
-            width={35}
-            height={35}
-          />
+          <LogoImage />
           <CardTitle className='text-2xl'>{heading}</CardTitle>
         </CardHeader>
         <CardContent className='mt-2'>{children}</CardContent>

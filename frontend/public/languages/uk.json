@@ -253,6 +253,27 @@
           },
           "button": "Деактивувати"
         }
+      },
+      "appearance": {
+        "header": {
+          "heading": "Зовнішній вигляд",
+          "description": "Налаштуйте зовнішній вигляд інтерфейсу на ваш смак. Оберіть тему та мову, які зроблять вашу взаємодію більш комфортною."
+        },
+        "theme": {
+          "heading": "Зміна теми",
+          "description": "Ви можете обрати темну або світлу тему для інтерфейсу сайту",
+          "successMessage": "Тему сайту успішно змінено"
+        },
+        "language": {
+          "heading": "Мова сайту",
+          "description": "Оберіть мову, яка буде використана на сайті",
+          "selectPlaceholder": "Оберіть мову",
+          "successMessage": "Мову сайту успішно змінено"
+        },
+        "color": {
+          "heading": "Accent color",
+          "description": "Choose an accent color for the interface"
+        }
       }
     }
   },

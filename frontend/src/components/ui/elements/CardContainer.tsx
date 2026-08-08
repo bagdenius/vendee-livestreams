@@ -3,7 +3,7 @@ import { Card } from '../common'
 
 interface CartContainerProps {
   heading: string
-  description: string
+  description?: string
   rightContent?: ReactNode
 }
 

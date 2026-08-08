@@ -252,6 +252,27 @@
           },
           "button": "Deactivate account"
         }
+      },
+      "appearance": {
+        "header": {
+          "heading": "Appearance",
+          "description": "Customize the interface to your liking. Choose a theme and language to make your experience more comfortable."
+        },
+        "theme": {
+          "heading": "Change theme",
+          "description": "You can choose between a dark or light theme for the website interface",
+          "successMessage": "Website theme updated successfully"
+        },
+        "language": {
+          "heading": "Website language",
+          "description": "Choose the language to be used on the website",
+          "selectPlaceholder": "Choose a language",
+          "successMessage": "Website language updated successfully"
+        },
+        "color": {
+          "heading": "Accent color",
+          "description": "Choose an accent color for the interface"
+        }
       }
     }
   },
