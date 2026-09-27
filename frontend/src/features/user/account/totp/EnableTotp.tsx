@@ -27,7 +27,7 @@ import { useTranslations } from 'next-intl'
 import { Controller, useForm } from 'react-hook-form'
 import {
   enableTotpSchema,
-  EnableTotpSchema,
+  EnableTotpInput,
 } from '../schemas/enable-totp.schema'
 import { REGEXP_ONLY_DIGITS } from 'input-otp'
 import { toast } from 'sonner'
@@ -58,12 +58,12 @@ export function EnableTotp() {
     handleSubmit,
     control,
     formState: { isValid },
-  } = useForm<EnableTotpSchema>({
+  } = useForm<EnableTotpInput>({
     resolver: zodResolver(enableTotpSchema),
     defaultValues: { pin: '' },
   })
 
-  function onSubmit({ pin }: EnableTotpSchema) {
+  function onSubmit({ pin }: EnableTotpInput) {
     enableTotp({
       variables: {
         data: {

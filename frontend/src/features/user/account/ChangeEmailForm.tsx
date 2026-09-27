@@ -20,7 +20,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import {
   changeEmailSchema,
-  ChangeEmailSchema,
+  ChangeEmailInput,
 } from './schemas/change-email.schema'
 
 export function ChangeEmailForm() {
@@ -32,7 +32,7 @@ export function ChangeEmailForm() {
     handleSubmit,
     control,
     formState: { isValid, isDirty },
-  } = useForm<ChangeEmailSchema>({
+  } = useForm<ChangeEmailInput>({
     resolver: zodResolver(changeEmailSchema),
     values: { email: user?.email ?? '' },
   })
@@ -47,7 +47,7 @@ export function ChangeEmailForm() {
     },
   })
 
-  function onSubmit(data: ChangeEmailSchema) {
+  function onSubmit(data: ChangeEmailInput) {
     changeEmail({ variables: { data } })
   }
 

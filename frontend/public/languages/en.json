@@ -318,12 +318,67 @@
           }
         }
       }
+    },
+    "keys": {
+      "header": {
+        "heading": "Stream keys",
+        "description": "Generate a URL and key to start streaming"
+      },
+      "url": {
+        "heading": "Stream URL"
+      },
+      "key": {
+        "heading": "Stream key"
+      },
+      "instructionModal": {
+        "trigger": "Instructions",
+        "heading": "🛠️ OBS Setup Guide for Live Streaming 🛠️",
+        "description": "To start sharing your content with your audience, follow this detailed guide to connect OBS Studio. Just a few steps and you'll be ready to go live!",
+        "step1Title": "🔑 Step 1: Download OBS Studio and Generate the Server URL and Stream Key",
+        "step1Description": "To start streaming, you need two important pieces of information: the Server URL and Stream Key. Follow these steps:",
+        "downloadObs": "Download OBS Studio",
+        "downloadObsDescription": "Before setting up your stream, download and install the ",
+        "obsLinkText": "OBS Studio",
+        "copyKeys": "Copy the Server URL and Stream Key",
+        "copyKeysDescription": "After generating the keys, two fields will appear on the screen: Server URL and Stream Key. Click the copy icons next to each field to save the information to your clipboard.",
+        "step2Title": "🎛️ Step 2: Configure OBS Studio",
+        "step2Description": "Now that you have the necessary information, let's configure OBS to work with your stream:",
+        "openObs": "Open OBS Studio",
+        "openObsDescription": "If you haven't installed OBS yet, download it from the official website and install it. After launching the application, the OBS main screen will open.",
+        "openStreamSettings": "Open stream settings",
+        "openStreamSettingsDescription": "In the top menu, click “File” ➔ “Settings”. Go to the “Stream” tab.",
+        "enterDetails": "Enter your details",
+        "enterDetailsDescription": "In the “Service” field, select “Custom...”. Paste the previously copied Server URL into the “URL” field. Paste your Stream Key into the “Stream Key” field.",
+        "saveSettings": "Save the settings",
+        "saveSettingsDescription": "Click “Apply” and then “OK” to save the changes.",
+        "step3Title": "🚀 Step 3: Start Streaming",
+        "step3Description": "After successfully configuring OBS, you're ready to start your live stream:",
+        "startStream": "Start streaming",
+        "startStreamDescription": "Return to the OBS main screen and click the “Start Streaming” button.",
+        "monitorStream": "Monitor your stream",
+        "monitorStreamDescription": "Your stream will start in real time, and you'll be able to watch it both on the Vendee platform and in OBS.",
+        "congrats": "✨ Congratulations! You've successfully configured OBS for streaming on our platform. Your audience is waiting for new exciting moments and great content! 🎉",
+        "close": "Close"
+      },
+      "createModal": {
+        "trigger": "Generate keys",
+        "heading": "Generate keys",
+        "ingressTypeLabel": "Connection type",
+        "ingressTypePlaceholder": "Select a connection type",
+        "ingressTypeDescription": "Choose RTMP for a classic stream or WHIP for WebRTC connections.",
+        "submitButton": "Generate",
+        "successMessage": "Ingest stream created",
+        "errorMessage": "An error occurred while creating the ingest stream"
+      }
     }
   },
 
   "components": {
     "liveBadge": { "text": "LIVE" },
-    "confirmModal": { "cancel": "Cancel", "continue": "Continue" }
+    "confirmModal": { "cancel": "Cancel", "continue": "Continue" },
+    "copyButton": {
+      "successMessage": "Copied"
+    }
   },
 
   "utils": {

@@ -5,4 +5,4 @@ export const socialLinkSchema = z.object({
   url: z.url('URL should be in https://host.domain format'),
 })
 
-export type SocialLinkSchema = z.infer<typeof socialLinkSchema>
+export type SocialLinkInput = z.infer<typeof socialLinkSchema>

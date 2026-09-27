@@ -132,6 +132,13 @@ export type VerifyAccountMutationVariables = Exact<{
 
 export type VerifyAccountMutation = { verifyAccount: { message: string | null, user: { isEmailVerified: boolean } | null } };
 
+export type CreateIngressMutationVariables = Exact<{
+  ingressType: number;
+}>;
+
+
+export type CreateIngressMutation = { createIngress: boolean };
+
 export type ChangeEmailMutationVariables = Exact<{
   data: ChangeEmailInput;
 }>;
@@ -216,7 +223,7 @@ export type GetCurrentSessionQuery = { getCurrentSession: { id: string, createdA
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMeQuery = { getMe: { username: string, displayName: string, email: string, avatar: string | null, bio: string | null, isTotpEnabled: boolean, notificationSettings: { siteNotifications: boolean, telegramNotifications: boolean } } };
+export type GetMeQuery = { getMe: { username: string, displayName: string, email: string, avatar: string | null, bio: string | null, isTotpEnabled: boolean, notificationSettings: { siteNotifications: boolean, telegramNotifications: boolean }, stream: { serverUrl: string | null, streamKey: string | null } } };
 
 export type GetNotificiationsByUserQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -522,6 +529,37 @@ export function useVerifyAccountMutation(baseOptions?: Apollo.MutationHookOption
 export type VerifyAccountMutationHookResult = ReturnType<typeof useVerifyAccountMutation>;
 export type VerifyAccountMutationResult = Apollo.MutationResult<VerifyAccountMutation>;
 export type VerifyAccountMutationOptions = Apollo.BaseMutationOptions<VerifyAccountMutation, VerifyAccountMutationVariables>;
+export const CreateIngressDocument = gql`
+    mutation CreateIngress($ingressType: Float!) {
+  createIngress(ingressType: $ingressType)
+}
+    `;
+export type CreateIngressMutationFn = Apollo.MutationFunction<CreateIngressMutation, CreateIngressMutationVariables>;
+
+/**
+ * __useCreateIngressMutation__
+ *
+ * To run a mutation, you first call `useCreateIngressMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateIngressMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createIngressMutation, { data, loading, error }] = useCreateIngressMutation({
+ *   variables: {
+ *      ingressType: // value for 'ingressType'
+ *   },
+ * });
+ */
+export function useCreateIngressMutation(baseOptions?: Apollo.MutationHookOptions<CreateIngressMutation, CreateIngressMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateIngressMutation, CreateIngressMutationVariables>(CreateIngressDocument, options);
+      }
+export type CreateIngressMutationHookResult = ReturnType<typeof useCreateIngressMutation>;
+export type CreateIngressMutationResult = Apollo.MutationResult<CreateIngressMutation>;
+export type CreateIngressMutationOptions = Apollo.BaseMutationOptions<CreateIngressMutation, CreateIngressMutationVariables>;
 export const ChangeEmailDocument = gql`
     mutation ChangeEmail($data: ChangeEmailInput!) {
   changeEmail(data: $data)
@@ -995,6 +1033,10 @@ export const GetMeDocument = gql`
     notificationSettings {
       siteNotifications
       telegramNotifications
+    }
+    stream {
+      serverUrl
+      streamKey
     }
   }
 }

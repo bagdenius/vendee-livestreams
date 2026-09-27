@@ -9,4 +9,4 @@ export const changePasswordSchema = z.object({
     .min(8, 'Password should be at least 8 characters'),
 })
 
-export type ChangePasswordSchema = z.infer<typeof changePasswordSchema>
+export type ChangePasswordInput = z.infer<typeof changePasswordSchema>

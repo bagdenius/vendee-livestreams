@@ -5,4 +5,4 @@ export const changeLanguageSchema = z.object({
   language: z.enum(languages),
 })
 
-export type ChangeLanguageSchema = z.infer<typeof changeLanguageSchema>
+export type ChangeLanguageInput = z.infer<typeof changeLanguageSchema>

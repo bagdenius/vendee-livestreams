@@ -19,4 +19,4 @@ export const changeProfileInfoSchema = z.object({
     .max(300, 'Bio should be less than 300 characters long'),
 })
 
-export type ChangeProfileInfoSchema = z.infer<typeof changeProfileInfoSchema>
+export type ChangeProfileInfoInput = z.infer<typeof changeProfileInfoSchema>

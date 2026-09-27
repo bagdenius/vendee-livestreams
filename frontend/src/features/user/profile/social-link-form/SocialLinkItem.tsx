@@ -13,7 +13,7 @@ import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import {
   socialLinkSchema,
-  type SocialLinkSchema,
+  type SocialLinkInput,
 } from '../schemas/social-link.schema'
 import { toast } from 'sonner'
 
@@ -34,7 +34,7 @@ export function SocialLinkItem({ socialLink, provided }: SocialLinkItemProps) {
     control,
     reset,
     formState: { isValid, isDirty },
-  } = useForm<SocialLinkSchema>({
+  } = useForm<SocialLinkInput>({
     resolver: zodResolver(socialLinkSchema),
     values: {
       title: socialLink.title ?? '',
@@ -71,7 +71,7 @@ export function SocialLinkItem({ socialLink, provided }: SocialLinkItemProps) {
     setEditingId(id)
   }
 
-  function onSubmit(data: SocialLinkSchema) {
+  function onSubmit(data: SocialLinkInput) {
     updateLink({ variables: { id: socialLink.id, data } })
   }
 

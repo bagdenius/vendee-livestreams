@@ -10,5 +10,9 @@ query GetMe {
       siteNotifications
       telegramNotifications
     }
+    stream {
+      serverUrl
+      streamKey
+    }
   }
 }

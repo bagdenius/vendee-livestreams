@@ -1,0 +1,38 @@
+import { CheckIcon, CopyIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+import { toast } from 'sonner'
+import { Button } from '../common'
+
+interface CopyButtonProps {
+  value: string | null
+}
+
+export default function CopyButton({ value }: CopyButtonProps) {
+  const t = useTranslations('components.copyButton')
+
+  const [isCopied, setIsCopied] = useState(false)
+
+  function onCopy() {
+    if (!value) return
+    setIsCopied(true)
+    navigator.clipboard.writeText(value)
+    toast.success(t('successMessage'))
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 2000)
+  }
+
+  const Icon = isCopied ? CheckIcon : CopyIcon
+
+  return (
+    <Button
+      variant='ghost'
+      size='icon-lg'
+      onClick={onCopy}
+      disabled={!value || isCopied}
+    >
+      <Icon className='size-5' />
+    </Button>
+  )
+}

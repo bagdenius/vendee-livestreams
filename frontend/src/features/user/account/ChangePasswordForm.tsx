@@ -20,7 +20,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import {
   changePasswordSchema,
-  ChangePasswordSchema,
+  ChangePasswordInput,
 } from './schemas/change-password.schema'
 
 export function ChangePasswordForm() {
@@ -33,7 +33,7 @@ export function ChangePasswordForm() {
     control,
     reset,
     formState: { isValid, isDirty },
-  } = useForm<ChangePasswordSchema>({
+  } = useForm<ChangePasswordInput>({
     resolver: zodResolver(changePasswordSchema),
     defaultValues: { oldPassword: '', newPassword: '' },
   })
@@ -50,7 +50,7 @@ export function ChangePasswordForm() {
       },
     })
 
-  function onSubmit(data: ChangePasswordSchema) {
+  function onSubmit(data: ChangePasswordInput) {
     changePassword({ variables: { data } })
   }
 

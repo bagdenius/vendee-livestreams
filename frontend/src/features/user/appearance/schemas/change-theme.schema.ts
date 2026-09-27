@@ -4,4 +4,4 @@ export const changeThemeSchema = z.object({
   theme: z.enum(['light', 'dark']),
 })
 
-export type ChangeThemeSchema = z.infer<typeof changeThemeSchema>
+export type ChangeThemeInput = z.infer<typeof changeThemeSchema>

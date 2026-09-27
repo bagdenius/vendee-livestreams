@@ -6,4 +6,4 @@ export const enableTotpSchema = z.object({
     .length(6, 'PIN code should be 6 characters long'),
 })
 
-export type EnableTotpSchema = z.infer<typeof enableTotpSchema>
+export type EnableTotpInput = z.infer<typeof enableTotpSchema>

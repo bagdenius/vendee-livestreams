@@ -4,4 +4,4 @@ export const changeEmailSchema = z.object({
   email: z.email('Invalid email format'),
 })
 
-export type ChangeEmailSchema = z.infer<typeof changeEmailSchema>
+export type ChangeEmailInput = z.infer<typeof changeEmailSchema>

@@ -20,7 +20,7 @@ import { useTranslations } from 'next-intl'
 import { Controller, useForm } from 'react-hook-form'
 import {
   changeProfileInfoSchema,
-  ChangeProfileInfoSchema,
+  ChangeProfileInfoInput,
 } from './schemas/change-profile-info.schema'
 import { toast } from 'sonner'
 
@@ -33,7 +33,7 @@ export function ChangeInfoForm() {
     handleSubmit,
     control,
     formState: { isValid, isDirty },
-  } = useForm<ChangeProfileInfoSchema>({
+  } = useForm<ChangeProfileInfoInput>({
     resolver: zodResolver(changeProfileInfoSchema),
     values: {
       username: user?.username ?? '',
@@ -53,7 +53,7 @@ export function ChangeInfoForm() {
       },
     })
 
-  function onSubmit(data: ChangeProfileInfoSchema) {
+  function onSubmit(data: ChangeProfileInfoInput) {
     changeProfile({ variables: { data } })
   }
 

@@ -5,6 +5,6 @@ export const changeNotificationSettingsSchema = z.object({
   telegramNotifications: z.boolean(),
 })
 
-export type ChangeNotificationSettingsSchema = z.infer<
+export type ChangeNotificationSettingsInput = z.infer<
   typeof changeNotificationSettingsSchema
 >

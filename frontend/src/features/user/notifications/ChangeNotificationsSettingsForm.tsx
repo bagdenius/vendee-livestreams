@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Controller, useForm } from 'react-hook-form'
 import {
   changeNotificationSettingsSchema,
-  type ChangeNotificationSettingsSchema,
+  type ChangeNotificationSettingsInput,
 } from './schemas/change-notifications-settings'
 import { zodResolver } from '@hookform/resolvers/zod'
 import ToggleCard, {
@@ -20,7 +20,7 @@ export default function ChangeNotificationsSettingsForm() {
   const { user, isLoadingUser, refetch } = useCurrentUser()
 
   const { getValues, setValue, control, handleSubmit } =
-    useForm<ChangeNotificationSettingsSchema>({
+    useForm<ChangeNotificationSettingsInput>({
       resolver: zodResolver(changeNotificationSettingsSchema),
       values: {
         siteNotifications:
@@ -48,7 +48,7 @@ export default function ChangeNotificationsSettingsForm() {
     })
 
   function onChange(
-    field: keyof ChangeNotificationSettingsSchema,
+    field: keyof ChangeNotificationSettingsInput,
     value: boolean,
   ) {
     setValue(field, value)

@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import {
   changeLanguageSchema,
-  ChangeLanguageSchema,
+  ChangeLanguageInput,
 } from './schemas/change-language.schema'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -30,15 +30,15 @@ export default function ChangeLanguageForm() {
   const t = useTranslations('dashboard.settings.appearance.language')
   const [isPending, startTransition] = useTransition()
   const locale = useLocale()
-  const { setValue, control, handleSubmit } = useForm<ChangeLanguageSchema>({
+  const { setValue, control, handleSubmit } = useForm<ChangeLanguageInput>({
     resolver: zodResolver(changeLanguageSchema),
     values: {
       language:
-        (locale as ChangeLanguageSchema['language']) === 'en' ? 'en' : 'uk',
+        (locale as ChangeLanguageInput['language']) === 'en' ? 'en' : 'uk',
     },
   })
 
-  function onSubmit(data: ChangeLanguageSchema) {
+  function onSubmit(data: ChangeLanguageInput) {
     startTransition(async () => {
       await setLanguage(data.language)
       toast.success(t('successMessage'))

@@ -9,13 +9,13 @@ import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import {
   changeThemeSchema,
-  ChangeThemeSchema,
+  ChangeThemeInput,
 } from './schemas/change-theme.schema'
 
 export default function ChangeThemeForm() {
   const t = useTranslations('dashboard.settings.appearance.theme')
   const { theme, setTheme } = useTheme()
-  const { setValue, control } = useForm<ChangeThemeSchema>({
+  const { setValue, control } = useForm<ChangeThemeInput>({
     resolver: zodResolver(changeThemeSchema),
     values: {
       theme: theme === 'dark' ? 'dark' : 'light',

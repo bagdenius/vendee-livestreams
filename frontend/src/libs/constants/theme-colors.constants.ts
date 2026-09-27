@@ -1,5 +1,5 @@
 export const THEME_COLORS = [
-  { name: 'violet', color: '275 82% 38%' },
+  { name: 'violet', color: '274 77% 33%' },
   { name: 'blue', color: '204 70% 53%' },
   { name: 'turquoise', color: '176 77% 41%' },
   { name: 'yellow', color: '48 89% 50%' },

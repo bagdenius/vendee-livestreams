@@ -22,7 +22,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import {
   socialLinkSchema,
-  SocialLinkSchema,
+  SocialLinkInput,
 } from '../schemas/social-link.schema'
 import { SocialLinksList } from './SocialLinksList'
 
@@ -36,7 +36,7 @@ export function SocialLinksForm() {
     control,
     reset,
     formState: { isValid },
-  } = useForm<SocialLinkSchema>({
+  } = useForm<SocialLinkInput>({
     resolver: zodResolver(socialLinkSchema),
     defaultValues: {
       title: '',
@@ -55,7 +55,7 @@ export function SocialLinksForm() {
     },
   })
 
-  function onSubmit(data: SocialLinkSchema) {
+  function onSubmit(data: SocialLinkInput) {
     addLink({ variables: { data } })
   }
 
