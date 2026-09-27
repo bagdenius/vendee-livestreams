@@ -1,6 +1,5 @@
 import { Input } from '@/components/ui/common'
-import { CardContainer } from '@/components/ui/elements/CardContainer'
-import CopyButton from '@/components/ui/elements/CopyButton'
+import { CardContainer, CopyButton } from '@/components/ui/elements'
 import { useTranslations } from 'next-intl'
 
 interface StreamUrlProps {

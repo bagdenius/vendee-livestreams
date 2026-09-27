@@ -9,7 +9,7 @@ interface ToggleCardProps {
   onChange: (value: boolean) => void
 }
 
-export default function ToggleCard({
+export function ToggleCard({
   heading,
   description,
   isDisabled,

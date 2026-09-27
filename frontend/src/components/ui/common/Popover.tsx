@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { Popover as PopoverPrimitive } from '@base-ui/react/popover'
 import type { ComponentProps } from 'react'
 

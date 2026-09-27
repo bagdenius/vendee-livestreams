@@ -1,6 +1,7 @@
 'use client'
 
-import { cn, getMediaSource } from '@/shared/utils'
+import { cn } from 'cn'
+import { getMediaSource } from '@/shared/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { GetMeQuery } from '@/graphql/generated'

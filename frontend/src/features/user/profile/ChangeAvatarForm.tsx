@@ -1,9 +1,11 @@
 'use client'
 
 import { Button, FieldGroup, Input, Skeleton } from '@/components/ui/common'
-import { ChannelAvatar } from '@/components/ui/elements'
-import { ConfirmModal } from '@/components/ui/elements/ConfirmModal'
-import { FormWrapper } from '@/components/ui/elements/FormWrapper'
+import {
+  ChannelAvatar,
+  ConfirmModal,
+  FormWrapper,
+} from '@/components/ui/elements'
 import {
   useChangeProfileAvatarMutation,
   useRemoveProfileAvatarMutation,

@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/common'
 import { useTranslations } from 'next-intl'
 
-export default function InstructionModal() {
+export function InstructionModal() {
   const t = useTranslations('dashboard.keys.instructionModal')
 
   return (

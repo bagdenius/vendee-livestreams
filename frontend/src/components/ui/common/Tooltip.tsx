@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip'
 
 function TooltipProvider({

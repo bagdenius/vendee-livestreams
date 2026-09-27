@@ -1,7 +1,7 @@
 'use client'
 
 import { Field, FieldGroup } from '@/components/ui/common'
-import ToggleCard from '@/components/ui/elements/ToggleCard'
+import { ToggleCard } from '@/components/ui/elements'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
@@ -12,7 +12,7 @@ import {
   ChangeThemeInput,
 } from './schemas/change-theme.schema'
 
-export default function ChangeThemeForm() {
+export function ChangeThemeForm() {
   const t = useTranslations('dashboard.settings.appearance.theme')
   const { theme, setTheme } = useTheme()
   const { setValue, control } = useForm<ChangeThemeInput>({

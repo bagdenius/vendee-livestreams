@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { Avatar as AvatarPrimitive } from '@base-ui/react/avatar'
 import type { ComponentProps } from 'react'
 

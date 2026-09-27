@@ -1,15 +1,15 @@
-import { ApolloClientProvider, ThemeProvider } from '@/providers'
+import { ApolloClientProvider } from '@/providers/ApolloClientProvider'
+import { ThemeProvider } from '@/providers/ThemeProvider'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'
 
-import { Toaster } from '@/components/ui/common'
-import { TooltipProvider } from '@/components/ui/common/Tooltip'
+import { Toaster, TooltipProvider } from '@/components/ui/common'
 
 import '@/styles/globals.css'
 import '@/styles/themes.css'
-import ThemeColorSwitcher from '@/components/ui/elements/ThemeColorSwitcher'
+import { ThemeColorSwitcher } from '@/components/ui/elements'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

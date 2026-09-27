@@ -5,20 +5,21 @@ import {
   DialogTrigger,
 } from '@/components/ui/common'
 import type { GetSessionsByUserQuery } from '@/graphql/generated'
-import { formatDate } from '@/shared/utils/format-date'
+import { useFormatDate } from '@/hooks'
 import { useTranslations } from 'next-intl'
 import { ReactElement } from 'react'
-import SessionMap from './SessionMap'
+import { SessionMap } from './SessionMap'
 
 interface SessionModalProps {
   children: ReactElement
   session: GetSessionsByUserQuery['getSessionsByUser'][0]
 }
 
-export default function SessionModal({ children, session }: SessionModalProps) {
+export function SessionModal({ children, session }: SessionModalProps) {
   const t = useTranslations(
     'dashboard.settings.sessions.sessionItem.sessionModal',
   )
+  const formatDate = useFormatDate()
 
   return (
     <Dialog>

@@ -1,9 +1,9 @@
 'use client'
 
-import { useConfig } from '@/hooks/useConfig'
+import { useConfig } from '@/hooks'
 import { useEffect } from 'react'
 
-export default function ThemeColorSwitcher() {
+export function ThemeColorSwitcher() {
   const { themeColor } = useConfig()
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { type ComponentProps } from 'react'
 
 function Card({

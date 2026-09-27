@@ -5,7 +5,7 @@ interface SessionMapProps {
   longitude: number
 }
 
-export default function SessionMap({ latitude, longitude }: SessionMapProps) {
+export function SessionMap({ latitude, longitude }: SessionMapProps) {
   const center = { lat: latitude, lng: longitude }
 
   return (

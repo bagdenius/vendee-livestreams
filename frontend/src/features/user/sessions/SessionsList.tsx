@@ -1,15 +1,14 @@
 'use client'
 
-import { Heading } from '@/components/ui/elements'
-import { ToggleCardSkeleton } from '@/components/ui/elements/ToggleCard'
+import { Heading, ToggleCardSkeleton } from '@/components/ui/elements'
 import {
   useGetCurrentSessionQuery,
   useGetSessionsByUserQuery,
 } from '@/graphql/generated'
 import { useTranslations } from 'next-intl'
-import SessionItem from './SessionItem'
+import { SessionItem } from './SessionItem'
 
-export default function SessionsList() {
+export function SessionsList() {
   const t = useTranslations('dashboard.settings.sessions')
 
   const { data: currentSessionData, loading: isLoadingCurrentSession } =

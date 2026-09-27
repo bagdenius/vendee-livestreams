@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/common'
-import { ConfirmModal } from '@/components/ui/elements/ConfirmModal'
+import { ConfirmModal } from '@/components/ui/elements'
 import { useDisableTotpMutation } from '@/graphql/generated'
 import { useCurrentUser } from '@/hooks'
 import { useTranslations } from 'next-intl'

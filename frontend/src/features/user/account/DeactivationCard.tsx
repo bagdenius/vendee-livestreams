@@ -1,8 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/common'
-import { CardContainer } from '@/components/ui/elements/CardContainer'
-import { ConfirmModal } from '@/components/ui/elements/ConfirmModal'
+import { CardContainer, ConfirmModal } from '@/components/ui/elements'
 import { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'

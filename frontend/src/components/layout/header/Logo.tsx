@@ -1,6 +1,6 @@
 'use client'
 
-import LogoImage from '@/components/images/LogoImage'
+import { LogoImage } from '@/components/images/LogoImage'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 

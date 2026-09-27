@@ -10,11 +10,12 @@ import {
 } from './schema/change-chat-settings.schema'
 import { Controller, useForm } from 'react-hook-form'
 import { useChangeChatSettingsMutation } from '@/graphql/generated'
-import ToggleCard, {
-  ToggleCardSkeleton,
-} from '@/components/ui/elements/ToggleCard'
 import { Field, FieldGroup } from '@/components/ui/common'
-import { Heading } from '@/components/ui/elements'
+import {
+  Heading,
+  ToggleCard,
+  ToggleCardSkeleton,
+} from '@/components/ui/elements'
 
 export function ChatSettings() {
   const t = useTranslations('dashboard.chat')

@@ -1,7 +1,7 @@
 'use client'
 
 import { useSidebar } from '@/hooks'
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { usePathname } from 'next/navigation'
 
 import { DashboardNav } from './DashboardNav'

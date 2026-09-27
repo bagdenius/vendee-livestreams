@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, Field, FieldGroup, Input } from '@/components/ui/common'
 import {
   useGetSocialLinksQuery,

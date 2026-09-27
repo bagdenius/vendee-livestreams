@@ -3,7 +3,7 @@
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog'
 
 import { Button } from '@/components/ui/common/Button'
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { XIcon } from 'lucide-react'
 import type { ComponentProps } from 'react'
 

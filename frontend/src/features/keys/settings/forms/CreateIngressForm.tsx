@@ -29,7 +29,7 @@ import {
   SelectValue,
 } from '@/components/ui/common'
 
-export default function CreateIngressForm() {
+export function CreateIngressForm() {
   const t = useTranslations('dashboard.keys.createModal')
 
   const [isOpen, setIsOpen] = useState(false)

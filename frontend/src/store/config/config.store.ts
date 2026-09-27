@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 
 import { ConfigStore } from './config.types'
-import { ThemeColor } from '@/libs/constants/theme-colors.constants'
+import { ThemeColor } from '@/libs/constants'
 
 export const configStore = create(
   persist<ConfigStore>(

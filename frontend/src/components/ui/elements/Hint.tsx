@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '../common/Tooltip'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/common'
 
 interface HintProps {
   children: ReactElement

@@ -2,7 +2,7 @@ import type { PropsWithChildren, ReactNode } from 'react'
 import { Card } from '../common'
 import type { LucideIcon } from 'lucide-react'
 import type { IconType } from 'react-icons'
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 
 interface CartContainerProps {
   heading: string

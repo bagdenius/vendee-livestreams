@@ -1,4 +1,4 @@
-import type { ThemeColor } from '@/libs/constants/theme-colors.constants'
+import { type ThemeColor } from '@/libs/constants'
 
 export interface ConfigStore {
   themeColor: ThemeColor

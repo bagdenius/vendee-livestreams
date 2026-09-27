@@ -1,3 +1,5 @@
+'use client'
+
 import parse from 'html-react-parser'
 import { useTranslations } from 'next-intl'
 import { Fragment } from 'react/jsx-runtime'
@@ -9,7 +11,7 @@ import {
   useGetUnreadNotificationsCountQuery,
 } from '@/graphql/generated'
 
-import { getNotificationIcon } from '@/shared/utils/get-notification-icon.util'
+import { getNotificationIcon } from '@/shared/utils'
 
 export function NotificationsList() {
   const t = useTranslations('layout.header.menu.profile.notifications')

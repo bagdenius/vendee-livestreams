@@ -1,12 +1,12 @@
 'use client'
 
 import { useSidebar } from '@/hooks'
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/ui/common'
-import { Hint } from '@/components/ui/elements/Hint'
+import { Hint } from '@/components/ui/elements'
 
 import { Route } from './route.interface'
 

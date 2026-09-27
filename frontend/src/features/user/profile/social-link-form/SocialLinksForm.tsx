@@ -11,7 +11,7 @@ import {
   Skeleton,
   Spinner,
 } from '@/components/ui/common'
-import { FormWrapper } from '@/components/ui/elements/FormWrapper'
+import { FormWrapper } from '@/components/ui/elements'
 import {
   useCreateSocialLinkMutation,
   useGetSocialLinksQuery,

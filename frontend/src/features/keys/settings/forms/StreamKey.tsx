@@ -1,6 +1,7 @@
+'use client'
+
 import { Button, Input } from '@/components/ui/common'
-import { CardContainer } from '@/components/ui/elements/CardContainer'
-import CopyButton from '@/components/ui/elements/CopyButton'
+import { CardContainer, CopyButton } from '@/components/ui/elements'
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'

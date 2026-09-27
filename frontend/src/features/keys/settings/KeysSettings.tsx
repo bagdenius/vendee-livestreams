@@ -1,15 +1,14 @@
 'use client'
 
-import { Heading } from '@/components/ui/elements'
+import { Heading, ToggleCardSkeleton } from '@/components/ui/elements'
 import { useCurrentUser } from '@/hooks'
 import { useTranslations } from 'next-intl'
-import InstructionModal from './InstructionModal'
-import CreateIngressForm from './forms/CreateIngressForm'
-import { ToggleCardSkeleton } from '@/components/ui/elements/ToggleCard'
+import { InstructionModal } from './InstructionModal'
+import { CreateIngressForm } from './forms/CreateIngressForm'
 import { StreamUrl } from './forms/StreamUrl'
 import { StreamKey } from './forms/StreamKey'
 
-export default function KeysSettings() {
+export function KeysSettings() {
   const t = useTranslations('dashboard.keys.header')
 
   const { user, isLoadingUser } = useCurrentUser()

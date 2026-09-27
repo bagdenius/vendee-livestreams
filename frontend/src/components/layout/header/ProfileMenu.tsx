@@ -20,7 +20,7 @@ import { ChannelAvatar } from '@/components/ui/elements'
 
 import { useLogoutUserMutation } from '@/graphql/generated'
 
-import { Notifications } from './notifications'
+import { Notifications } from './notifications/Notifications'
 
 export function ProfileMenu() {
   const t = useTranslations('layout.header.menu.profile')

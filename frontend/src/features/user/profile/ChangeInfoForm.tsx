@@ -12,7 +12,7 @@ import {
   Spinner,
   Textarea,
 } from '@/components/ui/common'
-import { FormWrapper } from '@/components/ui/elements/FormWrapper'
+import { FormWrapper } from '@/components/ui/elements'
 import { useChangeProfileInfoMutation } from '@/graphql/generated'
 import { useCurrentUser } from '@/hooks'
 import { zodResolver } from '@hookform/resolvers/zod'

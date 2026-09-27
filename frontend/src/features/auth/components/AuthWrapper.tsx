@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/common'
-import LogoImage from '@/components/images/LogoImage'
+import { LogoImage } from '@/components/images/LogoImage'
 
 interface AuthWrapperProps {
   heading: string

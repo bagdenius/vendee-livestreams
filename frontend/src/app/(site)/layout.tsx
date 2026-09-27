@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
-import { Header } from '@/components/layout/header'
+import { Header } from '@/components/layout/header/Header'
 import { LayoutContainer } from '@/components/layout/LayoutContainer'
 import { Sidebar } from '@/components/layout/sidebar/Sidebar'
 

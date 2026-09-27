@@ -1,22 +1,23 @@
-import { CardContainer } from '@/components/ui/elements/CardContainer'
+'use client'
+
+import { CardContainer, ConfirmModal } from '@/components/ui/elements'
 import {
   useGetSessionsByUserQuery,
   useRemoveSessionMutation,
   type GetSessionsByUserQuery,
 } from '@/graphql/generated'
-import { getBrowserIcon } from '@/shared/utils/get-browser-icon'
+import { getBrowserIcon } from '@/shared/utils'
 import { useTranslations } from 'next-intl'
-import SessionModal from './SessionModal'
+import { SessionModal } from './SessionModal'
 import { Button } from '@/components/ui/common'
 import { toast } from 'sonner'
-import { ConfirmModal } from '@/components/ui/elements/ConfirmModal'
 
 interface SessionItemProps {
   session: GetSessionsByUserQuery['getSessionsByUser'][0]
   isCurrentSession?: boolean
 }
 
-export default function SessionItem({
+export function SessionItem({
   session,
   isCurrentSession,
 }: SessionItemProps) {

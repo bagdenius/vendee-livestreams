@@ -8,7 +8,7 @@ import {
 } from './schemas/change-language.schema'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CardContainer } from '@/components/ui/elements/CardContainer'
+import { CardContainer } from '@/components/ui/elements'
 import {
   Field,
   FieldGroup,
@@ -26,7 +26,7 @@ const languages = {
   en: 'English',
 }
 
-export default function ChangeLanguageForm() {
+export function ChangeLanguageForm() {
   const t = useTranslations('dashboard.settings.appearance.language')
   const [isPending, startTransition] = useTransition()
   const locale = useLocale()

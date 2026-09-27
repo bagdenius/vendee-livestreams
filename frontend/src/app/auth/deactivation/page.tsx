@@ -1,4 +1,4 @@
-import { DeactivationForm } from '@/features/auth/components/forms/DeactivationForm'
+import { DeactivationForm } from '@/features/auth/components/forms'
 
 export default function DeactivationPage() {
   return <DeactivationForm />

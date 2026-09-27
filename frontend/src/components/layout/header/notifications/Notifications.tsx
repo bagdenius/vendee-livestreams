@@ -1,3 +1,5 @@
+'use client'
+
 import { BellIcon } from 'lucide-react'
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/common'

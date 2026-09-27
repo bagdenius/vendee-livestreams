@@ -1,7 +1,7 @@
 'use client'
 
 import { useMediaQuery, useSidebar } from '@/hooks'
-import { cn } from '@/shared/utils'
+import { cn } from 'cn'
 import { PropsWithChildren, useEffect } from 'react'
 
 export function LayoutContainer({ children }: PropsWithChildren<unknown>) {

@@ -13,11 +13,11 @@ import { ChangeEmailForm } from './account/ChangeEmailForm'
 import { ChangePasswordForm } from './account/ChangePasswordForm'
 import { WrapperTotp } from './account/totp/WrapperTotp'
 import { DeactivationCard } from './account/DeactivationCard'
-import ChangeThemeForm from './appearance/ChangeThemeForm'
-import ChangeLanguageForm from './appearance/ChangeLanguageForm'
-import ChangeThemeColorForm from './appearance/ChangeThemeColorForm'
-import ChangeNotificationsSettingsForm from './notifications/ChangeNotificationsSettingsForm'
-import SessionsList from './sessions/SessionsList'
+import { ChangeThemeForm } from './appearance/ChangeThemeForm'
+import { ChangeLanguageForm } from './appearance/ChangeLanguageForm'
+import { ChangeThemeColorForm } from './appearance/ChangeThemeColorForm'
+import { ChangeNotificationsSettingsForm } from './notifications/ChangeNotificationsSettingsForm'
+import { SessionsList } from './sessions/SessionsList'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')

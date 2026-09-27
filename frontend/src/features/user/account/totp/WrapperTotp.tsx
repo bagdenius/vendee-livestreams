@@ -1,7 +1,7 @@
 'use client'
 
 import { Skeleton } from '@/components/ui/common'
-import { CardContainer } from '@/components/ui/elements/CardContainer'
+import { CardContainer } from '@/components/ui/elements'
 import { useCurrentUser } from '@/hooks'
 import { useTranslations } from 'next-intl'
 import { EnableTotp } from './EnableTotp'

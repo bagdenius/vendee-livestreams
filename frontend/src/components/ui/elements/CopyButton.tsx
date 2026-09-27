@@ -1,3 +1,5 @@
+'use client'
+
 import { CheckIcon, CopyIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
@@ -8,7 +10,7 @@ interface CopyButtonProps {
   value: string | null
 }
 
-export default function CopyButton({ value }: CopyButtonProps) {
+export function CopyButton({ value }: CopyButtonProps) {
   const t = useTranslations('components.copyButton')
 
   const [isCopied, setIsCopied] = useState(false)

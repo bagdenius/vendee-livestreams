@@ -1,4 +1,4 @@
-import KeysSettings from '@/features/keys/settings/KeysSettings'
+import { KeysSettings } from '@/features/keys/settings/KeysSettings'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 

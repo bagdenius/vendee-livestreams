@@ -8,14 +8,12 @@ import {
   type ChangeNotificationSettingsInput,
 } from './schemas/change-notifications-settings.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import ToggleCard, {
-  ToggleCardSkeleton,
-} from '@/components/ui/elements/ToggleCard'
+import { ToggleCard, ToggleCardSkeleton } from '@/components/ui/elements'
 import { Field, FieldGroup } from '@/components/ui/common'
 import { useChangeNotificationSettingsMutation } from '@/graphql/generated'
 import { toast } from 'sonner'
 
-export default function ChangeNotificationsSettingsForm() {
+export function ChangeNotificationsSettingsForm() {
   const t = useTranslations('dashboard.settings.notifications')
   const { user, isLoadingUser, refetch } = useCurrentUser()
 

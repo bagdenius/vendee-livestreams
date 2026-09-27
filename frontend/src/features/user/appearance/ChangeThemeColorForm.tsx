@@ -1,12 +1,12 @@
 'use client'
 
-import { CardContainer } from '@/components/ui/elements/CardContainer'
-import { useConfig } from '@/hooks/useConfig'
-import { THEME_COLORS } from '@/libs/constants/theme-colors.constants'
+import { CardContainer } from '@/components/ui/elements'
+import { useConfig } from '@/hooks'
+import { THEME_COLORS } from '@/libs/constants'
 import { CheckIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-export default function ChangeThemeColorForm() {
+export function ChangeThemeColorForm() {
   const t = useTranslations('dashboard.settings.appearance.color')
   const config = useConfig()
 
