@@ -26,8 +26,12 @@ export class AccountService {
 	public async me(id: string) {
 		const user = await this.prisma.user.findUnique({
 			where: { id },
-			include: { socialLinks: true },
+			include: { socialLinks: true, notificationSettings: true },
 		})
+		if (user && !user.notificationSettings)
+			user.notificationSettings = await this.prisma.notificationSettings.create({
+				data: { userId: user.id },
+			})
 		return user
 	}
 
@@ -53,6 +57,7 @@ export class AccountService {
 				password: await hash(password),
 				displayName: username,
 				stream: { create: { title: `${username} stream` } },
+				notificationSettings: { create: {} },
 			},
 		})
 

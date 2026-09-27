@@ -47,43 +47,60 @@ export class TelegramService extends Telegraf {
 	@Start()
 	public async onStart(@Ctx() ctx: Context) {
 		const chatId = ctx.chat?.id?.toString()
-		if (!chatId) return ctx.reply('An error occured')
+		if (!chatId) {
+			await ctx.reply('An error occured')
+			return
+		}
 
 		const text = this.getMessageText(ctx)
 		const token = text?.split(' ')[1]
 
 		if (!token) {
 			const user = await this.getUserByChatId(chatId)
-			if (user) return this.onMe(ctx)
-			return ctx.replyWithHTML(MESSAGES.welcome, BUTTONS.profile)
+			if (user) {
+				await this.onMe(ctx)
+				return
+			}
+			await ctx.replyWithHTML(MESSAGES.welcome, BUTTONS.profile)
+			return
 		}
 
 		const authToken = await this.prisma.token.findUnique({
 			where: { token, type: TokenType.TELEGRAM_AUTH },
 		})
-		if (!authToken) return ctx.reply(MESSAGES.invalidToken)
+		if (!authToken) {
+			await ctx.reply(MESSAGES.invalidToken)
+			return
+		}
 
 		const hasExpired = authToken.expiresIn < new Date()
 		if (hasExpired) {
 			await this.prisma.token.delete({ where: { id: authToken.id } })
-			return ctx.reply(MESSAGES.invalidToken)
+			await ctx.reply(MESSAGES.invalidToken)
+			return
 		}
 
 		await this.connectTelegram(authToken.userId, chatId)
 
 		await this.prisma.token.delete({ where: { id: authToken.id } })
 
-		return ctx.replyWithHTML(MESSAGES.authSuccess, BUTTONS.authSuccess)
+		await ctx.replyWithHTML(MESSAGES.authSuccess, BUTTONS.authSuccess)
 	}
 
 	@Command('me')
 	@Action('me')
 	public async onMe(@Ctx() ctx: Context) {
 		const chatId = ctx.chat?.id?.toString()
-		if (!chatId) return ctx.reply('An error occured')
+		if (!chatId) {
+			await ctx.reply('An error occured')
+			return
+		}
 
 		const user = await this.getUserByChatId(chatId)
-		if (!user) return ctx.reply('User not found')
+		if (!user) {
+			await ctx.reply('User not found')
+			return
+		}
 
 		const followersCount = await this.prisma.follow.count({
 			where: { followingId: user.id },
@@ -99,10 +116,16 @@ export class TelegramService extends Telegraf {
 	@Action('follows')
 	public async onFollows(@Ctx() ctx: Context) {
 		const chatId = ctx.chat?.id?.toString()
-		if (!chatId) return ctx.reply('An error occured')
+		if (!chatId) {
+			await ctx.reply('An error occured')
+			return
+		}
 
 		const user = await this.getUserByChatId(chatId)
-		if (!user) return ctx.reply('❌ User not found')
+		if (!user) {
+			await ctx.reply('❌ User not found')
+			return
+		}
 
 		const follows = await this.prisma.follow.findMany({
 			where: { followerId: user.id },

@@ -16,6 +16,7 @@ import { DeactivationCard } from './account/DeactivationCard'
 import ChangeThemeForm from './appearance/ChangeThemeForm'
 import ChangeLanguageForm from './appearance/ChangeLanguageForm'
 import ChangeThemeColorForm from './appearance/ChangeThemeColorForm'
+import ChangeNotificationsSettingsForm from './notifications/ChangeNotificationsSettingsForm'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')
@@ -79,7 +80,15 @@ export function UserSettings() {
             <ChangeThemeColorForm />
           </div>
         </TabsContent>
-        <TabsContent value='notifications'>Notifications</TabsContent>
+        <TabsContent value='notifications'>
+          <div className='mt-5 space-y-6'>
+            <Heading
+              title={t('notifications.header.heading')}
+              description={t('notifications.header.description')}
+            />
+            <ChangeNotificationsSettingsForm />
+          </div>
+        </TabsContent>
         <TabsContent value='sessions'>Sessions</TabsContent>
       </Tabs>
     </div>

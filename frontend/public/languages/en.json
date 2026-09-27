@@ -273,6 +273,22 @@
           "heading": "Accent color",
           "description": "Choose an accent color for the interface"
         }
+      },
+      "notifications": {
+        "header": {
+          "heading": "Notifications",
+          "description": "Configure how you want to receive notifications from Vendee. You will receive notifications when channels you follow go live, as well as notifications about new followers."
+        },
+        "siteNotifications": {
+          "heading": "Site notifications",
+          "description": "If you disable site notifications, you will not receive notifications about new followers of your channel or new streams."
+        },
+        "telegramNotifications": {
+          "heading": "Telegram notifications",
+          "description": "If you enable Telegram notifications, your Vendee account will be linked to your Telegram account, and you will receive notifications about new followers, new streams, password resets, and two-factor authentication codes."
+        },
+        "successMessage": "Notification settings updated successfully",
+        "errorMessage": "An error occurred while updating notification settings"
       }
     }
   },
