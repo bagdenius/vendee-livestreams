@@ -402,6 +402,19 @@
         "actions": "Actions",
         "viewChannel": "Go to channel"
       }
+    },
+    "sponsors": {
+      "header": {
+        "heading": "Sponsors",
+        "description": "Here you can see a list of all your sponsors."
+      },
+      "columns": {
+        "date": "Expiration date",
+        "user": "User",
+        "plan": "Plan",
+        "actions": "Actions",
+        "viewChannel": "Go to channel"
+      }
     }
   },
 

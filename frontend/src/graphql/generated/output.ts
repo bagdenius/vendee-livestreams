@@ -228,6 +228,11 @@ export type GetMyFollowersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetMyFollowersQuery = { getMyFollowers: Array<{ createdAt: string, follower: { username: string, avatar: string | null, isVerified: boolean } }> };
 
+export type GetMySponsorsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMySponsorsQuery = { getMySponsors: Array<{ expiresAt: string, user: { username: string, avatar: string | null, isVerified: boolean }, plan: { title: string } }> };
+
 export type GenerateTotpSecretQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1018,6 +1023,56 @@ export type GetMyFollowersQueryHookResult = ReturnType<typeof useGetMyFollowersQ
 export type GetMyFollowersLazyQueryHookResult = ReturnType<typeof useGetMyFollowersLazyQuery>;
 export type GetMyFollowersSuspenseQueryHookResult = ReturnType<typeof useGetMyFollowersSuspenseQuery>;
 export type GetMyFollowersQueryResult = Apollo.QueryResult<GetMyFollowersQuery, GetMyFollowersQueryVariables>;
+export const GetMySponsorsDocument = gql`
+    query GetMySponsors {
+  getMySponsors {
+    user {
+      username
+      avatar
+      isVerified
+    }
+    plan {
+      title
+    }
+    expiresAt
+  }
+}
+    `;
+
+/**
+ * __useGetMySponsorsQuery__
+ *
+ * To run a query within a React component, call `useGetMySponsorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMySponsorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMySponsorsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMySponsorsQuery(baseOptions?: Apollo.QueryHookOptions<GetMySponsorsQuery, GetMySponsorsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMySponsorsQuery, GetMySponsorsQueryVariables>(GetMySponsorsDocument, options);
+      }
+export function useGetMySponsorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMySponsorsQuery, GetMySponsorsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMySponsorsQuery, GetMySponsorsQueryVariables>(GetMySponsorsDocument, options);
+        }
+// @ts-ignore
+export function useGetMySponsorsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetMySponsorsQuery, GetMySponsorsQueryVariables>): Apollo.UseSuspenseQueryResult<GetMySponsorsQuery, GetMySponsorsQueryVariables>;
+export function useGetMySponsorsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMySponsorsQuery, GetMySponsorsQueryVariables>): Apollo.UseSuspenseQueryResult<GetMySponsorsQuery | undefined, GetMySponsorsQueryVariables>;
+export function useGetMySponsorsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMySponsorsQuery, GetMySponsorsQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetMySponsorsQuery, GetMySponsorsQueryVariables>(GetMySponsorsDocument, options);
+        }
+export type GetMySponsorsQueryHookResult = ReturnType<typeof useGetMySponsorsQuery>;
+export type GetMySponsorsLazyQueryHookResult = ReturnType<typeof useGetMySponsorsLazyQuery>;
+export type GetMySponsorsSuspenseQueryHookResult = ReturnType<typeof useGetMySponsorsSuspenseQuery>;
+export type GetMySponsorsQueryResult = Apollo.QueryResult<GetMySponsorsQuery, GetMySponsorsQueryVariables>;
 export const GenerateTotpSecretDocument = gql`
     query GenerateTotpSecret {
   generateTotpSecret {

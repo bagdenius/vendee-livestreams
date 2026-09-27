@@ -1,0 +1,13 @@
+query GetMySponsors {
+  getMySponsors {
+    user {
+      username
+      avatar
+      isVerified
+    }
+    plan {
+      title
+    }
+    expiresAt
+  }
+}
