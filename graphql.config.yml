@@ -1,0 +1,9 @@
+# GraphQL config for editor tooling (VS Code "GraphQL: Language Feature Support").
+# Codegen uses its own configs in frontend/ and ng-frontend/.
+projects:
+  frontend:
+    schema: backend/src/core/graphql/schema.gql
+    documents: frontend/src/graphql/**/*.graphql
+  ng-frontend:
+    schema: backend/src/core/graphql/schema.gql
+    documents: ng-frontend/src/app/graphql/**/*.graphql

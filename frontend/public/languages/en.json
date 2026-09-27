@@ -390,6 +390,18 @@
       },
       "successMessage": "Chat settings updated",
       "errorMessage": "An error occurred while updating chat settings"
+    },
+    "followers": {
+      "header": {
+        "heading": "Followers",
+        "description": "Here you can see a list of all your followers."
+      },
+      "columns": {
+        "date": "Followed on",
+        "user": "User",
+        "actions": "Actions",
+        "viewChannel": "Go to channel"
+      }
     }
   },
 
@@ -398,6 +410,9 @@
     "confirmModal": { "cancel": "Cancel", "continue": "Continue" },
     "copyButton": {
       "successMessage": "Copied"
+    },
+    "dataTable": {
+      "notFound": "Nothing found"
     }
   },
 

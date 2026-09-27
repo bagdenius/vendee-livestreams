@@ -7,7 +7,11 @@ const config: CodegenConfig = {
 	generates: {
 		'./src/graphql/generated/output.ts': {
 			plugins: ['typescript-operations', 'typescript-react-apollo'],
-			config: { enumType: 'native' },
+			config: {
+				enumType: 'native',
+				strictScalars: true,
+				scalars: { DateTime: 'string', Upload: 'File' },
+			},
 		},
 	},
 	ignoreNoDocuments: true,

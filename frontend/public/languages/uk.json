@@ -271,8 +271,8 @@
           "successMessage": "Мову сайту успішно змінено"
         },
         "color": {
-          "heading": "Accent color",
-          "description": "Choose an accent color for the interface"
+          "heading": "Колір акценту",
+          "description": "Оберіть колір акценту для інтерфейсу"
         }
       },
       "notifications": {
@@ -391,6 +391,18 @@
       },
       "successMessage": "Налаштування чату оновлено",
       "errorMessage": "При оновленні налаштувань чату виникла помилка"
+    },
+    "followers": {
+      "header": {
+        "heading": "Підписники",
+        "description": "Тут відображається список всіх ваших підписників."
+      },
+      "columns": {
+        "date": "Дата підписки",
+        "user": "Користувач",
+        "actions": "Дії",
+        "viewChannel": "Перейти до каналу"
+      }
     }
   },
 
@@ -399,6 +411,9 @@
     "confirmModal": { "cancel": "Скасувати", "continue": "Продовжити" },
     "copyButton": {
       "successMessage": "Скопійовано"
+    },
+    "dataTable": {
+      "notFound": "Нічого не знайдено"
     }
   },
 

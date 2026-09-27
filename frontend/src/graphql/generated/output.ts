@@ -174,7 +174,7 @@ export type ChangePasswordMutationVariables = Exact<{
 export type ChangePasswordMutation = { changePassword: boolean };
 
 export type ChangeProfileAvatarMutationVariables = Exact<{
-  avatar: unknown;
+  avatar: File;
 }>;
 
 
@@ -222,6 +222,11 @@ export type GetRecommendedChannelsQueryVariables = Exact<{ [key: string]: never;
 
 
 export type GetRecommendedChannelsQuery = { getRecommendedChannels: Array<{ id: string, username: string, avatar: string | null, isVerified: boolean, stream: { isLive: boolean } }> };
+
+export type GetMyFollowersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMyFollowersQuery = { getMyFollowers: Array<{ createdAt: string, follower: { username: string, avatar: string | null, isVerified: boolean } }> };
 
 export type GenerateTotpSecretQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -966,6 +971,53 @@ export type GetRecommendedChannelsQueryHookResult = ReturnType<typeof useGetReco
 export type GetRecommendedChannelsLazyQueryHookResult = ReturnType<typeof useGetRecommendedChannelsLazyQuery>;
 export type GetRecommendedChannelsSuspenseQueryHookResult = ReturnType<typeof useGetRecommendedChannelsSuspenseQuery>;
 export type GetRecommendedChannelsQueryResult = Apollo.QueryResult<GetRecommendedChannelsQuery, GetRecommendedChannelsQueryVariables>;
+export const GetMyFollowersDocument = gql`
+    query GetMyFollowers {
+  getMyFollowers {
+    follower {
+      username
+      avatar
+      isVerified
+    }
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useGetMyFollowersQuery__
+ *
+ * To run a query within a React component, call `useGetMyFollowersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMyFollowersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMyFollowersQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMyFollowersQuery(baseOptions?: Apollo.QueryHookOptions<GetMyFollowersQuery, GetMyFollowersQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMyFollowersQuery, GetMyFollowersQueryVariables>(GetMyFollowersDocument, options);
+      }
+export function useGetMyFollowersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMyFollowersQuery, GetMyFollowersQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMyFollowersQuery, GetMyFollowersQueryVariables>(GetMyFollowersDocument, options);
+        }
+// @ts-ignore
+export function useGetMyFollowersSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetMyFollowersQuery, GetMyFollowersQueryVariables>): Apollo.UseSuspenseQueryResult<GetMyFollowersQuery, GetMyFollowersQueryVariables>;
+export function useGetMyFollowersSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMyFollowersQuery, GetMyFollowersQueryVariables>): Apollo.UseSuspenseQueryResult<GetMyFollowersQuery | undefined, GetMyFollowersQueryVariables>;
+export function useGetMyFollowersSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMyFollowersQuery, GetMyFollowersQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetMyFollowersQuery, GetMyFollowersQueryVariables>(GetMyFollowersDocument, options);
+        }
+export type GetMyFollowersQueryHookResult = ReturnType<typeof useGetMyFollowersQuery>;
+export type GetMyFollowersLazyQueryHookResult = ReturnType<typeof useGetMyFollowersLazyQuery>;
+export type GetMyFollowersSuspenseQueryHookResult = ReturnType<typeof useGetMyFollowersSuspenseQuery>;
+export type GetMyFollowersQueryResult = Apollo.QueryResult<GetMyFollowersQuery, GetMyFollowersQueryVariables>;
 export const GenerateTotpSecretDocument = gql`
     query GenerateTotpSecret {
   generateTotpSecret {
