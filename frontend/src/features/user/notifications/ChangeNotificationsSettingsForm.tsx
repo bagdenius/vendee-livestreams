@@ -6,7 +6,7 @@ import { Controller, useForm } from 'react-hook-form'
 import {
   changeNotificationSettingsSchema,
   type ChangeNotificationSettingsInput,
-} from './schemas/change-notifications-settings'
+} from './schemas/change-notifications-settings.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import ToggleCard, {
   ToggleCardSkeleton,

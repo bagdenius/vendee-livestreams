@@ -7,7 +7,7 @@ import {
   type createIngressInput,
   createIngressSchema,
   IngressType,
-} from '../schemas/create-ingress-schema'
+} from '../schemas/create-ingress.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCreateIngressMutation } from '@/graphql/generated'
 import { toast } from 'sonner'

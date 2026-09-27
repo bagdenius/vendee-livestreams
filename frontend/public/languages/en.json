@@ -370,6 +370,26 @@
         "successMessage": "Ingest stream created",
         "errorMessage": "An error occurred while creating the ingest stream"
       }
+    },
+    "chat": {
+      "header": {
+        "heading": "Chat settings",
+        "description": "Here you can manage your chat settings."
+      },
+      "isChatEnabled": {
+        "heading": "Enable chat",
+        "description": "If you disable chat, viewers will not be able to send messages in the chat during your stream."
+      },
+      "isChatFollowersOnly": {
+        "heading": "Followers-only chat",
+        "description": "If you enable this setting, only your followers will be able to send messages in the chat."
+      },
+      "isChatSponsorsOnly": {
+        "heading": "Sponsors-only chat",
+        "description": "If you enable this setting, only your sponsors will be able to send messages in the chat."
+      },
+      "successMessage": "Chat settings updated",
+      "errorMessage": "An error occurred while updating chat settings"
     }
   },
 

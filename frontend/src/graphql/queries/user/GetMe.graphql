@@ -13,6 +13,9 @@ query GetMe {
     stream {
       serverUrl
       streamKey
+      isChatEnabled
+      isChatFollowersOnly
+      isChatSponsorsOnly
     }
   }
 }
