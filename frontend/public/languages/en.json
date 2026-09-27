@@ -450,6 +450,21 @@
         "successMessage": "Premium plan removed successfully",
         "errorMessage": "An error occurred while deleting the premium plan"
       }
+    },
+    "transactions": {
+      "header": {
+        "heading": "Transactions",
+        "description": "Here you can see transactions related to subscriptions to your channel's sponsorship plans."
+      },
+      "columns": {
+        "amount": "Amount",
+        "status": "Status",
+        "success": "Successful",
+        "pending": "Pending",
+        "failed": "Failed",
+        "expired": "Expired",
+        "date": "Creation date"
+      }
     }
   },
 

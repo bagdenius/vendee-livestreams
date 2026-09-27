@@ -19,11 +19,15 @@ export function useAuth() {
     client.resetStore().catch(() => {})
   }, [client, setIsAuthentificated])
 
-  // Clear the cache before flipping the flag, otherwise the stale user is still
-  // cached when the flag becomes false and useCurrentUser would log back in.
-  const exit = useCallback(async () => {
-    await client.clearStore()
+  const exit = useCallback(() => {
+    // Drop the current user synchronously, in the same tick as flipping the
+    // flag: a stale cached user with a false flag would make useCurrentUser log
+    // back in, and a true flag while queries fail as UNAUTHENTICATED would make
+    // it call exit() again in a loop.
+    client.cache.evict({ id: 'ROOT_QUERY', fieldName: 'getMe' })
+    client.cache.gc()
     setIsAuthentificated(false)
+    client.clearStore().catch(() => {})
   }, [client, setIsAuthentificated])
 
   return {

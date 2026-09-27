@@ -88,6 +88,13 @@ export type SocialLinksOrderInput = {
   position: number;
 };
 
+export enum TransactionStatus {
+  Expired = 'EXPIRED',
+  Failed = 'FAILED',
+  Pending = 'PENDING',
+  Success = 'SUCCESS'
+}
+
 export type VerificationInput = {
   token: string;
 };
@@ -257,6 +264,11 @@ export type GetMySponsorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetMySponsorsQuery = { getMySponsors: Array<{ expiresAt: string, user: { username: string, avatar: string | null, isVerified: boolean }, plan: { title: string } }> };
+
+export type GetMyTransactionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMyTransactionsQuery = { getMyTransactions: Array<{ amount: number, status: TransactionStatus, createdAt: string }> };
 
 export type GenerateTotpSecretQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1205,6 +1217,50 @@ export type GetMySponsorsQueryHookResult = ReturnType<typeof useGetMySponsorsQue
 export type GetMySponsorsLazyQueryHookResult = ReturnType<typeof useGetMySponsorsLazyQuery>;
 export type GetMySponsorsSuspenseQueryHookResult = ReturnType<typeof useGetMySponsorsSuspenseQuery>;
 export type GetMySponsorsQueryResult = Apollo.QueryResult<GetMySponsorsQuery, GetMySponsorsQueryVariables>;
+export const GetMyTransactionsDocument = gql`
+    query GetMyTransactions {
+  getMyTransactions {
+    amount
+    status
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useGetMyTransactionsQuery__
+ *
+ * To run a query within a React component, call `useGetMyTransactionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMyTransactionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMyTransactionsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMyTransactionsQuery(baseOptions?: Apollo.QueryHookOptions<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>(GetMyTransactionsDocument, options);
+      }
+export function useGetMyTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>(GetMyTransactionsDocument, options);
+        }
+// @ts-ignore
+export function useGetMyTransactionsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>): Apollo.UseSuspenseQueryResult<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>;
+export function useGetMyTransactionsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>): Apollo.UseSuspenseQueryResult<GetMyTransactionsQuery | undefined, GetMyTransactionsQueryVariables>;
+export function useGetMyTransactionsSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>(GetMyTransactionsDocument, options);
+        }
+export type GetMyTransactionsQueryHookResult = ReturnType<typeof useGetMyTransactionsQuery>;
+export type GetMyTransactionsLazyQueryHookResult = ReturnType<typeof useGetMyTransactionsLazyQuery>;
+export type GetMyTransactionsSuspenseQueryHookResult = ReturnType<typeof useGetMyTransactionsSuspenseQuery>;
+export type GetMyTransactionsQueryResult = Apollo.QueryResult<GetMyTransactionsQuery, GetMyTransactionsQueryVariables>;
 export const GenerateTotpSecretDocument = gql`
     query GenerateTotpSecret {
   generateTotpSecret {

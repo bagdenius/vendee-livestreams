@@ -4,6 +4,7 @@ import {
   useClearSessionCookieMutation,
   useGetMeQuery,
 } from '@/graphql/generated'
+import { useAuthStore } from '@/store/auth/auth.store'
 
 import { useAuth } from './useAuth'
 
@@ -22,9 +23,12 @@ export function useCurrentUser() {
     (graphQLError) => graphQLError.extensions?.code === 'UNAUTHENTICATED',
   )
 
+  // Restore the flag only when a user arrives from the server. Reacting to the
+  // flag itself would re-login right after exit(), while the old user is still
+  // in the query result.
   useEffect(() => {
-    if (user && !isAuthentificated) auth()
-  }, [user, isAuthentificated, auth])
+    if (user && !useAuthStore.getState().isAuthentificated) auth()
+  }, [user, auth])
 
   // Log out only when the server says the session is invalid, not on network
   // errors or other failures.
