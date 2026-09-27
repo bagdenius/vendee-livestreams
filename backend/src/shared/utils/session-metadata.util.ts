@@ -31,7 +31,7 @@ export function getSessionMetadata(
 			country: countries.getName(location?.country || '', 'en') || 'Unknown',
 			city: location?.city || 'Unknown',
 			latitude: location?.ll.at(0) || 0,
-			longitute: location?.ll.at(1) || 0,
+			longitude: location?.ll.at(1) || 0,
 		},
 		device: {
 			browser: device.client?.name || 'Unknown',

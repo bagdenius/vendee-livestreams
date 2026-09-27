@@ -149,7 +149,7 @@ export type LocationModel = {
   city: Scalars['String']['output'];
   country: Scalars['String']['output'];
   latitude: Scalars['Float']['output'];
-  longitute: Scalars['Float']['output'];
+  longitude: Scalars['Float']['output'];
 };
 
 export type LoginInput = {

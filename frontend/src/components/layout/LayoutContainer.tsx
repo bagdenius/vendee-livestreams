@@ -10,8 +10,6 @@ export function LayoutContainer({ children }: PropsWithChildren<unknown>) {
   const { isCollapsed, open, close } = useSidebar()
 
   useEffect(() => {
-    console.log('isMobile: ', isMobile, 'isCollapsed:', isCollapsed)
-
     if (isMobile && !isCollapsed) close()
     else {
       if (isCollapsed) open()

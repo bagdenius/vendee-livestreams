@@ -17,6 +17,7 @@ import ChangeThemeForm from './appearance/ChangeThemeForm'
 import ChangeLanguageForm from './appearance/ChangeLanguageForm'
 import ChangeThemeColorForm from './appearance/ChangeThemeColorForm'
 import ChangeNotificationsSettingsForm from './notifications/ChangeNotificationsSettingsForm'
+import SessionsList from './sessions/SessionsList'
 
 export function UserSettings() {
   const t = useTranslations('dashboard.settings')
@@ -89,7 +90,15 @@ export function UserSettings() {
             <ChangeNotificationsSettingsForm />
           </div>
         </TabsContent>
-        <TabsContent value='sessions'>Sessions</TabsContent>
+        <TabsContent value='sessions'>
+          <div className='mt-5 space-y-6'>
+            <Heading
+              title={t('sessions.header.heading')}
+              description={t('sessions.header.description')}
+            />
+            <SessionsList />
+          </div>
+        </TabsContent>
       </Tabs>
     </div>
   )

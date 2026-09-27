@@ -128,7 +128,7 @@ type LocationModel {
   city: String!
   country: String!
   latitude: Float!
-  longitute: Float!
+  longitude: Float!
 }
 
 input LoginInput {
