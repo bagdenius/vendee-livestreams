@@ -51,7 +51,7 @@ export function SessionItem({
               onConfirm={() => remove({ variables: { id: session.id } })}
             >
               <Button variant='secondary' disabled={isRemoving}>
-                {t('deleteButton')}
+                {t('removeButton')}
               </Button>
             </ConfirmModal>
           )}

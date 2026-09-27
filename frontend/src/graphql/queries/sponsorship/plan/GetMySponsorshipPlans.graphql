@@ -1,0 +1,8 @@
+query GetMySponsorshipPlans {
+  getMySponsorshipPlans {
+    id
+    title
+    price
+    createdAt
+  }
+}

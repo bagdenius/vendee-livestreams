@@ -31,6 +31,12 @@ export type ChangeProfileInfoInput = {
   username: string;
 };
 
+export type CreatePlanInput = {
+  description?: string | null | undefined;
+  price: number;
+  title: string;
+};
+
 export type CreateUserInput = {
   email: string;
   password: string;
@@ -138,6 +144,20 @@ export type VerifyAccountMutationVariables = Exact<{
 
 export type VerifyAccountMutation = { verifyAccount: { message: string | null, user: { isEmailVerified: boolean } | null } };
 
+export type CreateSponsorshipPlanMutationVariables = Exact<{
+  data: CreatePlanInput;
+}>;
+
+
+export type CreateSponsorshipPlanMutation = { createSponsorshipPlan: boolean };
+
+export type RemoveSponsorshipPlanMutationVariables = Exact<{
+  id: string;
+}>;
+
+
+export type RemoveSponsorshipPlanMutation = { removeSponsorshipPlan: boolean };
+
 export type ChangeChatSettingsMutationVariables = Exact<{
   data: ChangeChatSettingsInput;
 }>;
@@ -228,6 +248,11 @@ export type GetMyFollowersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetMyFollowersQuery = { getMyFollowers: Array<{ createdAt: string, follower: { username: string, avatar: string | null, isVerified: boolean } }> };
 
+export type GetMySponsorshipPlansQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMySponsorshipPlansQuery = { getMySponsorshipPlans: Array<{ id: string, title: string, price: number, createdAt: string }> };
+
 export type GetMySponsorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -246,7 +271,7 @@ export type GetCurrentSessionQuery = { getCurrentSession: { id: string, createdA
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMeQuery = { getMe: { username: string, displayName: string, email: string, avatar: string | null, bio: string | null, isTotpEnabled: boolean, notificationSettings: { siteNotifications: boolean, telegramNotifications: boolean }, stream: { serverUrl: string | null, streamKey: string | null, isChatEnabled: boolean, isChatFollowersOnly: boolean, isChatSponsorsOnly: boolean } } };
+export type GetMeQuery = { getMe: { username: string, displayName: string, email: string, avatar: string | null, bio: string | null, isVerified: boolean, isTotpEnabled: boolean, notificationSettings: { siteNotifications: boolean, telegramNotifications: boolean }, stream: { serverUrl: string | null, streamKey: string | null, isChatEnabled: boolean, isChatFollowersOnly: boolean, isChatSponsorsOnly: boolean } } };
 
 export type GetNotificiationsByUserQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -552,6 +577,68 @@ export function useVerifyAccountMutation(baseOptions?: Apollo.MutationHookOption
 export type VerifyAccountMutationHookResult = ReturnType<typeof useVerifyAccountMutation>;
 export type VerifyAccountMutationResult = Apollo.MutationResult<VerifyAccountMutation>;
 export type VerifyAccountMutationOptions = Apollo.BaseMutationOptions<VerifyAccountMutation, VerifyAccountMutationVariables>;
+export const CreateSponsorshipPlanDocument = gql`
+    mutation CreateSponsorshipPlan($data: CreatePlanInput!) {
+  createSponsorshipPlan(data: $data)
+}
+    `;
+export type CreateSponsorshipPlanMutationFn = Apollo.MutationFunction<CreateSponsorshipPlanMutation, CreateSponsorshipPlanMutationVariables>;
+
+/**
+ * __useCreateSponsorshipPlanMutation__
+ *
+ * To run a mutation, you first call `useCreateSponsorshipPlanMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSponsorshipPlanMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createSponsorshipPlanMutation, { data, loading, error }] = useCreateSponsorshipPlanMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useCreateSponsorshipPlanMutation(baseOptions?: Apollo.MutationHookOptions<CreateSponsorshipPlanMutation, CreateSponsorshipPlanMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateSponsorshipPlanMutation, CreateSponsorshipPlanMutationVariables>(CreateSponsorshipPlanDocument, options);
+      }
+export type CreateSponsorshipPlanMutationHookResult = ReturnType<typeof useCreateSponsorshipPlanMutation>;
+export type CreateSponsorshipPlanMutationResult = Apollo.MutationResult<CreateSponsorshipPlanMutation>;
+export type CreateSponsorshipPlanMutationOptions = Apollo.BaseMutationOptions<CreateSponsorshipPlanMutation, CreateSponsorshipPlanMutationVariables>;
+export const RemoveSponsorshipPlanDocument = gql`
+    mutation RemoveSponsorshipPlan($id: String!) {
+  removeSponsorshipPlan(planId: $id)
+}
+    `;
+export type RemoveSponsorshipPlanMutationFn = Apollo.MutationFunction<RemoveSponsorshipPlanMutation, RemoveSponsorshipPlanMutationVariables>;
+
+/**
+ * __useRemoveSponsorshipPlanMutation__
+ *
+ * To run a mutation, you first call `useRemoveSponsorshipPlanMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemoveSponsorshipPlanMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removeSponsorshipPlanMutation, { data, loading, error }] = useRemoveSponsorshipPlanMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useRemoveSponsorshipPlanMutation(baseOptions?: Apollo.MutationHookOptions<RemoveSponsorshipPlanMutation, RemoveSponsorshipPlanMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RemoveSponsorshipPlanMutation, RemoveSponsorshipPlanMutationVariables>(RemoveSponsorshipPlanDocument, options);
+      }
+export type RemoveSponsorshipPlanMutationHookResult = ReturnType<typeof useRemoveSponsorshipPlanMutation>;
+export type RemoveSponsorshipPlanMutationResult = Apollo.MutationResult<RemoveSponsorshipPlanMutation>;
+export type RemoveSponsorshipPlanMutationOptions = Apollo.BaseMutationOptions<RemoveSponsorshipPlanMutation, RemoveSponsorshipPlanMutationVariables>;
 export const ChangeChatSettingsDocument = gql`
     mutation ChangeChatSettings($data: ChangeChatSettingsInput!) {
   changeChatSettings(data: $data)
@@ -1023,6 +1110,51 @@ export type GetMyFollowersQueryHookResult = ReturnType<typeof useGetMyFollowersQ
 export type GetMyFollowersLazyQueryHookResult = ReturnType<typeof useGetMyFollowersLazyQuery>;
 export type GetMyFollowersSuspenseQueryHookResult = ReturnType<typeof useGetMyFollowersSuspenseQuery>;
 export type GetMyFollowersQueryResult = Apollo.QueryResult<GetMyFollowersQuery, GetMyFollowersQueryVariables>;
+export const GetMySponsorshipPlansDocument = gql`
+    query GetMySponsorshipPlans {
+  getMySponsorshipPlans {
+    id
+    title
+    price
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useGetMySponsorshipPlansQuery__
+ *
+ * To run a query within a React component, call `useGetMySponsorshipPlansQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMySponsorshipPlansQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMySponsorshipPlansQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMySponsorshipPlansQuery(baseOptions?: Apollo.QueryHookOptions<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>(GetMySponsorshipPlansDocument, options);
+      }
+export function useGetMySponsorshipPlansLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>(GetMySponsorshipPlansDocument, options);
+        }
+// @ts-ignore
+export function useGetMySponsorshipPlansSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>): Apollo.UseSuspenseQueryResult<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>;
+export function useGetMySponsorshipPlansSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>): Apollo.UseSuspenseQueryResult<GetMySponsorshipPlansQuery | undefined, GetMySponsorshipPlansQueryVariables>;
+export function useGetMySponsorshipPlansSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>(GetMySponsorshipPlansDocument, options);
+        }
+export type GetMySponsorshipPlansQueryHookResult = ReturnType<typeof useGetMySponsorshipPlansQuery>;
+export type GetMySponsorshipPlansLazyQueryHookResult = ReturnType<typeof useGetMySponsorshipPlansLazyQuery>;
+export type GetMySponsorshipPlansSuspenseQueryHookResult = ReturnType<typeof useGetMySponsorshipPlansSuspenseQuery>;
+export type GetMySponsorshipPlansQueryResult = Apollo.QueryResult<GetMySponsorshipPlansQuery, GetMySponsorshipPlansQueryVariables>;
 export const GetMySponsorsDocument = gql`
     query GetMySponsors {
   getMySponsors {
@@ -1180,6 +1312,7 @@ export const GetMeDocument = gql`
     email
     avatar
     bio
+    isVerified
     isTotpEnabled
     notificationSettings {
       siteNotifications

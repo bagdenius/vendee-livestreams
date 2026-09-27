@@ -3,7 +3,7 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 
 import { SidebarStore } from './sidebar.types'
 
-export const sidebarStore = create(
+export const useSidebarStore = create(
   persist<SidebarStore>(
     (set) => ({
       isCollapsed: false,

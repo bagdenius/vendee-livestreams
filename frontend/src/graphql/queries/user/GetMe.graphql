@@ -5,6 +5,7 @@ query GetMe {
     email
     avatar
     bio
+    isVerified
     isTotpEnabled
     notificationSettings {
       siteNotifications

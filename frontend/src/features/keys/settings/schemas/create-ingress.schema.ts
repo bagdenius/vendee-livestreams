@@ -9,4 +9,4 @@ export const createIngressSchema = z.object({
   ingressType: z.enum(IngressType),
 })
 
-export type createIngressInput = z.infer<typeof createIngressSchema>
+export type CreateIngressInput = z.infer<typeof createIngressSchema>

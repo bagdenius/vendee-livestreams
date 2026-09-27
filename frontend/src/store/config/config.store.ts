@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 import { ConfigStore } from './config.types'
 import { ThemeColor } from '@/libs/constants'
 
-export const configStore = create(
+export const useConfigStore = create(
   persist<ConfigStore>(
     (set) => ({
       themeColor: 'violet',

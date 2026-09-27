@@ -4,7 +4,7 @@ import { useCurrentUser } from '@/hooks'
 import { useTranslations } from 'next-intl'
 import { Controller, useForm } from 'react-hook-form'
 import {
-  type createIngressInput,
+  type CreateIngressInput,
   createIngressSchema,
   IngressType,
 } from '../schemas/create-ingress.schema'
@@ -40,7 +40,7 @@ export function CreateIngressForm() {
     handleSubmit,
     control,
     formState: { isValid },
-  } = useForm<createIngressInput>({
+  } = useForm<CreateIngressInput>({
     resolver: zodResolver(createIngressSchema),
     defaultValues: { ingressType: IngressType.RTMP },
   })
@@ -56,7 +56,7 @@ export function CreateIngressForm() {
     },
   })
 
-  function onSubmit(data: createIngressInput) {
+  function onSubmit(data: CreateIngressInput) {
     create({ variables: { ingressType: data.ingressType } })
   }
 

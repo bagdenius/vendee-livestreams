@@ -145,13 +145,13 @@
           "heading": "Profile picture",
           "updateButton": "Update avatar",
           "confirmModal": {
-            "heading": "Delete avatar",
-            "message": "Are you sure you want to delete your profile picture? This action cannot be undone."
+            "heading": "Remove avatar",
+            "message": "Are you sure you want to remove your profile picture? This action cannot be undone."
           },
           "info": "Supported formats: JPG, JPEG, PNG, WEBP, and GIF. Maximum file size: 10 MB.",
           "successUpdateMessage": "Avatar updated successfully",
           "errorUpdateMessage": "An error occurred while updating the avatar",
-          "successRemoveMessage": "Avatar deleted successfully",
+          "successRemoveMessage": "Avatar removed successfully",
           "errorRemoveMessage": "An error occurred while deleting the avatar"
         },
         "info": {
@@ -187,7 +187,7 @@
             "submitButton": "Save",
             "successUpdateMessage": "Link updated successfully",
             "errorUpdateMessage": "An error occurred while updating the link",
-            "successRemoveMessage": "Link deleted successfully",
+            "successRemoveMessage": "Link removed successfully",
             "errorRemoveMessage": "An error occurred while deleting the link"
           },
           "successReorderMessage": "Link order updated successfully",
@@ -245,7 +245,7 @@
         },
         "deactivation": {
           "heading": "Account deactivation",
-          "description": "After deactivating your account, you will no longer be able to sign in. Your account will be permanently deleted after 7 days. Until then, you can contact support to restore access and reactivate your account.",
+          "description": "After deactivating your account, you will no longer be able to sign in. Your account will be permanently removed after 7 days. Until then, you can contact support to restore access and reactivate your account.",
           "confirmModal": {
             "heading": "Confirm account deactivation",
             "message": "Are you sure you want to deactivate your account? You can restore access only within the next 7 days."
@@ -301,13 +301,13 @@
           "notFound": "No active sessions found"
         },
         "sessionItem": {
-          "deleteButton": "Delete",
+          "removeButton": "Remove",
           "detailsButton": "Details",
           "confirmModal": {
-            "heading": "Delete session",
-            "message": "Are you sure you want to delete this session? This action will permanently remove the session on the selected device and terminate all active activities associated with it."
+            "heading": "Remove session",
+            "message": "Are you sure you want to remove this session? This action will permanently remove the session on the selected device and terminate all active activities associated with it."
           },
-          "successMessage": "Session deleted",
+          "successMessage": "Session removed",
           "errorMessage": "An error occurred while deleting the session",
           "sessionModal": {
             "heading": "Session information",
@@ -414,6 +414,41 @@
         "plan": "Plan",
         "actions": "Actions",
         "viewChannel": "Go to channel"
+      }
+    },
+    "plans": {
+      "header": {
+        "heading": "Premium plans",
+        "description": "Here you can see a list of premium plans for your channel."
+      },
+      "alert": {
+        "heading": "Channel verification required",
+        "description": "Your channel must be verified to create a premium plan. You only need 10 followers to get the verification badge and unlock this feature."
+      },
+      "createForm": {
+        "trigger": "Create premium plan",
+        "heading": "Create premium plan",
+        "titleLabel": "Title",
+        "titlePlaceholder": "Premium channel subscription",
+        "titleDescription": "Enter the name of your premium plan. This name will be displayed to your followers.",
+        "descriptionLabel": "Description",
+        "descriptionPlaceholder": "Describe what this premium plan includes",
+        "descriptionDescription": "Describe what this premium plan includes. This will help your followers understand the benefits of the subscription.",
+        "priceLabel": "Price",
+        "pricePlaceholder": "Enter the price",
+        "priceDescription": "Enter the price of your plan in your currency. This is the amount users will pay for the subscription.",
+        "submitButton": "Create",
+        "successMessage": "Premium plan created",
+        "errorMessage": "An error occurred while creating the premium plan"
+      },
+      "columns": {
+        "date": "Creation date",
+        "title": "Title",
+        "price": "Price",
+        "actions": "Actions",
+        "remove": "Remove",
+        "successMessage": "Premium plan removed successfully",
+        "errorMessage": "An error occurred while deleting the premium plan"
       }
     }
   },
